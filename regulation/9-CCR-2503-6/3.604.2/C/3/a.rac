@@ -9,14 +9,14 @@ Editorial note: section 3.604.2 carries an effective date of 2017-10-01 in the
 current official Colorado Works source snapshot.
 """
 
-client_receives_ssi_payments_3_604_2_c_3_a:
+client_receives_ssi_payments:
     entity: Person
     period: Month
     dtype: Boolean
 
-excluded_from_assistance_unit_due_to_ssi_3_604_2_c_3_a:
+excluded_from_assistance_unit_due_to_ssi:
     entity: Person
     period: Month
     dtype: Boolean
     from 2017-10-01:
-        client_receives_ssi_payments_3_604_2_c_3_a
+        client_receives_ssi_payments

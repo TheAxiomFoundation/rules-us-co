@@ -11,26 +11,26 @@ and unearned income together shall not exceed the need standard for the househol
 size after disregards have been applied in accordance with section 3.606.2.
 """
 
-countable_gross_earned_income_after_disregards_3_606_1_h:
+countable_gross_earned_income_after_disregards:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-countable_unearned_income_3_606_1_h:
+countable_unearned_income:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-need_standard_for_household_size_3_606_1_h:
+need_standard_for_household_size:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-meets_gross_income_need_standard_test_3_606_1_h:
+meets_gross_income_need_standard_test:
     entity: TanfUnit
     period: Month
     dtype: Boolean
     from 2026-04-02:
-        countable_gross_earned_income_after_disregards_3_606_1_h +
-        countable_unearned_income_3_606_1_h <=
-        need_standard_for_household_size_3_606_1_h
+        countable_gross_earned_income_after_disregards +
+        countable_unearned_income <=
+        need_standard_for_household_size

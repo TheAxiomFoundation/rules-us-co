@@ -1,14 +1,14 @@
 - name: authorized_grant_deducts_net_income_and_drops_cents
   period: "2026-04-02"
   input:
-    grant_amount_for_assistance_unit_3_606_1_k: 503.75
-    net_countable_income_3_606_1_k: 250.25
+    grant_amount_for_assistance_unit: 503.75
+    net_countable_income: 250.25
   output:
-    authorized_grant_amount_3_606_1_k: 253
+    authorized_grant_amount: 253
 - name: authorized_grant_rounds_down_fractional_remainder
   period: "2026-04-02"
   input:
-    grant_amount_for_assistance_unit_3_606_1_k: 600
-    net_countable_income_3_606_1_k: 123.01
+    grant_amount_for_assistance_unit: 600
+    net_countable_income: 123.01
   output:
-    authorized_grant_amount_3_606_1_k: 476
+    authorized_grant_amount: 476

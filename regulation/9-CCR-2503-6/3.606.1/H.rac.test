@@ -1,16 +1,16 @@
 - name: total_countable_income_below_need_standard_passes_test
   period: "2026-04-02"
   input:
-    countable_gross_earned_income_after_disregards_3_606_1_h: 300
-    countable_unearned_income_3_606_1_h: 100
-    need_standard_for_household_size_3_606_1_h: 503
+    countable_gross_earned_income_after_disregards: 300
+    countable_unearned_income: 100
+    need_standard_for_household_size: 503
   output:
-    meets_gross_income_need_standard_test_3_606_1_h: true
+    meets_gross_income_need_standard_test: true
 - name: total_countable_income_above_need_standard_fails_test
   period: "2026-04-02"
   input:
-    countable_gross_earned_income_after_disregards_3_606_1_h: 420
-    countable_unearned_income_3_606_1_h: 100
-    need_standard_for_household_size_3_606_1_h: 503
+    countable_gross_earned_income_after_disregards: 420
+    countable_unearned_income: 100
+    need_standard_for_household_size: 503
   output:
-    meets_gross_income_need_standard_test_3_606_1_h: false
+    meets_gross_income_need_standard_test: false

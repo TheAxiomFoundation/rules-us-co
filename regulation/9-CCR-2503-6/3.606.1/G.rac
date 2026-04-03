@@ -11,22 +11,22 @@ Pregnant parents are eligible for the basic cash assistance grant plus a ten-dol
 through the month in which the pregnancy ends.
 """
 
-pregnancy_allowance_base_amount_3_606_1_g:
+pregnancy_allowance_base_amount:
     description: "Fixed Colorado Works pregnancy allowance amount under 3.606.1(G)"
     unit: USD
     from 2026-04-02: 10
 
-client_is_pregnant_parent_3_606_1_g:
+client_is_pregnant_parent:
     entity: Person
     period: Month
     dtype: Boolean
 
-pregnancy_allowance_amount_3_606_1_g:
+pregnancy_allowance_amount:
     entity: Person
     period: Month
     dtype: Money
     from 2026-04-02:
-        if client_is_pregnant_parent_3_606_1_g:
-            pregnancy_allowance_base_amount_3_606_1_g
+        if client_is_pregnant_parent:
+            pregnancy_allowance_base_amount
         else:
             0

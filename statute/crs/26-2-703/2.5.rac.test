@@ -1,14 +1,14 @@
 - name: participant_receiving_cash_assistance_is_in_assistance_unit
   period: "2026-04-02"
   input:
-    is_colorado_works_participant_26_2_703_2_5: true
-    receives_cash_assistance_26_2_703_2_5: true
+    is_colorado_works_participant: true
+    receives_cash_assistance: true
   output:
-    is_member_of_assistance_unit_26_2_703_2_5: true
+    is_member_of_assistance_unit: true
 - name: participant_without_cash_assistance_is_not_in_assistance_unit
   period: "2026-04-02"
   input:
-    is_colorado_works_participant_26_2_703_2_5: true
-    receives_cash_assistance_26_2_703_2_5: false
+    is_colorado_works_participant: true
+    receives_cash_assistance: false
   output:
-    is_member_of_assistance_unit_26_2_703_2_5: false
+    is_member_of_assistance_unit: false

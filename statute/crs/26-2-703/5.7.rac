@@ -10,20 +10,20 @@ Source note: encoded from the Colorado.Public.Law HTML snapshot retrieved on
 2026-04-03.
 """
 
-receipt_is_gain_or_benefit_in_cash_or_in_kind_26_2_703_5_7:
+receipt_is_gain_or_benefit_in_cash_or_in_kind:
     entity: Person
     period: Month
     dtype: Boolean
 
-receipt_is_used_to_determine_colorado_works_eligibility_or_benefit_amount_26_2_703_5_7:
+receipt_is_used_to_determine_colorado_works_eligibility_or_benefit_amount:
     entity: Person
     period: Month
     dtype: Boolean
 
-is_countable_income_26_2_703_5_7:
+is_countable_income:
     entity: Person
     period: Month
     dtype: Boolean
     from 2026-04-03:
-        receipt_is_gain_or_benefit_in_cash_or_in_kind_26_2_703_5_7 and
-        receipt_is_used_to_determine_colorado_works_eligibility_or_benefit_amount_26_2_703_5_7
+        receipt_is_gain_or_benefit_in_cash_or_in_kind and
+        receipt_is_used_to_determine_colorado_works_eligibility_or_benefit_amount

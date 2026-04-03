@@ -10,19 +10,19 @@ If the net countable income equals or exceeds the need standard, the assistance
 unit is not eligible for Colorado Works basic cash assistance.
 """
 
-net_countable_income_3_606_1_j:
+net_countable_income:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-need_standard_for_household_size_3_606_1_j:
+need_standard_for_household_size:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-assistance_unit_is_not_eligible_due_to_net_countable_income_3_606_1_j:
+assistance_unit_is_not_eligible_due_to_net_countable_income:
     entity: TanfUnit
     period: Month
     dtype: Boolean
     from 2026-04-02:
-        net_countable_income_3_606_1_j >= need_standard_for_household_size_3_606_1_j
+        net_countable_income >= need_standard_for_household_size

@@ -12,39 +12,39 @@ eligibility as long as the client has not been terminated or has terminated the
 employment due to a fault of their own.
 """
 
-short_term_employment_maximum_duration_days_3_605_2_c:
+short_term_employment_maximum_duration_days:
     dtype: Integer
     from 2026-04-02: 90
 
-employment_is_temporary_3_605_2_c:
+employment_is_temporary:
     entity: Person
     period: Month
     dtype: Boolean
 
-employment_is_subsidized_3_605_2_c:
+employment_is_subsidized:
     entity: Person
     period: Month
     dtype: Boolean
 
-employment_duration_days_3_605_2_c:
+employment_duration_days:
     entity: Person
     period: Month
     dtype: Integer
 
-client_was_terminated_or_terminated_due_to_client_fault_3_605_2_c:
+client_was_terminated_or_terminated_due_to_client_fault:
     entity: Person
     period: Month
     dtype: Boolean
 
-income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment_3_605_2_c:
+income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment:
     entity: Person
     period: Month
     dtype: Boolean
     from 2026-04-02:
         (
             (
-                employment_is_temporary_3_605_2_c and
-                employment_duration_days_3_605_2_c <=
-                short_term_employment_maximum_duration_days_3_605_2_c
-            ) or employment_is_subsidized_3_605_2_c
-        ) and not client_was_terminated_or_terminated_due_to_client_fault_3_605_2_c
+                employment_is_temporary and
+                employment_duration_days <=
+                short_term_employment_maximum_duration_days
+            ) or employment_is_subsidized
+        ) and not client_was_terminated_or_terminated_due_to_client_fault

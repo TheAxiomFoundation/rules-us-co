@@ -39,6 +39,8 @@ python3 scripts/sync_atlas.py
 - Prefer the most atomic rule slice possible.
 - If a leaf is derived from a larger manual subsection, keep the exact excerpt in
   `sources/slices/`.
+- Do not include the local subsection or paragraph citation in symbol names; the
+  file path already provides that context for imports.
 - Do not invent convenience scalars inside formulas; every substantive number should
   be its own variable.
 - If a rule depends on statute text, add or import the statute companion instead of

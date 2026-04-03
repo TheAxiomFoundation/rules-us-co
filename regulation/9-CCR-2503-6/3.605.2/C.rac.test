@@ -1,27 +1,27 @@
 - name: temporary_employment_under_ninety_days_is_disregarded_without_fault
   period: "2026-04-02"
   input:
-    employment_is_temporary_3_605_2_c: true
-    employment_is_subsidized_3_605_2_c: false
-    employment_duration_days_3_605_2_c: 45
-    client_was_terminated_or_terminated_due_to_client_fault_3_605_2_c: false
+    employment_is_temporary: true
+    employment_is_subsidized: false
+    employment_duration_days: 45
+    client_was_terminated_or_terminated_due_to_client_fault: false
   output:
-    income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment_3_605_2_c: true
+    income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment: true
 - name: client_fault_blocks_short_term_employment_disregard
   period: "2026-04-02"
   input:
-    employment_is_temporary_3_605_2_c: true
-    employment_is_subsidized_3_605_2_c: false
-    employment_duration_days_3_605_2_c: 45
-    client_was_terminated_or_terminated_due_to_client_fault_3_605_2_c: true
+    employment_is_temporary: true
+    employment_is_subsidized: false
+    employment_duration_days: 45
+    client_was_terminated_or_terminated_due_to_client_fault: true
   output:
-    income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment_3_605_2_c: false
+    income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment: false
 - name: subsidized_employment_does_not_need_temporary_duration_limit
   period: "2026-04-02"
   input:
-    employment_is_temporary_3_605_2_c: false
-    employment_is_subsidized_3_605_2_c: true
-    employment_duration_days_3_605_2_c: 180
-    client_was_terminated_or_terminated_due_to_client_fault_3_605_2_c: false
+    employment_is_temporary: false
+    employment_is_subsidized: true
+    employment_duration_days: 180
+    client_was_terminated_or_terminated_due_to_client_fault: false
   output:
-    income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment_3_605_2_c: true
+    income_is_not_considered_for_eligibility_due_to_short_term_or_subsidized_employment: true

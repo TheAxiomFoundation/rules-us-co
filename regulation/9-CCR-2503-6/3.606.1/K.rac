@@ -15,18 +15,18 @@ and,
 2. Drop the cents, and the remainder is the authorized grant.
 """
 
-grant_amount_for_assistance_unit_3_606_1_k:
+grant_amount_for_assistance_unit:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-net_countable_income_3_606_1_k:
+net_countable_income:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-authorized_grant_amount_3_606_1_k:
+authorized_grant_amount:
     entity: TanfUnit
     period: Month
     dtype: Money
-    from 2026-04-02: floor(grant_amount_for_assistance_unit_3_606_1_k - net_countable_income_3_606_1_k)
+    from 2026-04-02: floor(grant_amount_for_assistance_unit - net_countable_income)

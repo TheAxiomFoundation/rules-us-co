@@ -11,20 +11,20 @@ by the client for which he or she is compensated in shelter or other items in li
 of wages.
 """
 
-client_performs_services_3_605_2_a:
+client_performs_services:
     entity: Person
     period: Month
     dtype: Boolean
 
-client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages_3_605_2_a:
+client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages:
     entity: Person
     period: Month
     dtype: Boolean
 
-income_is_earned_in_kind_income_3_605_2_a:
+income_is_earned_in_kind_income:
     entity: Person
     period: Month
     dtype: Boolean
     from 2026-04-02:
-        client_performs_services_3_605_2_a and
-        client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages_3_605_2_a
+        client_performs_services and
+        client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages

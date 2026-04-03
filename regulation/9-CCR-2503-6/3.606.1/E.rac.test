@@ -1,12 +1,12 @@
 - name: eligible_assistance_unit_gets_six_month_certification_period
   period: "2026-04-02"
   input:
-    assistance_unit_is_found_eligible_for_basic_cash_assistance_3_606_1_e: true
+    assistance_unit_is_found_eligible_for_basic_cash_assistance: true
   output:
-    basic_cash_assistance_certification_period_months_for_eligible_assistance_unit_3_606_1_e: 6
+    basic_cash_assistance_certification_period_months_for_eligible_assistance_unit: 6
 - name: ineligible_assistance_unit_has_no_certification_period
   period: "2026-04-02"
   input:
-    assistance_unit_is_found_eligible_for_basic_cash_assistance_3_606_1_e: false
+    assistance_unit_is_found_eligible_for_basic_cash_assistance: false
   output:
-    basic_cash_assistance_certification_period_months_for_eligible_assistance_unit_3_606_1_e: 0
+    basic_cash_assistance_certification_period_months_for_eligible_assistance_unit: 0

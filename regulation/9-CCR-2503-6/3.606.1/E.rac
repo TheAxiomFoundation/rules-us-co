@@ -10,21 +10,21 @@ Applications received will be certified for six (6) consecutive months beginning
 the first month the assistance unit is found eligible for basic cash assistance.
 """
 
-basic_cash_assistance_certification_period_months_3_606_1_e:
+basic_cash_assistance_certification_period_months:
     dtype: Integer
     from 2026-04-02: 6
 
-assistance_unit_is_found_eligible_for_basic_cash_assistance_3_606_1_e:
+assistance_unit_is_found_eligible_for_basic_cash_assistance:
     entity: TanfUnit
     period: Month
     dtype: Boolean
 
-basic_cash_assistance_certification_period_months_for_eligible_assistance_unit_3_606_1_e:
+basic_cash_assistance_certification_period_months_for_eligible_assistance_unit:
     entity: TanfUnit
     period: Month
     dtype: Integer
     from 2026-04-02:
-        if assistance_unit_is_found_eligible_for_basic_cash_assistance_3_606_1_e:
-            basic_cash_assistance_certification_period_months_3_606_1_e
+        if assistance_unit_is_found_eligible_for_basic_cash_assistance:
+            basic_cash_assistance_certification_period_months
         else:
             0

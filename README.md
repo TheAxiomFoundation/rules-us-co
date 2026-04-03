@@ -97,6 +97,9 @@ python3 scripts/sync_atlas.py
     RAC leaf uses that date.
   - Otherwise the leaf is anchored to the current-text source snapshot retrieved on
     `2026-04-02`.
+- Symbol names are file-local.
+  - Do not repeat the local subsection or paragraph citation in variable names; the
+    file path already supplies that context when a symbol is imported.
 - This is still intentionally a narrow seed, not a full Colorado Works corpus yet.
 - The first statute companions live under `statute/crs/26-2-703/` so the manual and
   statute sides can grow together.

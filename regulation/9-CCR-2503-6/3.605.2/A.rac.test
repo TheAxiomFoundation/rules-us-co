@@ -1,14 +1,14 @@
 - name: in_kind_income_requires_services_and_in_kind_compensation
   period: "2026-04-02"
   input:
-    client_performs_services_3_605_2_a: true
-    client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages_3_605_2_a: true
+    client_performs_services: true
+    client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages: true
   output:
-    income_is_earned_in_kind_income_3_605_2_a: true
+    income_is_earned_in_kind_income: true
 - name: cash_wages_do_not_satisfy_in_kind_income_rule
   period: "2026-04-02"
   input:
-    client_performs_services_3_605_2_a: true
-    client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages_3_605_2_a: false
+    client_performs_services: true
+    client_is_compensated_in_shelter_or_other_items_in_lieu_of_wages: false
   output:
-    income_is_earned_in_kind_income_3_605_2_a: false
+    income_is_earned_in_kind_income: false

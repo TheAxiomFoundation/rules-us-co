@@ -1,12 +1,12 @@
 - name: pregnant_parent_receives_ten_dollar_allowance
   period: "2026-04-02"
   input:
-    client_is_pregnant_parent_3_606_1_g: true
+    client_is_pregnant_parent: true
   output:
-    pregnancy_allowance_amount_3_606_1_g: 10
+    pregnancy_allowance_amount: 10
 - name: non_pregnant_client_receives_no_allowance_under_this_clause
   period: "2026-04-02"
   input:
-    client_is_pregnant_parent_3_606_1_g: false
+    client_is_pregnant_parent: false
   output:
-    pregnancy_allowance_amount_3_606_1_g: 0
+    pregnancy_allowance_amount: 0

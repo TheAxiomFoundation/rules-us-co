@@ -1,16 +1,16 @@
 - name: grant_amount_is_household_grant_minus_countable_income
   period: "2026-04-02"
   input:
-    countable_gross_earned_income_after_disregards_3_606_1_i: 250
-    countable_unearned_income_3_606_1_i: 100
-    grant_amount_for_household_size_3_606_1_i: 503
+    countable_gross_earned_income_after_disregards: 250
+    countable_unearned_income: 100
+    grant_amount_for_household_size: 503
   output:
-    basic_cash_assistance_grant_amount_3_606_1_i: 153
+    basic_cash_assistance_grant_amount: 153
 - name: grant_amount_handles_zero_unearned_income
   period: "2026-04-02"
   input:
-    countable_gross_earned_income_after_disregards_3_606_1_i: 150
-    countable_unearned_income_3_606_1_i: 0
-    grant_amount_for_household_size_3_606_1_i: 503
+    countable_gross_earned_income_after_disregards: 150
+    countable_unearned_income: 0
+    grant_amount_for_household_size: 503
   output:
-    basic_cash_assistance_grant_amount_3_606_1_i: 353
+    basic_cash_assistance_grant_amount: 353

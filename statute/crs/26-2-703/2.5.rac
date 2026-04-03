@@ -9,19 +9,19 @@ Source note: encoded from the Colorado.Public.Law HTML snapshot retrieved on
 2026-04-02.
 """
 
-is_colorado_works_participant_26_2_703_2_5:
+is_colorado_works_participant:
     entity: Person
     period: Month
     dtype: Boolean
 
-receives_cash_assistance_26_2_703_2_5:
+receives_cash_assistance:
     entity: Person
     period: Month
     dtype: Boolean
 
-is_member_of_assistance_unit_26_2_703_2_5:
+is_member_of_assistance_unit:
     entity: Person
     period: Month
     dtype: Boolean
     from 2026-04-02:
-        is_colorado_works_participant_26_2_703_2_5 and receives_cash_assistance_26_2_703_2_5
+        is_colorado_works_participant and receives_cash_assistance

@@ -17,28 +17,28 @@ received by members of the assistance unit;
 3. Deduct the total from step 2, above, from the grant amount for the household size.
 """
 
-countable_gross_earned_income_after_disregards_3_606_1_i:
+countable_gross_earned_income_after_disregards:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-countable_unearned_income_3_606_1_i:
+countable_unearned_income:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-grant_amount_for_household_size_3_606_1_i:
+grant_amount_for_household_size:
     entity: TanfUnit
     period: Month
     dtype: Money
 
-basic_cash_assistance_grant_amount_3_606_1_i:
+basic_cash_assistance_grant_amount:
     entity: TanfUnit
     period: Month
     dtype: Money
     from 2026-04-02:
-        grant_amount_for_household_size_3_606_1_i -
+        grant_amount_for_household_size -
         (
-            countable_gross_earned_income_after_disregards_3_606_1_i +
-            countable_unearned_income_3_606_1_i
+            countable_gross_earned_income_after_disregards +
+            countable_unearned_income
         )

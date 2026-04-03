@@ -1,14 +1,14 @@
 - name: enumerated_receipt_counts_as_income
   period: "2026-04-03"
   input:
-    assistance_unit_member_receives_cash_payments_wages_in_kind_receipts_inheritance_gifts_prizes_rents_dividends_or_interest_26_2_703_10_5: true
-    assistance_unit_member_receives_other_gain_or_benefit_in_cash_or_in_kind_26_2_703_10_5: false
+    assistance_unit_member_receives_cash_payments_wages_in_kind_receipts_inheritance_gifts_prizes_rents_dividends_or_interest: true
+    assistance_unit_member_receives_other_gain_or_benefit_in_cash_or_in_kind: false
   output:
-    is_income_26_2_703_10_5: true
+    is_income: true
 - name: other_gain_or_benefit_also_counts_as_income
   period: "2026-04-03"
   input:
-    assistance_unit_member_receives_cash_payments_wages_in_kind_receipts_inheritance_gifts_prizes_rents_dividends_or_interest_26_2_703_10_5: false
-    assistance_unit_member_receives_other_gain_or_benefit_in_cash_or_in_kind_26_2_703_10_5: true
+    assistance_unit_member_receives_cash_payments_wages_in_kind_receipts_inheritance_gifts_prizes_rents_dividends_or_interest: false
+    assistance_unit_member_receives_other_gain_or_benefit_in_cash_or_in_kind: true
   output:
-    is_income_26_2_703_10_5: true
+    is_income: true

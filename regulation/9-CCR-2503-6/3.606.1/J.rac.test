@@ -1,14 +1,14 @@
 - name: net_countable_income_equal_to_need_standard_blocks_eligibility
   period: "2026-04-02"
   input:
-    net_countable_income_3_606_1_j: 503
-    need_standard_for_household_size_3_606_1_j: 503
+    net_countable_income: 503
+    need_standard_for_household_size: 503
   output:
-    assistance_unit_is_not_eligible_due_to_net_countable_income_3_606_1_j: true
+    assistance_unit_is_not_eligible_due_to_net_countable_income: true
 - name: net_countable_income_below_need_standard_preserves_eligibility
   period: "2026-04-02"
   input:
-    net_countable_income_3_606_1_j: 502.99
-    need_standard_for_household_size_3_606_1_j: 503
+    net_countable_income: 502.99
+    need_standard_for_household_size: 503
   output:
-    assistance_unit_is_not_eligible_due_to_net_countable_income_3_606_1_j: false
+    assistance_unit_is_not_eligible_due_to_net_countable_income: false

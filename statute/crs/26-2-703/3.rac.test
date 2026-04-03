@@ -1,14 +1,14 @@
 - name: cash_assistance_under_26_2_709_for_participant_is_basic_cash_assistance_grant
   period: "2026-04-02"
   input:
-    is_colorado_works_participant_26_2_703_3: true
-    cash_assistance_is_provided_pursuant_to_section_26_2_709_26_2_703_3: true
+    is_colorado_works_participant: true
+    cash_assistance_is_provided_pursuant_to_section_26_2_709: true
   output:
-    is_basic_cash_assistance_grant_26_2_703_3: true
+    is_basic_cash_assistance_grant: true
 - name: unrelated_cash_assistance_is_not_basic_cash_assistance_grant
   period: "2026-04-02"
   input:
-    is_colorado_works_participant_26_2_703_3: true
-    cash_assistance_is_provided_pursuant_to_section_26_2_709_26_2_703_3: false
+    is_colorado_works_participant: true
+    cash_assistance_is_provided_pursuant_to_section_26_2_709: false
   output:
-    is_basic_cash_assistance_grant_26_2_703_3: false
+    is_basic_cash_assistance_grant: false
