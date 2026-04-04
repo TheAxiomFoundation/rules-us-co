@@ -66,7 +66,9 @@ rac-us-co/
 │       ├── 9-CCR-2503-6/
 │       └── statute/crs/26-2-703/
 ├── scripts/
-│   └── sync_atlas.py
+│   ├── check_no_promoted_stubs.py
+│   ├── sync_atlas.py
+│   └── validate_repo.py
 └── waves/
     ├── 2026-04-02-wave1/manifest.json
     ├── 2026-04-02-wave2/manifest.json
@@ -77,6 +79,10 @@ rac-us-co/
 ## Commands
 
 ```bash
+# Run the full repo validation bundle
+cd /Users/maxghenis/TheAxiomFoundation/rac-us-co
+python3 scripts/validate_repo.py
+
 # Validate schema and imports
 cd /Users/maxghenis/TheAxiomFoundation/rac
 uv run python -m rac.validate all /Users/maxghenis/TheAxiomFoundation/rac-us-co
@@ -100,6 +106,10 @@ python3 scripts/sync_atlas.py
 - Symbol names are file-local.
   - Do not repeat the local subsection or paragraph citation in variable names; the
     file path already supplies that context when a symbol is imported.
+- Promoted corpus files should never remain `status: stub`.
+  - Stub only the RAC layer during generation, never the source layer.
+  - Once the official source is ingested locally, replace the stub with a real encoding
+    before promotion.
 - This is still intentionally a narrow seed, not a full Colorado Works corpus yet.
 - The first statute companions live under `statute/crs/26-2-703/` so the manual and
   statute sides can grow together.

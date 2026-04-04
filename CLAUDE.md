@@ -31,6 +31,7 @@ uv run python -m rac.validate all /Users/maxghenis/TheAxiomFoundation/rac-us-co
 uv run python -m rac.test_runner /Users/maxghenis/TheAxiomFoundation/rac-us-co -v
 
 cd /Users/maxghenis/TheAxiomFoundation/rac-us-co
+python3 scripts/validate_repo.py
 python3 scripts/sync_atlas.py
 ```
 
@@ -45,3 +46,6 @@ python3 scripts/sync_atlas.py
   be its own variable.
 - If a rule depends on statute text, add or import the statute companion instead of
   paraphrasing it locally.
+- Do not leave promoted corpus files as `status: stub`.
+  - Stub only the RAC layer during generation, never the source layer.
+  - Once the official source is ingested locally, encode the upstream file before promotion.
