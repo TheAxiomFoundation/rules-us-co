@@ -1,0 +1,27 @@
+- name: first_sanction_reduction_of_one_dollar_is_allowed
+  period: "2026-04-03"
+  input:
+    first_sanction_is_imposed: true
+    specified_first_sanction_reduction_amount: 1
+    is_colorado_works_participant: true
+    cash_assistance_is_provided_pursuant_to_section_26_2_709: true
+  output:
+    first_sanction_reduction_amount_is_within_statutory_cap: true
+- name: first_sanction_reduction_above_one_dollar_is_not_allowed
+  period: "2026-04-03"
+  input:
+    first_sanction_is_imposed: true
+    specified_first_sanction_reduction_amount: 2
+    is_colorado_works_participant: true
+    cash_assistance_is_provided_pursuant_to_section_26_2_709: true
+  output:
+    first_sanction_reduction_amount_is_within_statutory_cap: false
+- name: non_first_sanction_case_is_outside_this_cap_clause
+  period: "2026-04-03"
+  input:
+    first_sanction_is_imposed: false
+    specified_first_sanction_reduction_amount: 5
+    is_colorado_works_participant: true
+    cash_assistance_is_provided_pursuant_to_section_26_2_709: true
+  output:
+    first_sanction_reduction_amount_is_within_statutory_cap: true

@@ -1,0 +1,33 @@
+imports:
+  - statute/crs/26-2-703/12#is_individual_responsibility_contract
+
+"""
+C.R.S. § 26-2-711(1)(a)(I)
+Works program
+
+Imposition of sanctions upon a participant who fails, without good cause as
+determined by the county, to comply with the terms and conditions of his or her
+IRC;
+
+Source note: encoded from the Colorado.Public.Law HTML snapshot retrieved on
+2026-04-03.
+"""
+
+participant_fails_to_comply_with_terms_and_conditions_of_contract:
+    entity: Person
+    period: Month
+    dtype: Boolean
+
+good_cause_exists_as_determined_by_county:
+    entity: Person
+    period: Month
+    dtype: Boolean
+
+participant_is_subject_to_sanction_for_noncompliance_with_individual_responsibility_contract:
+    entity: Person
+    period: Month
+    dtype: Boolean
+    from 2026-04-03:
+        participant_fails_to_comply_with_terms_and_conditions_of_contract and
+        is_individual_responsibility_contract and
+        not good_cause_exists_as_determined_by_county

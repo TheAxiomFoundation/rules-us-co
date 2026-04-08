@@ -1,0 +1,27 @@
+- name: irc_noncompliance_without_good_cause_triggers_sanction
+  period: "2026-04-03"
+  input:
+    participant_fails_to_comply_with_terms_and_conditions_of_contract: true
+    contract_is_entered_into_by_participant_and_county_department: true
+    contract_is_pursuant_to_section_26_2_708: true
+    good_cause_exists_as_determined_by_county: false
+  output:
+    participant_is_subject_to_sanction_for_noncompliance_with_individual_responsibility_contract: true
+- name: good_cause_blocks_sanction_for_irc_noncompliance
+  period: "2026-04-03"
+  input:
+    participant_fails_to_comply_with_terms_and_conditions_of_contract: true
+    contract_is_entered_into_by_participant_and_county_department: true
+    contract_is_pursuant_to_section_26_2_708: true
+    good_cause_exists_as_determined_by_county: true
+  output:
+    participant_is_subject_to_sanction_for_noncompliance_with_individual_responsibility_contract: false
+- name: non_irc_contract_does_not_trigger_this_clause
+  period: "2026-04-03"
+  input:
+    participant_fails_to_comply_with_terms_and_conditions_of_contract: true
+    contract_is_entered_into_by_participant_and_county_department: true
+    contract_is_pursuant_to_section_26_2_708: false
+    good_cause_exists_as_determined_by_county: false
+  output:
+    participant_is_subject_to_sanction_for_noncompliance_with_individual_responsibility_contract: false

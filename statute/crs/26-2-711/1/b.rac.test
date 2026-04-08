@@ -1,0 +1,21 @@
+- name: affirmative_statement_of_refusal_allows_total_denial
+  period: "2026-04-03"
+  input:
+    participant_refuses_to_participate_in_training_education_or_work: true
+    refusal_is_evidenced_by_affirmative_statement_or_demonstrable_evidence: true
+  output:
+    county_may_deny_basic_cash_assistance_grant_in_its_entirety: true
+- name: no_total_denial_without_evidence_of_refusal
+  period: "2026-04-03"
+  input:
+    participant_refuses_to_participate_in_training_education_or_work: true
+    refusal_is_evidenced_by_affirmative_statement_or_demonstrable_evidence: false
+  output:
+    county_may_deny_basic_cash_assistance_grant_in_its_entirety: false
+- name: evidence_without_refusal_does_not_satisfy_clause
+  period: "2026-04-03"
+  input:
+    participant_refuses_to_participate_in_training_education_or_work: false
+    refusal_is_evidenced_by_affirmative_statement_or_demonstrable_evidence: true
+  output:
+    county_may_deny_basic_cash_assistance_grant_in_its_entirety: false

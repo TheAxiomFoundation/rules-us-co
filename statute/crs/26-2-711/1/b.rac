@@ -1,0 +1,31 @@
+"""
+C.R.S. § 26-2-711(1)(b)
+Works program
+
+Nothing in the state board rules promulgated pursuant to paragraph (a) of this
+subsection (1) shall prevent a county from denying the basic cash assistance
+grant in its entirety to a participant who refuses, as evidenced by an
+affirmative statement by the participant or demonstrable evidence, to
+participate in training, education, or work.
+
+Source note: encoded from the Colorado.Public.Law HTML snapshot retrieved on
+2026-04-03.
+"""
+
+participant_refuses_to_participate_in_training_education_or_work:
+    entity: Person
+    period: Month
+    dtype: Boolean
+
+refusal_is_evidenced_by_affirmative_statement_or_demonstrable_evidence:
+    entity: Person
+    period: Month
+    dtype: Boolean
+
+county_may_deny_basic_cash_assistance_grant_in_its_entirety:
+    entity: Person
+    period: Month
+    dtype: Boolean
+    from 2026-04-03:
+        participant_refuses_to_participate_in_training_education_or_work and
+        refusal_is_evidenced_by_affirmative_statement_or_demonstrable_evidence

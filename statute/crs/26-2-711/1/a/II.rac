@@ -1,0 +1,40 @@
+imports:
+  - statute/crs/26-2-703/3#is_basic_cash_assistance_grant
+
+"""
+C.R.S. § 26-2-711(1)(a)(II)
+Works program
+
+A reduction in the basic cash assistance grant upon the first imposition of a
+sanction affecting a basic cash assistance grant, with the amount to be
+specified in the rules but not to exceed one dollar;
+
+Source note: encoded from the Colorado.Public.Law HTML snapshot retrieved on
+2026-04-03.
+"""
+
+first_sanction_is_imposed:
+    entity: Person
+    period: Month
+    dtype: Boolean
+
+specified_first_sanction_reduction_amount:
+    entity: Person
+    period: Month
+    dtype: Money
+
+maximum_first_sanction_reduction_amount:
+    entity: Person
+    period: Month
+    dtype: Money
+    from 2026-04-03: 1
+
+first_sanction_reduction_amount_is_within_statutory_cap:
+    entity: Person
+    period: Month
+    dtype: Boolean
+    from 2026-04-03:
+        if first_sanction_is_imposed and is_basic_cash_assistance_grant:
+            specified_first_sanction_reduction_amount <= maximum_first_sanction_reduction_amount
+        else:
+            true

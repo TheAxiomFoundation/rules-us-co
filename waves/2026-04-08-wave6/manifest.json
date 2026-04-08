@@ -1,0 +1,29 @@
+{
+  "wave": "2026-04-08-wave6",
+  "jurisdiction": "us-co",
+  "provenance_tier": "manual_repo_change",
+  "created_at": "2026-04-08",
+  "description": "Add Colorado Works sanctions statute leaves for IRC noncompliance, the first-sanction one-dollar cap, and total denial for refusal to participate, with reuse of existing Colorado statutory definitions where they apply.",
+  "source_documents": [
+    {
+      "citation": "C.R.S. § 26-2-711",
+      "title": "Works program - sanctions against participants - rules",
+      "snapshot_date": "2026-04-03",
+      "source_path": "sources/official/statute/crs/26-2-711/2026-04-03/source.html"
+    }
+  ],
+  "encoded_files": [
+    {
+      "path": "statute/crs/26-2-711/1/a/I.rac",
+      "source_slice": "sources/slices/statute/crs/26-2-711/1/a/I.txt"
+    },
+    {
+      "path": "statute/crs/26-2-711/1/a/II.rac",
+      "source_slice": "sources/slices/statute/crs/26-2-711/1/a/II.txt"
+    },
+    {
+      "path": "statute/crs/26-2-711/1/b.rac",
+      "source_slice": "sources/slices/statute/crs/26-2-711/1/b.txt"
+    }
+  ]
+}
