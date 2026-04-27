@@ -87,13 +87,55 @@ def element_text(elem: ET.Element | None) -> str | None:
     return text or None
 
 
+def _r2_client_from_config():
+    try:
+        import boto3
+    except ImportError as exc:
+        raise RuntimeError(
+            "Missing local AKN payload and boto3 is not installed. "
+            "Install boto3 or materialize source.akn.xml from R2 first."
+        ) from exc
+
+    config_path = Path(
+        os.environ.get(
+            "RULES_XML_R2_CREDENTIALS",
+            Path.home() / ".config" / "rulesfoundation" / "r2-rules-xml-credentials.json",
+        )
+    )
+    creds = json.loads(config_path.read_text())
+    client = boto3.client(
+        "s3",
+        endpoint_url=creds["endpoint_url"],
+        aws_access_key_id=creds["access_key_id"],
+        aws_secret_access_key=creds["secret_access_key"],
+    )
+    return client, creds["bucket"]
+
+
+def read_r2_backed_source(path: Path) -> str:
+    if path.exists():
+        return path.read_text()
+    sidecar_path = path.with_name(path.name + ".r2.json")
+    if not sidecar_path.exists():
+        raise FileNotFoundError(path)
+    sidecar = json.loads(sidecar_path.read_text())
+    client, bucket = _r2_client_from_config()
+    response = client.get_object(
+        Bucket=sidecar.get("r2_bucket", bucket),
+        Key=sidecar["r2_key"],
+    )
+    return response["Body"].read().decode()
+
+
 def regulation_snapshot_paths() -> tuple[Path, Path] | None:
     snapshot = latest_snapshot_dir(OFFICIAL_REGULATION_ROOT)
     if snapshot is None:
         return None
     outline_path = snapshot / "outline.json"
     akn_path = snapshot / "source.akn.xml"
-    if not outline_path.exists() or not akn_path.exists():
+    if not outline_path.exists():
+        return None
+    if not akn_path.exists() and not akn_path.with_name(akn_path.name + ".r2.json").exists():
         return None
     return outline_path, akn_path
 
@@ -104,7 +146,7 @@ def build_official_regulation_rules() -> list[dict[str, Any]]:
         return []
     outline_path, akn_path = paths
     outline = json.loads(outline_path.read_text())
-    akn_root = ET.fromstring(akn_path.read_text())
+    akn_root = ET.fromstring(read_r2_backed_source(akn_path))
     source_path = str(akn_path.relative_to(ROOT))
 
     nodes: dict[str, dict[str, Any]] = {}

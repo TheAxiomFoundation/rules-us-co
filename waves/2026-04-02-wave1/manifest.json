@@ -12,7 +12,8 @@
       "pdf_path": "sources/official/9-CCR-2503-6/2026-04-02/source.pdf",
       "outline_path": "sources/official/9-CCR-2503-6/2026-04-02/outline.json",
       "akn_path": "sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml",
-      "akomize_profile": "colorado"
+      "akomize_profile": "colorado",
+      "akn_r2_key": "rules-sources/rules-us-co/sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml"
     }
   ],
   "encoded_files": [

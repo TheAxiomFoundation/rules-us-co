@@ -1,0 +1,12 @@
+{
+  "content_type": "application/xml",
+  "git_head_at_upload": "0bc932752601bf255b930567e1bc53bbfe1dabb0",
+  "r2_bucket": "rules-xml",
+  "r2_key": "rules-sources/rules-us-co/sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml",
+  "repo": "rules-us-co",
+  "schema": "rules-xml.rulespec_source_artifact.v1",
+  "sha256": "791e79ea7ceb738acce7f66f154ce9f1c343ca3a3565d31e90c7634883987e4f",
+  "size_bytes": 352136,
+  "source_path": "sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml",
+  "uploaded_at": "2026-04-27T03:01:57.842709+00:00"
+}

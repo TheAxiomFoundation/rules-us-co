@@ -3,14 +3,15 @@
   "jurisdiction": "us-co",
   "provenance_tier": "manual_repo_change",
   "created_at": "2026-04-03",
-  "description": "Expanded Colorado Works source coverage for Atlas by adding the broader 9 CCR 2503-6 regulation tree and Colorado Works Part 7 statute snapshots under C.R.S. § 26-2-701 through § 26-2-725.",
+  "description": "Expanded Colorado Works source coverage for Atlas by adding the broader 9 CCR 2503-6 regulation tree and Colorado Works Part 7 statute snapshots under C.R.S. \u00a7 26-2-701 through \u00a7 26-2-725.",
   "source_documents": [
     {
       "citation": "9 CCR 2503-6",
       "title": "Colorado Works Program",
       "snapshot_date": "2026-04-02",
       "outline_path": "sources/official/9-CCR-2503-6/2026-04-02/outline.json",
-      "akn_path": "sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml"
+      "akn_path": "sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml",
+      "akn_r2_key": "rules-sources/rules-us-co/sources/official/9-CCR-2503-6/2026-04-02/source.akn.xml"
     },
     {
       "citation": "Colorado Works Program Act Part 7",

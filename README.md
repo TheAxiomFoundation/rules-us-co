@@ -12,7 +12,7 @@ Secretary of State.
 ## Current scope
 
 - full-source snapshot for `9 CCR 2503-6`
-- `akomize`-generated Akoma Ntoso skeleton for that PDF
+- R2-backed `akomize` Akoma Ntoso skeleton metadata for that PDF
 - exact clause slices for the first encoded provisions
 - Colorado statute companion definitions under `C.R.S. § 26-2-703`
 - official Colorado Works statute source snapshots for the broader Part 7 section set
@@ -61,7 +61,7 @@ rac-us-co/
 │   ├── official/9-CCR-2503-6/2026-04-02/
 │   │   ├── source.pdf
 │   │   ├── outline.json
-│   │   └── source.akn.xml
+│   │   └── source.akn.xml.r2.json
 │   ├── official/statute/crs/26-2-701/2026-04-03/source.html
 │   ├── official/statute/crs/26-2-703/2026-04-03/source.html
 │   ├── official/statute/crs/26-2-709/2026-04-03/source.html
