@@ -1,0 +1,111 @@
+- name: terminated_monthly_source_before_application_makes_household_destitute
+  period: 2026-01
+  input:
+    income_source_normally_received_monthly_or_more_frequently: true
+    income_expected_again_from_same_source_during_application_or_following_month: false
+    household_only_income_from_terminated_source_before_application: true
+    household_only_income_from_new_source: false
+    household_only_income_combines_terminated_source_before_application_and_new_source: false
+    new_source_income_amount: 0
+    new_source_income_normally_received_monthly_or_more_frequently: true
+    income_received_from_new_source_within_30_days_before_filing: false
+    income_received_within_last_normal_interval_between_payments: false
+    new_source_income_received_by_tenth_calendar_day: false
+    migrant_or_seasonal_farmworker_household: true
+    first_month_of_certification_period: true
+    prior_expedited_certification: false
+  output:
+    snap_income_source_terminated: holds
+    snap_destitute_due_to_terminated_source: holds
+    snap_destitute_income_household: holds
+    snap_destitute_expedited_processing_allowed: holds
+- name: new_source_over_threshold_not_received_by_tenth_day_makes_household_destitute
+  period: 2026-01
+  input:
+    income_source_normally_received_monthly_or_more_frequently: true
+    income_expected_again_from_same_source_during_application_or_following_month: true
+    household_only_income_from_terminated_source_before_application: false
+    household_only_income_from_new_source: true
+    household_only_income_combines_terminated_source_before_application_and_new_source: false
+    new_source_income_amount: 200
+    new_source_income_normally_received_monthly_or_more_frequently: true
+    income_received_from_new_source_within_30_days_before_filing: false
+    income_received_within_last_normal_interval_between_payments: false
+    new_source_income_received_by_tenth_calendar_day: false
+    migrant_or_seasonal_farmworker_household: true
+    first_month_of_certification_period: true
+  output:
+    snap_income_source_new: holds
+    snap_new_source_income_not_timely_available: holds
+    snap_destitute_due_to_new_source: holds
+    snap_destitute_income_household: holds
+- name: new_source_at_or_below_threshold_does_not_make_household_destitute
+  period: 2026-01
+  input:
+    household_only_income_from_new_source: true
+    new_source_income_amount: 25
+    new_source_income_normally_received_monthly_or_more_frequently: true
+    income_received_from_new_source_within_30_days_before_filing: false
+    income_received_within_last_normal_interval_between_payments: false
+    new_source_income_received_by_tenth_calendar_day: false
+  output:
+    snap_income_source_new: not_holds
+    snap_new_source_income_not_timely_available: not_holds
+    snap_destitute_due_to_new_source: not_holds
+- name: destitute_status_applies_only_first_month_of_certification_period
+  period: 2026-02
+  input:
+    income_source_normally_received_monthly_or_more_frequently: true
+    income_expected_again_from_same_source_during_application_or_following_month: false
+    household_only_income_from_terminated_source_before_application: true
+    household_only_income_from_new_source: false
+    household_only_income_combines_terminated_source_before_application_and_new_source: false
+    new_source_income_amount: 0
+    new_source_income_normally_received_monthly_or_more_frequently: true
+    income_received_from_new_source_within_30_days_before_filing: false
+    income_received_within_last_normal_interval_between_payments: false
+    new_source_income_received_by_tenth_calendar_day: false
+    migrant_or_seasonal_farmworker_household: true
+    first_month_of_certification_period: false
+  output:
+    snap_destitute_income_household: not_holds
+- name: subsequent_expedited_certification_requires_verification_or_normal_processing
+  period: 2026-01
+  input:
+    income_source_normally_received_monthly_or_more_frequently: true
+    income_expected_again_from_same_source_during_application_or_following_month: false
+    household_only_income_from_terminated_source_before_application: true
+    household_only_income_from_new_source: false
+    household_only_income_combines_terminated_source_before_application_and_new_source: false
+    new_source_income_amount: 0
+    new_source_income_normally_received_monthly_or_more_frequently: true
+    income_received_from_new_source_within_30_days_before_filing: false
+    income_received_within_last_normal_interval_between_payments: false
+    new_source_income_received_by_tenth_calendar_day: false
+    migrant_or_seasonal_farmworker_household: true
+    first_month_of_certification_period: true
+    prior_expedited_certification: true
+    postponed_verification_completed_since_last_expedited_certification: false
+    certified_under_normal_processing_since_last_expedited_certification: false
+  output:
+    snap_destitute_expedited_processing_allowed: not_holds
+- name: completed_postponed_verification_allows_subsequent_expedited_certification
+  period: 2026-01
+  input:
+    income_source_normally_received_monthly_or_more_frequently: true
+    income_expected_again_from_same_source_during_application_or_following_month: false
+    household_only_income_from_terminated_source_before_application: true
+    household_only_income_from_new_source: false
+    household_only_income_combines_terminated_source_before_application_and_new_source: false
+    new_source_income_amount: 0
+    new_source_income_normally_received_monthly_or_more_frequently: true
+    income_received_from_new_source_within_30_days_before_filing: false
+    income_received_within_last_normal_interval_between_payments: false
+    new_source_income_received_by_tenth_calendar_day: false
+    migrant_or_seasonal_farmworker_household: true
+    first_month_of_certification_period: true
+    prior_expedited_certification: true
+    postponed_verification_completed_since_last_expedited_certification: true
+    certified_under_normal_processing_since_last_expedited_certification: false
+  output:
+    snap_destitute_expedited_processing_allowed: holds
