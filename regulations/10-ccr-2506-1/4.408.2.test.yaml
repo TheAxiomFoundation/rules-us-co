@@ -1,0 +1,77 @@
+- name: transfer_review_required_for_noncategorical_household
+  period: 2026-01
+  input:
+    snap_expanded_categorical_eligible: false
+    snap_basic_categorical_eligible: false
+    resource_transfer_by_counted_person_within_review_period: true
+  output:
+    snap_resource_transfer_review_required: holds
+- name: fair_market_value_transfer_is_exempt_from_disqualification
+  period: 2026-01
+  input:
+    transferred_resources_would_not_affect_eligibility: false
+    transferred_resources_sold_or_traded_at_or_near_fair_market_value: true
+    resources_transferred_between_same_household_members: false
+    transfer_reason_other_than_snap_qualification: false
+  output:
+    snap_resource_transfer_exempt_from_disqualification: holds
+- name: knowing_transfer_to_qualify_applies_when_no_exception
+  period: 2026-01
+  input:
+    snap_expanded_categorical_eligible: false
+    snap_basic_categorical_eligible: false
+    resource_transfer_by_counted_person_within_review_period: true
+    resource_transferred_knowingly_to_qualify_for_snap: true
+    transferred_resources_would_not_affect_eligibility: false
+    transferred_resources_sold_or_traded_at_or_near_fair_market_value: false
+    resources_transferred_between_same_household_members: false
+    transfer_reason_other_than_snap_qualification: false
+  output:
+    snap_resource_transfer_disqualification_applies: holds
+- name: categorical_household_transfer_does_not_trigger_disqualification
+  period: 2026-01
+  input:
+    snap_expanded_categorical_eligible: true
+    snap_basic_categorical_eligible: false
+    resource_transfer_by_counted_person_within_review_period: true
+    resource_transferred_knowingly_to_qualify_for_snap: true
+    transferred_resources_would_not_affect_eligibility: false
+    transferred_resources_sold_or_traded_at_or_near_fair_market_value: false
+    resources_transferred_between_same_household_members: false
+    transfer_reason_other_than_snap_qualification: false
+  output:
+    snap_resource_transfer_disqualification_applies: not_holds
+- name: excess_transferred_resources_determine_three_month_disqualification
+  period: 2026-01
+  input:
+    snap_expanded_categorical_eligible: false
+    snap_basic_categorical_eligible: false
+    resource_transfer_by_counted_person_within_review_period: true
+    resource_transferred_knowingly_to_qualify_for_snap: true
+    transferred_resources_would_not_affect_eligibility: false
+    transferred_resources_sold_or_traded_at_or_near_fair_market_value: false
+    resources_transferred_between_same_household_members: false
+    transfer_reason_other_than_snap_qualification: false
+    nonexempt_transferred_resources: 3400
+    other_countable_resources: 0
+    snap_resource_limit: 3000
+  output:
+    snap_transferred_resource_excess_amount: 400
+    snap_resource_transfer_disqualification_months: 3
+- name: disqualification_table_reaches_twelve_months_at_5000_excess
+  period: 2026-01
+  input:
+    snap_expanded_categorical_eligible: false
+    snap_basic_categorical_eligible: false
+    resource_transfer_by_counted_person_within_review_period: true
+    resource_transferred_knowingly_to_qualify_for_snap: true
+    transferred_resources_would_not_affect_eligibility: false
+    transferred_resources_sold_or_traded_at_or_near_fair_market_value: false
+    resources_transferred_between_same_household_members: false
+    transfer_reason_other_than_snap_qualification: false
+    nonexempt_transferred_resources: 8000
+    other_countable_resources: 0
+    snap_resource_limit: 3000
+  output:
+    snap_transferred_resource_excess_amount: 5000
+    snap_resource_transfer_disqualification_months: 12
