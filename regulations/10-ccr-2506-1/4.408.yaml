@@ -3,9 +3,10 @@ module:
   summary: |-
     Colorado's SNAP rule manual exempts households eligible under Expanded
     Categorical Eligibility or Basic Categorical Eligibility from resource
-    eligibility criteria. Other households use anticipated nonexempt resources
+    eligibility criteria. Other households use anticipated countable resources
     for the issuance month. Sponsor resources counted toward a non-citizen
-    household equal the sponsor's total resources less 2000 dollars. Effective
+    household equal the sponsor's total resources less 2000 dollars and are
+    added to the countable resources derived under section 4.409. Effective
     October 1, 2024, the resource limit is 4500 dollars for households with a
     member aged 60 or older or with a disability and 3000 dollars for other
     households.
@@ -48,7 +49,7 @@ rules:
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2024-10-01'
-        formula: nonexempt_resources + snap_sponsor_resources_counted
+        formula: snap_countable_resources + snap_sponsor_resources_counted
   - name: passes_resource_test
     kind: derived
     entity: Household
