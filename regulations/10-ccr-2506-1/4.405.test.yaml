@@ -1,0 +1,140 @@
+- name: irregular_income_at_or_below_threshold_is_excluded
+  period: 2026-01
+  input:
+    irregular_income_received_too_infrequently_or_irregularly_to_anticipate: true
+    irregular_income_received_in_three_months: 30
+  output:
+    snap_irregular_income_exclusion: 30
+    snap_countable_irregular_income: 0
+- name: irregular_income_above_threshold_counts_in_full
+  period: 2026-01
+  input:
+    irregular_income_received_too_infrequently_or_irregularly_to_anticipate: true
+    irregular_income_received_in_three_months: 31
+  output:
+    snap_irregular_income_exclusion: 0
+    snap_countable_irregular_income: 31
+- name: unidentified_non_household_beneficiary_payment_is_prorated
+  period: 2026-01
+  input:
+    third_party_beneficiary_payment_received: true
+    non_household_beneficiary_portion_readily_identified: false
+    identified_non_household_beneficiary_payment_portion: 0
+    third_party_beneficiary_payment: 900
+    non_household_beneficiary_count: 1
+    intended_beneficiary_count: 3
+    payment_used_for_non_household_beneficiary: 250
+  output:
+    snap_non_household_beneficiary_payment_exclusion: 250
+    snap_countable_non_household_beneficiary_payment: 650
+- name: child_student_earnings_excluded_through_month_child_turns_eighteen
+  period: 2026-01
+  input:
+    child_lives_with_parent_or_under_parental_control: true
+    child_student_at_least_half_time: true
+    child_under_18: false
+    child_turns_18_in_current_month: true
+    child_earned_income: 400
+  output:
+    snap_child_student_earnings_exclusion: 400
+    snap_countable_child_student_earnings: 0
+- name: child_student_earnings_count_after_turning_month
+  period: 2026-02
+  input:
+    child_lives_with_parent_or_under_parental_control: true
+    child_student_at_least_half_time: true
+    child_under_18: false
+    child_turns_18_in_current_month: false
+    child_earned_income: 400
+  output:
+    snap_child_student_earnings_exclusion: 0
+    snap_countable_child_student_earnings: 400
+- name: same_source_recoupment_counts_only_net_payment
+  period: 2026-01
+  input:
+    recoupment_from_same_nonexempt_income_source: true
+    intentional_means_tested_program_noncompliance_overpayment: false
+    gross_nonexempt_income_source_payment: 500
+    recouped_overpayment_amount: 125
+  output:
+    snap_countable_recouped_income_source_payment: 375
+- name: intentional_means_tested_recoupment_counts_gross_payment
+  period: 2026-01
+  input:
+    recoupment_from_same_nonexempt_income_source: true
+    intentional_means_tested_program_noncompliance_overpayment: true
+    gross_nonexempt_income_source_payment: 500
+    recouped_overpayment_amount: 125
+  output:
+    snap_countable_recouped_income_source_payment: 500
+- name: nonrecurring_lump_sum_is_income_excluded_and_resource_counted
+  period: 2026-01
+  input:
+    nonrecurring_lump_sum_payment_received: true
+    nonrecurring_lump_sum_payment: 1200
+    lump_sum_excluded_as_resource_by_federal_law: false
+    nonrecurring_lump_sum_payment_remaining_as_resource: 800
+  output:
+    snap_nonrecurring_lump_sum_income_exclusion: 1200
+    snap_nonrecurring_lump_sum_resource: 800
+- name: direct_vendor_payment_using_outside_funds_is_excluded
+  period: 2026-01
+  input:
+    vendor_payment_is_direct_third_party_payment_using_non_household_funds: true
+    vendor_payment_funds_otherwise_payable_to_household: false
+    emergency_pa_ga_payment_to_third_party_for_migrant_seasonal_job_stream: false
+    vendor_payment_is_medical_childcare_emergency_special_or_housing_authority_assistance: false
+    employer_pays_rent_directly_in_addition_to_regular_wages: false
+    employer_provided_housing: false
+    court_ordered_support_or_alimony_paid_to_third_party: false
+    federally_authorized_demo_cash_conversion_of_vendor_payment: false
+    vendor_payment_amount: 700
+  output:
+    snap_vendor_payment_exclusion: 700
+    snap_countable_vendor_payment: 0
+- name: legally_obligated_diverted_vendor_payment_counts
+  period: 2026-01
+  input:
+    vendor_payment_is_direct_third_party_payment_using_non_household_funds: true
+    vendor_payment_funds_otherwise_payable_to_household: true
+    emergency_pa_ga_payment_to_third_party_for_migrant_seasonal_job_stream: false
+    vendor_payment_is_medical_childcare_emergency_special_or_housing_authority_assistance: false
+    employer_pays_rent_directly_in_addition_to_regular_wages: false
+    employer_provided_housing: false
+    court_ordered_support_or_alimony_paid_to_third_party: false
+    federally_authorized_demo_cash_conversion_of_vendor_payment: false
+    vendor_payment_amount: 700
+  output:
+    snap_vendor_payment_exclusion: 0
+    snap_countable_vendor_payment: 700
+- name: reimbursement_excludes_actual_identified_expense_only
+  period: 2026-01
+  input:
+    reimbursement_for_identified_non_living_expense: true
+    reimbursement_used_for_intended_expense: true
+    reimbursement_amount: 300
+    actual_reimbursed_non_living_expense: 225
+  output:
+    snap_reimbursement_exclusion: 225
+    snap_countable_reimbursement: 75
+- name: federal_statute_exclusions_cover_education_vista_wioa_and_energy
+  period: 2026-01
+  input:
+    education_assistance_for_educational_expenses: 1000
+    vista_or_title_i_domestic_volunteer_payment: true
+    vista_volunteer_was_receiving_snap_or_pa_when_joined: true
+    vista_or_title_i_domestic_volunteer_payment_amount: 300
+    wioa_payment_received: true
+    wioa_on_the_job_training_earnings: true
+    wioa_participant_under_19_and_under_parental_control: true
+    wioa_payment_amount: 250
+    federal_energy_assistance_not_title_iv_a: true
+    one_time_weatherization_or_heating_cooling_repair_payment: false
+    energy_assistance_payment: 150
+    private_nonprofit_cash_donations_based_on_need_in_fiscal_quarter: 375
+  output:
+    snap_education_assistance_income_exclusion: 1000
+    snap_vista_income_exclusion: 300
+    snap_wioa_payment_exclusion: 250
+    snap_federal_energy_assistance_income_exclusion: 150
+    snap_private_nonprofit_cash_donation_exclusion: 300
