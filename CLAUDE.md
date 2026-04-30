@@ -1,17 +1,16 @@
 # rules-us-co Agent Notes
 
-This repo stores Colorado RuleSpec source registry materials and related policy metadata.
+This repo stores Colorado RuleSpec encodings and source registry metadata.
 
 ## Do
 
-- Keep jurisdiction-administered source slices under `sources/` when source slices are present.
-- Add or update sidecar `.meta.yaml` files with source provenance, relations, and jurisdiction metadata.
+- Keep source text and document snapshots in the corpus database/object storage, not in Git.
+- Add or update metadata-only source registry files when provenance or relation metadata is needed.
 - Add RuleSpec encodings under `statutes/`, `regulations/`, or `policies/` when ready.
 - Keep parameter tables as structured YAML when they are useful reference data.
-- Keep large source payloads outside Git and point to them through metadata or manifests.
 
 ## Do Not
 
 - Add singular rule roots, separate parameter/test fixture files, or generated formula artifacts.
 - Put unrelated jurisdiction materials here.
-- Add generated source payloads to Git.
+- Add source text, PDFs, HTML snapshots, generated source payloads, or Python bytecode to Git.

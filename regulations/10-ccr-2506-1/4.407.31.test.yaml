@@ -1,0 +1,36 @@
+- name: heating_cooling_allowance_applies_for_sua
+  period: 2026-01
+  input:
+    snap_utility_allowance_type: SUA
+  output:
+    snap_standard_utility_allowance: 594
+    snap_limited_utility_allowance: 0
+    snap_one_utility_allowance: 0
+    snap_individual_utility_allowance: 0
+- name: basic_utility_allowance_applies_for_lua
+  period: 2026-01
+  input:
+    snap_utility_allowance_type: LUA
+  output:
+    snap_standard_utility_allowance: 0
+    snap_limited_utility_allowance: 377
+    snap_one_utility_allowance: 0
+    snap_individual_utility_allowance: 0
+- name: one_utility_allowance_applies_for_oua
+  period: 2026-01
+  input:
+    snap_utility_allowance_type: OUA
+  output:
+    snap_standard_utility_allowance: 0
+    snap_limited_utility_allowance: 0
+    snap_one_utility_allowance: 71
+    snap_individual_utility_allowance: 0
+- name: telephone_allowance_applies_for_iua
+  period: 2026-01
+  input:
+    snap_utility_allowance_type: IUA
+  output:
+    snap_standard_utility_allowance: 0
+    snap_limited_utility_allowance: 0
+    snap_one_utility_allowance: 0
+    snap_individual_utility_allowance: 97

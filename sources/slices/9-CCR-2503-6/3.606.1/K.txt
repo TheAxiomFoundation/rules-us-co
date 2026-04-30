@@ -1,7 +1,0 @@
-To calculate the basic cash assistance grant amount for an eligible assistance
-unit:
-
-1. Deduct the net countable income from the grant amount for the assistance unit;
-and,
-
-2. Drop the cents, and the remainder is the authorized grant.

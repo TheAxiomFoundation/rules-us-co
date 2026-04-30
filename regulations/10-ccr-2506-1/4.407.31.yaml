@@ -1,0 +1,96 @@
+format: rulespec/v1
+module:
+  summary: |-
+    Colorado's SNAP rule manual sets four monthly utility allowance standards
+    effective October 1, 2025: $594 heating and cooling utility allowance
+    (HCUA), $377 basic utility allowance (BUA, encoded as LUA), $71 one
+    utility allowance (OUA), and $97 telephone allowance (encoded as IUA).
+rules:
+  - name: colorado_snap_heating_cooling_utility_allowance_amount
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(A)(4)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '594'
+  - name: colorado_snap_basic_utility_allowance_amount
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(B)(3)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '377'
+  - name: colorado_snap_one_utility_allowance_amount
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(C)(3)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '71'
+  - name: colorado_snap_telephone_utility_allowance_amount
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(D)(2)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '97'
+  - name: snap_standard_utility_allowance
+    kind: derived
+    entity: SnapUnit
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(A)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          if snap_utility_allowance_type == "SUA": colorado_snap_heating_cooling_utility_allowance_amount
+          else: 0
+  - name: snap_limited_utility_allowance
+    kind: derived
+    entity: SnapUnit
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(B)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          if snap_utility_allowance_type == "LUA": colorado_snap_basic_utility_allowance_amount
+          else: 0
+  - name: snap_one_utility_allowance
+    kind: derived
+    entity: SnapUnit
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(C)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          if snap_utility_allowance_type == "OUA": colorado_snap_one_utility_allowance_amount
+          else: 0
+  - name: snap_individual_utility_allowance
+    kind: derived
+    entity: SnapUnit
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.31(D)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          if snap_utility_allowance_type == "IUA": colorado_snap_telephone_utility_allowance_amount
+          else: 0

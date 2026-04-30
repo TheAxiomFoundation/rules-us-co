@@ -1,15 +1,15 @@
 # rules-us-co
 
-Colorado RuleSpec source registry and policy metadata.
+Colorado RuleSpec encodings and source registry metadata.
 
 ## Contents
 
-- `sources/`: source slices, target manifests, and sidecar metadata when available.
+- `sources/`: source registry or manifest metadata when needed.
 - `statutes/`, `regulations/`, or `policies/`: RuleSpec YAML when encoded rules are added.
 - `.github/workflows/`: wrapper around the shared RuleSpec validation workflow.
 
 ## Conventions
 
-Use RuleSpec YAML under `statutes/`, `regulations/`, or `policies/` for encoded rules. Keep source text with matching `.meta.yaml` files that record provenance and relations. Large XML or source payloads belong in object storage, with only registry or manifest metadata in Git.
+Use RuleSpec YAML under `statutes/`, `regulations/`, or `policies/` for encoded rules. Do not add source text, generated source payloads, or extracted document snapshots to Git; source text belongs in the corpus database/object storage, with only registry or manifest metadata here when needed.
 
 Jurisdiction-specific materials belong in this repo. Shared federal materials belong in `rules-us`.
