@@ -1,0 +1,16 @@
+- name: necessary_dependent_care_expenses_are_deductible
+  period: 2026-01
+  input:
+    dependent_care_expense_necessary_for_work_or_training: true
+    dependent_care_expenses_paid: 500
+    dependent_care_reimbursed_or_paid_by_other_program: 150
+  output:
+    dependent_care_deduction: 350
+- name: unnecessary_dependent_care_expenses_are_not_deductible
+  period: 2026-01
+  input:
+    dependent_care_expense_necessary_for_work_or_training: false
+    dependent_care_expenses_paid: 500
+    dependent_care_reimbursed_or_paid_by_other_program: 0
+  output:
+    dependent_care_deduction: 0

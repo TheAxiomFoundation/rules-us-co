@@ -1,0 +1,64 @@
+format: rulespec/v1
+module:
+  summary: |-
+    Colorado's SNAP rule manual exempts households eligible under Expanded
+    Categorical Eligibility or Basic Categorical Eligibility from resource
+    eligibility criteria. Other households use anticipated nonexempt resources
+    for the issuance month. Sponsor resources counted toward a non-citizen
+    household equal the sponsor's total resources less 2000 dollars. Effective
+    October 1, 2024, the resource limit is 4500 dollars for households with a
+    member aged 60 or older or with a disability and 3000 dollars for other
+    households.
+rules:
+  - name: snap_resource_limit
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.408(E)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2024-10-01'
+        formula: |-
+          if elderly_or_disabled_household:
+              4500
+          else: 3000
+  - name: snap_sponsor_resources_counted
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.408(B)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2024-10-01'
+        formula: |-
+          if sponsored_noncitizen_household:
+              max(0, sponsor_total_resources - 2000)
+          else: 0
+  - name: snap_countable_resources_for_resource_test
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.408(B)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2024-10-01'
+        formula: nonexempt_resources + snap_sponsor_resources_counted
+  - name: passes_resource_test
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: 10 CCR 2506-1 section 4.408
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2024-10-01'
+        formula: |-
+          snap_expanded_categorical_eligible
+          or snap_basic_categorical_eligible
+          or snap_countable_resources_for_resource_test <= snap_resource_limit

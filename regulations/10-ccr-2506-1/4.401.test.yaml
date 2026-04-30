@@ -1,0 +1,83 @@
+- name: bce_household_is_deemed_to_meet_income_limits
+  period: 2026-01
+  input:
+    snap_basic_categorical_eligible: true
+    snap_expanded_categorical_eligible: false
+    elderly_or_disabled_household: false
+    gross_income: 10000
+    net_income: 10000
+    gross_income_limit: 1696
+    net_income_limit: 1305
+    snap_gross_income_limit_200_percent_fpl: 2610
+  output:
+    passes_gross_income_test: holds
+    passes_net_income_test: holds
+    snap_income_eligible: holds
+- name: ece_household_must_be_below_two_hundred_percent_gross
+  period: 2026-01
+  input:
+    snap_basic_categorical_eligible: false
+    snap_expanded_categorical_eligible: true
+    elderly_or_disabled_household: false
+    gross_income: 2609
+    net_income: 10000
+    gross_income_limit: 1696
+    net_income_limit: 1305
+    snap_gross_income_limit_200_percent_fpl: 2610
+  output:
+    passes_gross_income_test: holds
+    passes_net_income_test: holds
+    snap_income_eligible: holds
+- name: ece_household_fails_at_two_hundred_percent_gross
+  period: 2026-01
+  input:
+    snap_basic_categorical_eligible: false
+    snap_expanded_categorical_eligible: true
+    elderly_or_disabled_household: false
+    gross_income: 2610
+    net_income: 1000
+    gross_income_limit: 1696
+    net_income_limit: 1305
+    snap_gross_income_limit_200_percent_fpl: 2610
+  output:
+    passes_gross_income_test: not_holds
+    passes_net_income_test: holds
+    snap_income_eligible: not_holds
+- name: standard_non_elderly_household_must_pass_gross_and_net
+  period: 2026-01
+  input:
+    snap_basic_categorical_eligible: false
+    snap_expanded_categorical_eligible: false
+    elderly_or_disabled_household: false
+    gross_income: 1696
+    net_income: 1305
+    gross_income_limit: 1696
+    net_income_limit: 1305
+    snap_gross_income_limit_200_percent_fpl: 2610
+  output:
+    passes_gross_income_test: holds
+    passes_net_income_test: holds
+    snap_income_eligible: holds
+- name: standard_elderly_or_disabled_household_is_gross_income_exempt
+  period: 2026-01
+  input:
+    snap_basic_categorical_eligible: false
+    snap_expanded_categorical_eligible: false
+    elderly_or_disabled_household: true
+    gross_income: 10000
+    net_income: 1305
+    gross_income_limit: 1696
+    net_income_limit: 1305
+    snap_gross_income_limit_200_percent_fpl: 2610
+  output:
+    passes_gross_income_test: holds
+    passes_net_income_test: holds
+    snap_income_eligible: holds
+- name: separate_household_allowed_when_co_resident_income_is_within_limit
+  period: 2026-01
+  input:
+    elderly_disabled_person_unable_to_purchase_and_prepare_meals: true
+    co_resident_gross_income: 2152
+    snap_gross_income_limit_165_percent_fpl: 2152
+  output:
+    snap_elderly_disabled_separate_household_allowed: holds

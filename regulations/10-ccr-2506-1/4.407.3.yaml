@@ -1,0 +1,88 @@
+format: rulespec/v1
+module:
+  summary: |-
+    Colorado's SNAP rule manual gives households an excess shelter deduction
+    for allowable monthly shelter costs above 50 percent of income after other
+    deductions. For households without a member aged 60 or older or with a
+    disability, the shelter deduction cap is 744 dollars effective October 1,
+    2025. Households with an aged or disabled member receive the uncapped
+    excess shelter deduction. Households in which all individuals are
+    experiencing homelessness and are not receiving free shelter throughout the
+    month may use a homeless shelter deduction estimate of 198.99 dollars
+    effective October 1, 2025 unless higher shelter costs are verified.
+rules:
+  - name: excess_shelter_deduction_cap
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.3(B)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '744'
+  - name: snap_homeless_shelter_deduction_amount
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.3(C)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '198.99'
+  - name: snap_allowable_shelter_costs
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.3(C)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          if all_household_members_experiencing_homelessness:
+              if homeless_household_free_shelter_all_month: 0
+              else:
+                  if verified_higher_homeless_shelter_costs:
+                      shelter_costs
+                  else:
+                      if homeless_household_has_shelter_costs:
+                          snap_homeless_shelter_deduction_amount
+                      else: 0
+          else: shelter_costs
+  - name: half_adjusted_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.3(A)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: adjusted_income_before_shelter / 2
+  - name: excess_shelter_unclamped
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.3(A)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: max(0, snap_allowable_shelter_costs - half_adjusted_income)
+  - name: excess_shelter_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.3(B)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          if elderly_or_disabled_household:
+              excess_shelter_unclamped
+          else: min(excess_shelter_unclamped, excess_shelter_deduction_cap)
