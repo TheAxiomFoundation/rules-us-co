@@ -1,0 +1,38 @@
+format: rulespec/v1
+module:
+  summary: |-
+    Colorado's SNAP rule manual gives households with earned income a
+    deduction of 20 percent of gross nonexempt earned income. The deduction
+    does not apply to work supplementation or work support income attributable
+    to a public assistance program.
+rules:
+  - name: snap_earned_income_deduction_rate
+    kind: parameter
+    dtype: Rate
+    source: 10 CCR 2506-1 section 4.407.2
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '0.20'
+  - name: snap_earned_income_subject_to_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.2
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: max(0, earned_income_total - work_supplementation_earned_income)
+  - name: earned_income_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: USD
+    source: 10 CCR 2506-1 section 4.407.2
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: snap_earned_income_subject_to_deduction * snap_earned_income_deduction_rate

@@ -1,0 +1,32 @@
+- name: no_medical_deduction_without_elderly_or_disabled_member
+  period: 2026-01
+  input:
+    elderly_or_disabled_household: false
+    total_medical_expenses: 120
+  output:
+    medical_excess: 85
+    medical_deduction: 0
+- name: no_medical_deduction_at_threshold
+  period: 2026-01
+  input:
+    elderly_or_disabled_household: true
+    total_medical_expenses: 35
+  output:
+    medical_excess: 0
+    medical_deduction: 0
+- name: smed_applies_when_expenses_are_above_threshold
+  period: 2026-01
+  input:
+    elderly_or_disabled_household: true
+    total_medical_expenses: 120
+  output:
+    medical_excess: 85
+    medical_deduction: 165
+- name: actual_excess_applies_when_excess_exceeds_smed
+  period: 2026-01
+  input:
+    elderly_or_disabled_household: true
+    total_medical_expenses: 240
+  output:
+    medical_excess: 205
+    medical_deduction: 205
