@@ -6,6 +6,33 @@ module:
     For household sizes 1 through 8, the amounts are 1305, 1763, 2221, 2680,
     3138, 3596, 4055, and 4513, plus 459 for each additional person.
 rules:
+  - name: net_income_limit_table
+    kind: parameter
+    dtype: Money
+    unit: USD
+    indexed_by: household_size
+    source: 10 CCR 2506-1 section 4.401.2
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        values:
+          1: 1305
+          2: 1763
+          3: 2221
+          4: 2680
+          5: 3138
+          6: 3596
+          7: 4055
+          8: 4513
+  - name: net_income_limit_additional_member
+    kind: parameter
+    dtype: Money
+    unit: USD
+    source: 10 CCR 2506-1 section 4.401.2
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: '459'
   - name: net_income_limit
     kind: derived
     entity: Household
@@ -17,14 +44,6 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if household_size > 8: 4513 + ((household_size - 8) * 459)
-          else:
-              match household_size:
-                  1 => 1305
-                  2 => 1763
-                  3 => 2221
-                  4 => 2680
-                  5 => 3138
-                  6 => 3596
-                  7 => 4055
-                  8 => 4513
+          if household_size > 8:
+              net_income_limit_table[8] + ((household_size - 8) * net_income_limit_additional_member)
+          else: net_income_limit_table[household_size]

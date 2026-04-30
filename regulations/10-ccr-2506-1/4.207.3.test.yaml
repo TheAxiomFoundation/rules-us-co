@@ -2,13 +2,13 @@
   period: 2026-01
   input:
     household_size: 1
+    snap_maximum_allotment: 298
     net_income: 0
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
   output:
-    max_allotment: 298
     snap_minimum_monthly_allotment: 24
     household_food_contribution: 0
     snap_allotment_before_minimum: 298
@@ -17,18 +17,19 @@
   period: 2026-01
   input:
     household_size: 9
+    snap_maximum_allotment: 2007
     net_income: 0
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
   output:
-    max_allotment: 2007
     snap_regular_month_allotment: 2007
 - name: allotment_subtracts_thirty_percent_of_net_income_and_rounds_down
   period: 2026-01
   input:
     household_size: 1
+    snap_maximum_allotment: 298
     net_income: 100
     snap_eligible: true
     initial_application_month: false
@@ -42,6 +43,7 @@
   period: 2026-01
   input:
     household_size: 1
+    snap_maximum_allotment: 298
     net_income: 990
     snap_eligible: true
     initial_application_month: false
@@ -55,6 +57,7 @@
   period: 2026-01
   input:
     household_size: 1
+    snap_maximum_allotment: 298
     net_income: 0
     snap_eligible: false
     snap_basic_categorical_eligible: false
@@ -66,6 +69,7 @@
   period: 2026-01
   input:
     household_size: 3
+    snap_maximum_allotment: 785
     net_income: 10000
     snap_eligible: true
     initial_application_month: false

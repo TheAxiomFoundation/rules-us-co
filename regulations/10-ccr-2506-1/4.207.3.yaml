@@ -3,34 +3,10 @@ module:
   summary: |-
     Colorado's SNAP rule manual determines monthly benefit allotments by
     multiplying net monthly income by 30 percent, subtracting that result from
-    the maximum benefit for household size, and rounding the result down to
-    the nearest dollar. Effective October 1, 2025, maximum monthly allotments
-    are 298, 546, 785, 994, 1183, 1421, 1571, and 1789 for household sizes 1
-    through 8, plus 218 for each additional person. The minimum monthly
-    allotment for household sizes 1 through 2 is 24.
+    the federally determined maximum benefit for household size, and rounding
+    the result down to the nearest dollar. The minimum monthly allotment for
+    household sizes 1 through 2 is 24.
 rules:
-  - name: max_allotment
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.207.3(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: |-
-          if household_size > 8: 1789 + ((household_size - 8) * 218)
-          else:
-              match household_size:
-                  1 => 298
-                  2 => 546
-                  3 => 785
-                  4 => 994
-                  5 => 1183
-                  6 => 1421
-                  7 => 1571
-                  8 => 1789
   - name: snap_minimum_monthly_allotment
     kind: derived
     entity: Household
@@ -84,7 +60,7 @@ rules:
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
-        formula: floor(max(0, max_allotment - household_food_contribution))
+        formula: floor(max(0, snap_maximum_allotment - household_food_contribution))
   - name: snap_regular_month_allotment
     kind: derived
     entity: Household

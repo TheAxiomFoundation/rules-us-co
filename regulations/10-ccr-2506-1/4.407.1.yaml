@@ -6,6 +6,22 @@ module:
     sizes 1 through 3, 223 for household size 4, 261 for household size 5,
     and 299 for household sizes 6 or more.
 rules:
+  - name: standard_deduction_table
+    kind: parameter
+    dtype: Money
+    unit: USD
+    indexed_by: household_size
+    source: 10 CCR 2506-1 section 4.407.1
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        values:
+          1: 209
+          2: 209
+          3: 209
+          4: 223
+          5: 261
+          6: 299
   - name: standard_deduction
     kind: derived
     entity: Household
@@ -17,11 +33,6 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if household_size >= 6: 299
-          else:
-              match household_size:
-                  1 => 209
-                  2 => 209
-                  3 => 209
-                  4 => 223
-                  5 => 261
+          if household_size >= 6:
+              standard_deduction_table[6]
+          else: standard_deduction_table[household_size]
