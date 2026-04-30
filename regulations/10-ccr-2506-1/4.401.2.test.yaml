@@ -1,0 +1,18 @@
+- name: net_income_limit_for_one_person_household
+  period: 2026-01
+  input:
+    household_size: 1
+  output:
+    net_income_limit: 1305
+- name: net_income_limit_for_eight_person_household
+  period: 2026-01
+  input:
+    household_size: 8
+  output:
+    net_income_limit: 4513
+- name: net_income_limit_adds_each_additional_person
+  period: 2026-01
+  input:
+    household_size: 9
+  output:
+    net_income_limit: 4972
