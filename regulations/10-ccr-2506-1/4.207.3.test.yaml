@@ -12,7 +12,7 @@
     snap_minimum_monthly_allotment: 24
     household_food_contribution: 0
     snap_allotment_before_minimum: 298
-    snap_allotment: 298
+    snap_regular_month_allotment: 298
 - name: maximum_allotment_adds_each_additional_person
   period: 2026-01
   input:
@@ -24,7 +24,7 @@
     snap_expanded_categorical_eligible: false
   output:
     max_allotment: 2007
-    snap_allotment: 2007
+    snap_regular_month_allotment: 2007
 - name: allotment_subtracts_thirty_percent_of_net_income_and_rounds_down
   period: 2026-01
   input:
@@ -37,7 +37,7 @@
   output:
     household_food_contribution: 30
     snap_allotment_before_minimum: 268
-    snap_allotment: 268
+    snap_regular_month_allotment: 268
 - name: one_person_ongoing_household_gets_minimum_allotment
   period: 2026-01
   input:
@@ -50,19 +50,18 @@
   output:
     household_food_contribution: 297
     snap_allotment_before_minimum: 1
-    snap_allotment: 24
-- name: initial_month_below_minimum_gets_no_issuance
+    snap_regular_month_allotment: 24
+- name: ineligible_household_gets_no_regular_allotment
   period: 2026-01
   input:
     household_size: 1
-    net_income: 990
-    snap_eligible: true
-    initial_application_month: true
+    net_income: 0
+    snap_eligible: false
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
   output:
-    snap_allotment_before_minimum: 1
-    snap_allotment: 0
+    snap_allotment_before_minimum: 298
+    snap_regular_month_allotment: 0
 - name: noncategorical_larger_household_zero_benefit_denies_application
   period: 2026-01
   input:

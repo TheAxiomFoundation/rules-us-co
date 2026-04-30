@@ -7,9 +7,7 @@ module:
     the nearest dollar. Effective October 1, 2025, maximum monthly allotments
     are 298, 546, 785, 994, 1183, 1421, 1571, and 1789 for household sizes 1
     through 8, plus 218 for each additional person. The minimum monthly
-    allotment for household sizes 1 through 2 is 24. In an initial month, if
-    the calculated allotment is less than the federal minimum allotment, no
-    benefits are issued for that initial month.
+    allotment for household sizes 1 through 2 is 24.
 rules:
   - name: max_allotment
     kind: derived
@@ -87,7 +85,7 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: floor(max(0, max_allotment - household_food_contribution))
-  - name: snap_allotment
+  - name: snap_regular_month_allotment
     kind: derived
     entity: Household
     dtype: Money
@@ -99,14 +97,9 @@ rules:
       - effective_from: '2025-10-01'
         formula: |-
           if snap_eligible:
-              if initial_application_month:
-                  if snap_allotment_before_minimum < snap_minimum_monthly_allotment:
-                      0
-                  else: snap_allotment_before_minimum
-              else:
-                  if snap_allotment_before_minimum < snap_minimum_monthly_allotment:
-                      snap_minimum_monthly_allotment
-                  else: snap_allotment_before_minimum
+              if snap_allotment_before_minimum < snap_minimum_monthly_allotment:
+                  snap_minimum_monthly_allotment
+              else: snap_allotment_before_minimum
           else: 0
   - name: snap_application_denied_for_zero_benefit
     kind: derived

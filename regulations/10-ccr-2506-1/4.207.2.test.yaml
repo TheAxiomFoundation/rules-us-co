@@ -1,0 +1,70 @@
+- name: initial_month_prorates_from_application_date
+  period: 2026-01
+  input:
+    snap_eligible: true
+    initial_application_month: true
+    application_date: '2026-01-16'
+    public_institution_joint_ssi_snap_application_before_release: false
+    migrant_or_seasonal_farmworker_household_in_job_stream: false
+    break_in_participation_days: 0
+    snap_allotment_before_minimum: 298
+    snap_minimum_monthly_allotment: 24
+    snap_regular_month_allotment: 298
+  output:
+    snap_days_in_application_month: 31
+    snap_initial_month_proration_days: 16
+    snap_initial_month_prorated_allotment: 153
+    snap_allotment: 153
+- name: initial_month_uses_public_institution_release_date
+  period: 2026-01
+  input:
+    snap_eligible: true
+    initial_application_month: true
+    application_date: '2026-01-01'
+    public_institution_joint_ssi_snap_application_before_release: true
+    public_institution_release_date: '2026-01-20'
+    migrant_or_seasonal_farmworker_household_in_job_stream: false
+    break_in_participation_days: 0
+    snap_allotment_before_minimum: 546
+    snap_minimum_monthly_allotment: 24
+    snap_regular_month_allotment: 546
+  output:
+    snap_initial_month_proration_start_date: 2026-01-20
+    snap_initial_month_proration_days: 12
+    snap_initial_month_prorated_allotment: 211
+    snap_allotment: 211
+- name: migrant_seasonal_job_stream_exception_receives_full_month_allotment
+  period: 2026-01
+  input:
+    snap_eligible: true
+    initial_application_month: true
+    migrant_or_seasonal_farmworker_household_in_job_stream: true
+    break_in_participation_days: 30
+    snap_regular_month_allotment: 298
+  output:
+    snap_initial_month_proration_exception: holds
+    snap_initial_month_proration_applies: not_holds
+    snap_allotment: 298
+- name: initial_month_below_minimum_gets_no_issuance
+  period: 2026-01
+  input:
+    snap_eligible: true
+    initial_application_month: true
+    application_date: '2026-01-31'
+    public_institution_joint_ssi_snap_application_before_release: false
+    migrant_or_seasonal_farmworker_household_in_job_stream: false
+    break_in_participation_days: 0
+    snap_allotment_before_minimum: 298
+    snap_minimum_monthly_allotment: 24
+    snap_regular_month_allotment: 298
+  output:
+    snap_initial_month_prorated_allotment: 9
+    snap_allotment: 0
+- name: ineligible_household_gets_no_allotment
+  period: 2026-01
+  input:
+    snap_eligible: false
+    initial_application_month: false
+    snap_regular_month_allotment: 298
+  output:
+    snap_allotment: 0
