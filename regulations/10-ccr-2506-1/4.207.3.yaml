@@ -12,7 +12,7 @@ rules:
     source: 10 CCR 2506-1 section 4.207.3(D)
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     reiterates:
-      target: us:policies/usda/snap/fy-2026-cola#snap_maximum_allotment
+      target: us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment
       authority: federal
       relationship: restates
     verification:
