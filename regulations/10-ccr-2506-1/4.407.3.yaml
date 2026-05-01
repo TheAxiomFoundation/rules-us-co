@@ -2,11 +2,11 @@ format: rulespec/v1
 module:
   summary: |-
     Colorado's SNAP rule manual gives households an excess shelter deduction
-    for allowable monthly shelter costs above 50 percent of income after other
-    deductions. For households without a member aged 60 or older or with a
-    disability, the shelter deduction cap is 744 dollars effective October 1,
-    2025. Households with an aged or disabled member receive the uncapped
-    excess shelter deduction. Households in which all individuals are
+    for allowable monthly shelter costs above 50 percent of SNAP net income
+    before the shelter deduction. For households without a member aged 60 or
+    older or with a disability, the shelter deduction cap is 744 dollars
+    effective October 1, 2025. Households with an aged or disabled member
+    receive the uncapped excess shelter deduction. Households in which all individuals are
     experiencing homelessness and are not receiving free shelter throughout the
     month may use a homeless shelter deduction estimate of 198.99 dollars
     effective October 1, 2025 unless higher shelter costs are verified.
@@ -60,7 +60,7 @@ rules:
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
-        formula: adjusted_income_before_shelter / 2
+        formula: snap_net_income_pre_shelter / 2
   - name: excess_shelter_unclamped
     kind: derived
     entity: Household

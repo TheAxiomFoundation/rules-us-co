@@ -9,7 +9,7 @@ module:
     older or with a disability must have gross income at or below 130 percent
     and net income at or below 100 percent of the federal poverty level.
     Standard eligibility households with a member aged 60 or older or with a
-    disability must meet the 100 percent net income standard. An aged or
+    disability must meet the 100 percent SNAP net income standard. An aged or
     disabled person unable to purchase and prepare meals may be a separate
     household when co-resident income does not exceed 165 percent of the
     poverty level.
@@ -43,7 +43,7 @@ rules:
         formula: |-
           snap_basic_categorical_eligible
           or snap_expanded_categorical_eligible
-          or net_income <= net_income_limit
+          or snap_net_income <= net_income_limit
   - name: snap_income_eligible
     kind: derived
     entity: Household

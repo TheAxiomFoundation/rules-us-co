@@ -3,7 +3,7 @@
   input:
     household_size: 1
     snap_maximum_allotment: 298
-    net_income: 0
+    snap_net_income: 0
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false
@@ -18,7 +18,7 @@
   input:
     household_size: 9
     snap_maximum_allotment: 2007
-    net_income: 0
+    snap_net_income: 0
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false
@@ -30,7 +30,7 @@
   input:
     household_size: 1
     snap_maximum_allotment: 298
-    net_income: 100
+    snap_net_income: 100
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false
@@ -44,7 +44,7 @@
   input:
     household_size: 1
     snap_maximum_allotment: 298
-    net_income: 990
+    snap_net_income: 990
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false
@@ -58,7 +58,7 @@
   input:
     household_size: 1
     snap_maximum_allotment: 298
-    net_income: 0
+    snap_net_income: 0
     snap_eligible: false
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
@@ -70,7 +70,7 @@
   input:
     household_size: 3
     snap_maximum_allotment: 785
-    net_income: 10000
+    snap_net_income: 10000
     snap_eligible: true
     initial_application_month: false
     snap_basic_categorical_eligible: false

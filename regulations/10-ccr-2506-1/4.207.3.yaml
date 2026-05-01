@@ -2,10 +2,10 @@ format: rulespec/v1
 module:
   summary: |-
     Colorado's SNAP rule manual determines monthly benefit allotments by
-    multiplying net monthly income by 30 percent, subtracting that result from
-    the federally determined maximum benefit for household size, and rounding
-    the result down to the nearest dollar. The minimum monthly allotment for
-    household sizes 1 through 2 is 24.
+    multiplying SNAP net monthly income by 30 percent, subtracting that result
+    from the federally determined maximum benefit for household size, and
+    rounding the result down to the nearest dollar. The minimum monthly
+    allotment for household sizes 1 through 2 is 24.
 rules:
   - name: co_snap_maximum_allotment_reiterates_usda_fy_2026
     kind: reiteration
@@ -58,7 +58,7 @@ rules:
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
-        formula: max(0, net_income)
+        formula: max(0, snap_net_income)
   - name: household_food_contribution
     kind: derived
     entity: Household

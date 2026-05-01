@@ -1,27 +1,65 @@
-- name: ongoing_month_uses_usda_maximum_allotment_in_colorado_formula
+- name: ongoing_month_derives_net_income_before_colorado_allotment
   period: 2026-01
   input:
     household_size: 1
-    net_income: 100
+    snap_monthly_household_income: 1000
+    earned_income_total: 1000
+    work_supplementation_earned_income: 0
+    dependent_care_expense_necessary_for_work_or_training: false
+    dependent_care_expenses_paid: 0
+    dependent_care_reimbursed_or_paid_by_other_program: 0
+    child_support_payment_verified: false
+    child_support_payment_history_months: 0
+    average_monthly_child_support_paid: 0
+    estimated_monthly_child_support_paid: 0
+    elderly_or_disabled_household: false
+    total_medical_expenses: 0
+    all_household_members_experiencing_homelessness: false
+    homeless_household_free_shelter_all_month: false
+    homeless_household_has_shelter_costs: false
+    verified_higher_homeless_shelter_costs: false
+    shelter_costs: 500
     snap_eligible: true
     initial_application_month: false
     migrant_or_seasonal_farmworker_household_in_job_stream: false
     break_in_participation_days: 0
   output:
+    standard_deduction: 209
+    earned_income_deduction: 200
+    snap_net_income_pre_shelter: 591
+    excess_shelter_deduction: 204.5
+    snap_net_income: 386.5
     snap_maximum_allotment: 298
-    snap_allotment_before_minimum: 268
-    snap_regular_month_allotment: 268
-    snap_allotment: 268
+    snap_allotment_before_minimum: 182
+    snap_regular_month_allotment: 182
+    snap_allotment: 182
 - name: additional_household_member_uses_usda_additional_member_amount
   period: 2026-01
   input:
     household_size: 9
-    net_income: 0
+    snap_monthly_household_income: 0
+    earned_income_total: 0
+    work_supplementation_earned_income: 0
+    dependent_care_expense_necessary_for_work_or_training: false
+    dependent_care_expenses_paid: 0
+    dependent_care_reimbursed_or_paid_by_other_program: 0
+    child_support_payment_verified: false
+    child_support_payment_history_months: 0
+    average_monthly_child_support_paid: 0
+    estimated_monthly_child_support_paid: 0
+    elderly_or_disabled_household: false
+    total_medical_expenses: 0
+    all_household_members_experiencing_homelessness: false
+    homeless_household_free_shelter_all_month: false
+    homeless_household_has_shelter_costs: false
+    verified_higher_homeless_shelter_costs: false
+    shelter_costs: 0
     snap_eligible: true
     initial_application_month: false
     migrant_or_seasonal_farmworker_household_in_job_stream: false
     break_in_participation_days: 0
   output:
+    snap_net_income: 0
     snap_maximum_allotment: 2007
     snap_regular_month_allotment: 2007
     snap_allotment: 2007
@@ -29,7 +67,23 @@
   period: 2026-01
   input:
     household_size: 1
-    net_income: 0
+    snap_monthly_household_income: 0
+    earned_income_total: 0
+    work_supplementation_earned_income: 0
+    dependent_care_expense_necessary_for_work_or_training: false
+    dependent_care_expenses_paid: 0
+    dependent_care_reimbursed_or_paid_by_other_program: 0
+    child_support_payment_verified: false
+    child_support_payment_history_months: 0
+    average_monthly_child_support_paid: 0
+    estimated_monthly_child_support_paid: 0
+    elderly_or_disabled_household: false
+    total_medical_expenses: 0
+    all_household_members_experiencing_homelessness: false
+    homeless_household_free_shelter_all_month: false
+    homeless_household_has_shelter_costs: false
+    verified_higher_homeless_shelter_costs: false
+    shelter_costs: 0
     snap_eligible: true
     initial_application_month: true
     application_date: '2026-01-16'
@@ -37,6 +91,7 @@
     migrant_or_seasonal_farmworker_household_in_job_stream: false
     break_in_participation_days: 0
   output:
+    snap_net_income: 0
     snap_maximum_allotment: 298
     snap_allotment_before_minimum: 298
     snap_initial_month_prorated_allotment: 153

@@ -7,7 +7,7 @@
     verified_higher_homeless_shelter_costs: false
     elderly_or_disabled_household: false
     shelter_costs: 1000
-    adjusted_income_before_shelter: 0
+    snap_net_income_pre_shelter: 0
   output:
     snap_allowable_shelter_costs: 1000
     half_adjusted_income: 0
@@ -22,7 +22,7 @@
     verified_higher_homeless_shelter_costs: false
     elderly_or_disabled_household: true
     shelter_costs: 1000
-    adjusted_income_before_shelter: 0
+    snap_net_income_pre_shelter: 0
   output:
     excess_shelter_unclamped: 1000
     excess_shelter_deduction: 1000
@@ -35,7 +35,7 @@
     verified_higher_homeless_shelter_costs: false
     elderly_or_disabled_household: false
     shelter_costs: 0
-    adjusted_income_before_shelter: 0
+    snap_net_income_pre_shelter: 0
   output:
     snap_allowable_shelter_costs: 198.99
     excess_shelter_deduction: 198.99
@@ -48,7 +48,7 @@
     verified_higher_homeless_shelter_costs: true
     elderly_or_disabled_household: false
     shelter_costs: 300
-    adjusted_income_before_shelter: 0
+    snap_net_income_pre_shelter: 0
   output:
     snap_allowable_shelter_costs: 300
     excess_shelter_deduction: 300
@@ -61,7 +61,7 @@
     verified_higher_homeless_shelter_costs: false
     elderly_or_disabled_household: false
     shelter_costs: 0
-    adjusted_income_before_shelter: 0
+    snap_net_income_pre_shelter: 0
   output:
     snap_allowable_shelter_costs: 0
     excess_shelter_deduction: 0
