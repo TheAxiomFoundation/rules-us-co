@@ -157,7 +157,6 @@
   output:
     snap_countable_earned_income: 1000
     snap_countable_unearned_income: 0
-    earned_income_total: 1000
     snap_monthly_household_income: 1000
     gross_income: 1000
     snap_income_eligible: holds
@@ -165,8 +164,8 @@
     snap_eligible: holds
     snap_heating_cooling_utility_allowance_eligible: holds
     snap_standard_utility_allowance: 594
-    standard_deduction: 209
-    earned_income_deduction: 200
+    snap_standard_deduction: 209
+    snap_earned_income_deduction: 200
     snap_net_income_pre_shelter: 591
     shelter_costs: 1094
     excess_shelter_deduction: 744

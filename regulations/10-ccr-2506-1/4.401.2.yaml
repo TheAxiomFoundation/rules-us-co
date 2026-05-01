@@ -1,21 +1,24 @@
 format: rulespec/v1
 module:
   summary: |-
-    Colorado's SNAP rule manual sets FY 2026 monthly net income limits
-    effective October 1, 2025 at 100 percent of the federal poverty level.
-    For household sizes 1 through 8, the amounts are 1305, 1763, 2221, 2680,
-    3138, 3596, 4055, and 4513, plus 459 for each additional person.
+    Colorado's SNAP rule manual restates FY 2026 federal net income
+    eligibility standards at 100 percent of the federal poverty level. The
+    executable values are imported from the USDA SNAP FY 2026 income
+    eligibility standards file.
+imports:
+  - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
 rules:
-  - name: net_income_limit_table
-    kind: parameter
-    dtype: Money
-    unit: USD
-    indexed_by: household_size
+  - name: co_snap_net_income_limit_reiterates_usda_fy_2026
+    kind: reiteration
     source: 10 CCR 2506-1 section 4.401.2
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        values:
+    reiterates:
+      target: us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc
+      authority: federal
+      relationship: restates
+    verification:
+      values:
+        snap_net_income_limit_100_percent_fpl_48_states_dc_table:
           1: 1305
           2: 1763
           3: 2221
@@ -24,25 +27,4 @@ rules:
           6: 3596
           7: 4055
           8: 4513
-  - name: net_income_limit_additional_member
-    kind: parameter
-    dtype: Money
-    unit: USD
-    source: 10 CCR 2506-1 section 4.401.2
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: '459'
-  - name: net_income_limit
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.401.2
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: |-
-          net_income_limit_table[max(min(household_size, 8), 1)]
-          + (max(household_size - 8, 0) * net_income_limit_additional_member)
+        snap_net_income_limit_100_percent_fpl_48_states_dc_additional_member: 459

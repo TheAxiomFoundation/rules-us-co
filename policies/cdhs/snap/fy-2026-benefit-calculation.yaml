@@ -3,6 +3,7 @@ module:
   summary: |-
     Colorado SNAP FY 2026 benefit calculation composition. This module imports
     the federal USDA FY 2026 maximum allotment and deduction parameters and
+    income eligibility standards,
     the federal 7 USC 2017(a) regular allotment formula, and Colorado manual
     sections for countable income, income limits, resources, deductions,
     shelter, eligibility, and allotments so final allotment tests exercise the
@@ -14,6 +15,8 @@ module:
 imports:
   - us:policies/usda/snap/fy-2026-cola/maximum-allotments
   - us:policies/usda/snap/fy-2026-cola/deductions
+  - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
+  - us:statutes/7/2014/e/2
   - us:statutes/7/2014/e/6/A
   - us:statutes/7/2017/a
   - us-co:regulations/10-ccr-2506-1/4.403.2
@@ -64,17 +67,6 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: snap_monthly_self_employment_income + snap_capital_goods_sale_self_employment_income
-  - name: earned_income_total
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: snap_countable_earned_income
   - name: snap_monthly_household_income
     kind: derived
     entity: Household

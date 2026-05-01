@@ -15,6 +15,7 @@ module:
     poverty level.
 imports:
   - us:statutes/7/2012/j
+  - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
 rules:
   - name: passes_gross_income_test
     kind: derived
@@ -27,11 +28,11 @@ rules:
       - effective_from: '2025-10-01'
         formula: |-
           snap_basic_categorical_eligible
-          or (snap_expanded_categorical_eligible and gross_income < snap_gross_income_limit_200_percent_fpl)
+          or (snap_expanded_categorical_eligible and gross_income < co_snap_expanded_categorical_gross_income_limit)
           or (
               (not snap_expanded_categorical_eligible)
               and (not snap_basic_categorical_eligible)
-              and (snap_household_has_elderly_or_disabled_member or gross_income <= gross_income_limit)
+              and (snap_household_has_elderly_or_disabled_member or gross_income <= snap_gross_income_limit_130_percent_fpl_48_states_dc)
           )
   - name: passes_net_income_test
     kind: derived
@@ -45,7 +46,7 @@ rules:
         formula: |-
           snap_basic_categorical_eligible
           or snap_expanded_categorical_eligible
-          or snap_net_income <= net_income_limit
+          or snap_net_income <= snap_net_income_limit_100_percent_fpl_48_states_dc
   - name: snap_income_eligible
     kind: derived
     entity: Household
@@ -67,4 +68,4 @@ rules:
       - effective_from: '2025-10-01'
         formula: |-
           elderly_disabled_person_unable_to_purchase_and_prepare_meals
-          and co_resident_gross_income <= snap_gross_income_limit_165_percent_fpl
+          and co_resident_gross_income <= snap_gross_income_limit_165_percent_fpl_48_states_dc

@@ -3,11 +3,10 @@
   input:
     snap_basic_categorical_eligible: true
     snap_expanded_categorical_eligible: false
+    household_size: 1
     gross_income: 10000
     snap_net_income: 10000
-    gross_income_limit: 1696
-    net_income_limit: 1305
-    snap_gross_income_limit_200_percent_fpl: 2610
+    co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     passes_gross_income_test: holds
     passes_net_income_test: holds
@@ -17,11 +16,10 @@
   input:
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: true
+    household_size: 1
     gross_income: 2609
     snap_net_income: 10000
-    gross_income_limit: 1696
-    net_income_limit: 1305
-    snap_gross_income_limit_200_percent_fpl: 2610
+    co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     passes_gross_income_test: holds
     passes_net_income_test: holds
@@ -31,11 +29,10 @@
   input:
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: true
+    household_size: 1
     gross_income: 2610
     snap_net_income: 1000
-    gross_income_limit: 1696
-    net_income_limit: 1305
-    snap_gross_income_limit_200_percent_fpl: 2610
+    co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     passes_gross_income_test: not_holds
     passes_net_income_test: holds
@@ -45,11 +42,10 @@
   input:
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
+    household_size: 1
     gross_income: 1696
     snap_net_income: 1305
-    gross_income_limit: 1696
-    net_income_limit: 1305
-    snap_gross_income_limit_200_percent_fpl: 2610
+    co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     snap_household_has_elderly_or_disabled_member: not_holds
     passes_gross_income_test: holds
@@ -60,13 +56,12 @@
   input:
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
+    household_size: 1
     member_of_household:
       - snap_member_is_elderly_or_disabled: true
     gross_income: 10000
     snap_net_income: 1305
-    gross_income_limit: 1696
-    net_income_limit: 1305
-    snap_gross_income_limit_200_percent_fpl: 2610
+    co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     snap_household_has_elderly_or_disabled_member: holds
     passes_gross_income_test: holds
@@ -75,8 +70,8 @@
 - name: separate_household_allowed_when_co_resident_income_is_within_limit
   period: 2026-01
   input:
+    household_size: 1
     elderly_disabled_person_unable_to_purchase_and_prepare_meals: true
     co_resident_gross_income: 2152
-    snap_gross_income_limit_165_percent_fpl: 2152
   output:
     snap_elderly_disabled_separate_household_allowed: holds
