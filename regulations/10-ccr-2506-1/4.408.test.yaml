@@ -7,7 +7,7 @@
     sponsor_total_resources: 0
     snap_countable_resources_after_exemptions: 100000
   output:
-    snap_resource_limit: 3000
+    snap_asset_limit: 3000
     snap_countable_resources_for_resource_test: 100000
     passes_resource_test: holds
 - name: noncategorical_elderly_or_disabled_household_uses_higher_limit
@@ -21,7 +21,7 @@
     sponsor_total_resources: 0
     snap_countable_resources_after_exemptions: 4500
   output:
-    snap_resource_limit: 4500
+    snap_asset_limit: 4500
     passes_resource_test: holds
 - name: sponsor_resources_above_disregard_are_counted
   period: 2026-01

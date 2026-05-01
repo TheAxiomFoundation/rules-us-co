@@ -11,22 +11,20 @@ module:
     households with a member aged 60 or older or with a disability and 3000
     dollars for other households.
 imports:
-  - us:statutes/7/2012/j
+  - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
-  - name: snap_resource_limit
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
+  - name: co_snap_resource_limits_reiterate_usda_fy_2026
+    kind: reiteration
     source: 10 CCR 2506-1 section 4.408(E)
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2024-10-01'
-        formula: |-
-          if snap_household_has_elderly_or_disabled_member:
-              4500
-          else: 3000
+    reiterates:
+      target: us:policies/usda/snap/fy-2026-cola/deductions#snap_asset_limit
+      authority: federal
+      relationship: restates
+    verification:
+      values:
+        snap_asset_limit_elderly_or_disabled_member: 4500
+        snap_asset_limit_other_households: 3000
   - name: snap_sponsor_resources_counted
     kind: derived
     entity: Household
@@ -64,4 +62,4 @@ rules:
         formula: |-
           snap_expanded_categorical_eligible
           or snap_basic_categorical_eligible
-          or snap_countable_resources_for_resource_test <= snap_resource_limit
+          or snap_countable_resources_for_resource_test <= snap_asset_limit

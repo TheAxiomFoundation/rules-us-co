@@ -12,25 +12,30 @@ module:
     effective October 1, 2025 unless higher shelter costs are verified.
 imports:
   - us:statutes/7/2012/j
+  - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
-  - name: excess_shelter_deduction_cap
-    kind: parameter
-    dtype: Money
-    unit: USD
+  - name: co_snap_excess_shelter_cap_reiterates_usda_fy_2026
+    kind: reiteration
     source: 10 CCR 2506-1 section 4.407.3(B)
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: '744'
-  - name: snap_homeless_shelter_deduction_amount
-    kind: parameter
-    dtype: Money
-    unit: USD
+    reiterates:
+      target: us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc
+      authority: federal
+      relationship: restates
+    verification:
+      values:
+        snap_maximum_excess_shelter_deduction_48_states_dc: 744
+  - name: co_snap_homeless_shelter_deduction_reiterates_usda_fy_2026
+    kind: reiteration
     source: 10 CCR 2506-1 section 4.407.3(C)
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: '198.99'
+    reiterates:
+      target: us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction
+      authority: federal
+      relationship: restates
+    verification:
+      values:
+        snap_homeless_shelter_deduction: 198.99
   - name: snap_allowable_shelter_costs
     kind: derived
     entity: Household
@@ -49,7 +54,7 @@ rules:
                       shelter_costs
                   else:
                       if homeless_household_has_shelter_costs:
-                          snap_homeless_shelter_deduction_amount
+                          snap_homeless_shelter_deduction
                       else: 0
           else: shelter_costs
   - name: half_adjusted_income
@@ -87,4 +92,4 @@ rules:
         formula: |-
           if snap_household_has_elderly_or_disabled_member:
               excess_shelter_unclamped
-          else: min(excess_shelter_unclamped, excess_shelter_deduction_cap)
+          else: min(excess_shelter_unclamped, snap_maximum_excess_shelter_deduction_48_states_dc)

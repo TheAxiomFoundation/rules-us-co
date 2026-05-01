@@ -54,7 +54,6 @@
     transfer_reason_other_than_snap_qualification: false
     nonexempt_transferred_resources: 3400
     other_countable_resources: 0
-    snap_resource_limit: 3000
   output:
     snap_transferred_resource_excess_amount: 400
     snap_resource_transfer_disqualification_months: 3
@@ -71,7 +70,6 @@
     transfer_reason_other_than_snap_qualification: false
     nonexempt_transferred_resources: 8000
     other_countable_resources: 0
-    snap_resource_limit: 3000
   output:
     snap_transferred_resource_excess_amount: 5000
     snap_resource_transfer_disqualification_months: 12
