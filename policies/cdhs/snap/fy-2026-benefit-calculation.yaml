@@ -1,0 +1,12 @@
+format: rulespec/v1
+module:
+  summary: |-
+    Colorado SNAP FY 2026 benefit calculation composition. This module imports
+    the federal USDA FY 2026 maximum allotment parameters and Colorado manual
+    sections 4.207.2 and 4.207.3 so final allotment tests exercise the composed
+    programme rather than stubbing upstream values.
+imports:
+  - us:policies/usda/snap/fy-2026-cola/maximum-allotments
+  - us-co:regulations/10-ccr-2506-1/4.207.3
+  - us-co:regulations/10-ccr-2506-1/4.207.2
+rules: []

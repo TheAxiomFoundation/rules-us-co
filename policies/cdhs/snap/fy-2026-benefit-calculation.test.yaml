@@ -1,0 +1,43 @@
+- name: ongoing_month_uses_usda_maximum_allotment_in_colorado_formula
+  period: 2026-01
+  input:
+    household_size: 1
+    net_income: 100
+    snap_eligible: true
+    initial_application_month: false
+    migrant_or_seasonal_farmworker_household_in_job_stream: false
+    break_in_participation_days: 0
+  output:
+    snap_maximum_allotment: 298
+    snap_allotment_before_minimum: 268
+    snap_regular_month_allotment: 268
+    snap_allotment: 268
+- name: additional_household_member_uses_usda_additional_member_amount
+  period: 2026-01
+  input:
+    household_size: 9
+    net_income: 0
+    snap_eligible: true
+    initial_application_month: false
+    migrant_or_seasonal_farmworker_household_in_job_stream: false
+    break_in_participation_days: 0
+  output:
+    snap_maximum_allotment: 2007
+    snap_regular_month_allotment: 2007
+    snap_allotment: 2007
+- name: initial_month_proration_uses_composed_pre_minimum_allotment
+  period: 2026-01
+  input:
+    household_size: 1
+    net_income: 0
+    snap_eligible: true
+    initial_application_month: true
+    application_date: '2026-01-16'
+    public_institution_joint_ssi_snap_application_before_release: false
+    migrant_or_seasonal_farmworker_household_in_job_stream: false
+    break_in_participation_days: 0
+  output:
+    snap_maximum_allotment: 298
+    snap_allotment_before_minimum: 298
+    snap_initial_month_prorated_allotment: 153
+    snap_allotment: 153
