@@ -8,6 +8,9 @@ module:
     the application date. Migrant and seasonal farm worker households in the
     job stream receive the full month allotment when the break in
     participation does not exceed 30 days.
+imports:
+  - us:policies/usda/snap/fy-2026-cola/maximum-allotments
+  - us:statutes/7/2017/a
 rules:
   - name: snap_initial_month_proration_start_date
     kind: derived

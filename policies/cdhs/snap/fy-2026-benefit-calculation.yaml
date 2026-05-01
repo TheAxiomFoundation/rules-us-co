@@ -3,10 +3,11 @@ module:
   summary: |-
     Colorado SNAP FY 2026 benefit calculation composition. This module imports
     the federal USDA FY 2026 maximum allotment and deduction parameters and
-    Colorado manual sections for countable income, income limits, resources,
-    deductions, shelter, eligibility, and allotments so final allotment tests
-    exercise the composed programme rather than stubbing SNAP gross income, net income,
-    eligibility, or upstream maximum allotment values. For boarder cost
+    the federal 7 USC 2017(a) regular allotment formula, and Colorado manual
+    sections for countable income, income limits, resources, deductions,
+    shelter, eligibility, and allotments so final allotment tests exercise the
+    composed programme rather than stubbing SNAP gross income, net income,
+    eligibility, or upstream allotment values. For boarder cost
     calculations, the composed maximum allotment bridge uses the USDA
     household-size table for 1 through 8 boarders and the USDA additional
     member amount above 8 boarders.
@@ -14,6 +15,7 @@ imports:
   - us:policies/usda/snap/fy-2026-cola/maximum-allotments
   - us:policies/usda/snap/fy-2026-cola/deductions
   - us:statutes/7/2014/e/6/A
+  - us:statutes/7/2017/a
   - us-co:regulations/10-ccr-2506-1/4.403.2
   - us-co:regulations/10-ccr-2506-1/4.403.11
   - us-co:regulations/10-ccr-2506-1/4.403

@@ -6,7 +6,18 @@ module:
     from the federally determined maximum benefit for household size, and
     rounding the result down to the nearest dollar. The minimum monthly
     allotment for household sizes 1 through 2 is 24.
+imports:
+  - us:policies/usda/snap/fy-2026-cola/maximum-allotments
+  - us:statutes/7/2017/a
 rules:
+  - name: co_snap_regular_allotment_reiterates_7_usc_2017_a
+    kind: reiteration
+    source: 10 CCR 2506-1 section 4.207.3(A)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    reiterates:
+      target: us:statutes/7/2017/a#snap_regular_month_allotment
+      authority: federal
+      relationship: restates
   - name: co_snap_maximum_allotment_reiterates_usda_fy_2026
     kind: reiteration
     source: 10 CCR 2506-1 section 4.207.3(D)
@@ -27,76 +38,14 @@ rules:
           7: 1571
           8: 1789
         snap_maximum_allotment_additional_member: 218
-  - name: snap_minimum_monthly_allotment
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
+  - name: co_snap_minimum_allotment_reiterates_7_usc_2017_a
+    kind: reiteration
     source: 10 CCR 2506-1 section 4.207.3(D)
     source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: |-
-          if household_size <= 2: 24
-          else: 0
-  - name: snap_household_food_contribution_rate
-    kind: parameter
-    dtype: Rate
-    source: 10 CCR 2506-1 section 4.207.3(A)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: '0.30'
-  - name: net_income_for_benefit_formula
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.207.3(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: max(0, snap_net_income)
-  - name: household_food_contribution
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.207.3(A)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: net_income_for_benefit_formula * snap_household_food_contribution_rate
-  - name: snap_allotment_before_minimum
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.207.3(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: floor(max(0, snap_maximum_allotment - household_food_contribution))
-  - name: snap_regular_month_allotment
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.207.3
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
-    versions:
-      - effective_from: '2025-10-01'
-        formula: |-
-          if snap_eligible:
-              if snap_allotment_before_minimum < snap_minimum_monthly_allotment:
-                  snap_minimum_monthly_allotment
-              else: snap_allotment_before_minimum
-          else: 0
+    reiterates:
+      target: us:statutes/7/2017/a#snap_minimum_monthly_allotment
+      authority: federal
+      relationship: restates
   - name: snap_application_denied_for_zero_benefit
     kind: derived
     entity: Household
