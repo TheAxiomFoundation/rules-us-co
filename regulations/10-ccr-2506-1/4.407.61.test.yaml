@@ -9,7 +9,7 @@
   period: 2026-01
   input:
     member_of_household:
-      - snap_member_is_age_60_or_older_or_disabled: true
+      - snap_member_is_usda_elderly_or_disabled: true
     total_medical_expenses: 35
   output:
     medical_excess: 0
@@ -18,7 +18,7 @@
   period: 2026-01
   input:
     member_of_household:
-      - snap_member_is_age_60_or_older_or_disabled: true
+      - snap_member_is_usda_elderly_or_disabled: true
     total_medical_expenses: 120
   output:
     medical_excess: 85
@@ -27,7 +27,7 @@
   period: 2026-01
   input:
     member_of_household:
-      - snap_member_is_age_60_or_older_or_disabled: true
+      - snap_member_is_usda_elderly_or_disabled: true
     total_medical_expenses: 240
   output:
     medical_excess: 205

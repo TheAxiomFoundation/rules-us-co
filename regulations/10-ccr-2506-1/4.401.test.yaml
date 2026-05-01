@@ -61,7 +61,7 @@
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
     member_of_household:
-      - snap_member_is_age_60_or_older_or_disabled: true
+      - snap_member_is_usda_elderly_or_disabled: true
     gross_income: 10000
     snap_net_income: 1305
     gross_income_limit: 1696
