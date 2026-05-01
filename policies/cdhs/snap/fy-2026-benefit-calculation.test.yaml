@@ -1,9 +1,128 @@
-- name: ongoing_month_derives_net_income_before_colorado_allotment
+- name: ongoing_month_derives_income_eligibility_and_colorado_allotment
   period: 2026-01
-  input:
+  input: &base_snap_case
     household_size: 1
-    snap_monthly_household_income: 1000
-    earned_income_total: 1000
+    higher_education_state_work_study_or_work_requirement_fellowship_income: false
+    employee_wages_received: 1000
+    garnished_or_diverted_wages_for_household_expenses: 0
+    wages_held_at_employee_request_that_would_have_been_paid: 0
+    wages_previously_withheld_by_employer_general_practice_received: 0
+    reasonably_anticipated_wage_advances_received: 0
+    household_vista_or_title_i_domestic_volunteer_earned_income: 0
+    household_training_allowance_earned_income: 0
+    household_wioa_ojt_earned_income: 0
+    person_still_employed_when_sick_vacation_or_bonus_pay_received: false
+    sick_vacation_or_bonus_pay_received: 0
+    average_rental_property_management_hours_per_week: 0
+    rental_property_gross_income: 0
+    rental_property_business_costs: 0
+    household_llc_s_corporation_owner_earned_income: 0
+    number_of_boarders: 0
+    boarder_payments_for_room_meals_and_shelter_contributions: 0
+    actual_documented_boarder_room_and_meal_costs: 0
+    boarder_income_is_foster_care_payment: false
+    earned_income_excluding_boarder_net_income: 0
+    shelter_expenses_paid_directly_by_boarder_to_third_party: 0
+    self_employment_gross_income_for_period: 0
+    self_employment_capital_gains_for_period: 0
+    allowable_self_employment_business_costs_for_period: 0
+    self_employment_income_period_months: 1
+    anticipated_capital_gains_next_12_months: 0
+    anticipated_monthly_self_employment_income: 0
+    anticipated_monthly_allowable_self_employment_business_costs: 0
+    self_employment_income_calculated_on_anticipated_basis: false
+    capital_goods_services_or_property_sale_proceeds_connected_to_self_employment: 0
+    assistance_payments: 0
+    retirement_disability_payments: 0
+    direct_support_and_alimony_payments: 0
+    sponsored_noncitizen_household: false
+    sponsor_income_deemed_to_household: 0
+    vacation_sick_or_bonus_pay_after_terminated_employment: false
+    vacation_sick_or_bonus_pay_received_in_installments: false
+    vacation_sick_or_bonus_pay_received_as_lump_sum: false
+    vacation_sick_or_bonus_pay: 0
+    nonprofit_gifts_received_in_fiscal_quarter: 0
+    gifts_from_other_sources_can_be_anticipated: false
+    gifts_from_other_sources: 0
+    other_gain_or_benefit_payments: 0
+    trust_fund_withdrawals: 0
+    available_trust_dividends: 0
+    substantial_lottery_or_gambling_winnings_received: false
+    household_member_allocated_lottery_or_gambling_winnings: 0
+    snap_basic_categorical_eligible: false
+    snap_expanded_categorical_eligible: false
+    elderly_or_disabled_household: false
+    snap_work_requirement_eligible: true
+    snap_student_eligible: true
+    snap_residency_citizenship_eligible: true
+    liquid_resource_current_redemption_rate: 0
+    liquid_resource_encumbrances: 0
+    non_liquid_resource_market_value: 0
+    non_liquid_resource_condition_adjustment: 0
+    non_liquid_resource_verified_encumbrances: 0
+    real_property_actual_value_reported_by_county_assessor: true
+    real_property_county_assessor_actual_value: 0
+    real_property_current_assessed_valuation: 0
+    real_property_assessment_percentage_rate: 1
+    real_property_amount_owed: 0
+    other_household_resource_value: 0
+    household_vehicle_resource_value: 0
+    home_and_surrounding_property_owned_or_purchased: false
+    household_occupies_home: false
+    temporary_absence_for_allowed_reason_with_intent_to_return: false
+    household_intends_to_build_permanent_home_on_property: false
+    home_and_surrounding_property_value: 0
+    prorated_income_still_being_counted_as_income: false
+    prorated_income_resource_value: 0
+    household_goods_personal_effects_life_insurance_and_exempt_livestock_value: 0
+    federal_tax_preferred_retirement_account_value: 0
+    tax_deferred_education_account_value: 0
+    bona_fide_prepaid_funeral_agreement: false
+    prepaid_funeral_agreement_equity_value_excluding_burial_plot: 0
+    property_produces_annual_income_consistent_with_fair_market_value: false
+    income_producing_property_value: 0
+    installment_contract_produces_income_consistent_with_fair_market_value: false
+    installment_contract_and_secured_property_value: 0
+    farm_self_employment_terminated: false
+    months_since_farm_self_employment_terminated: 0
+    farm_self_employment_property_value: 0
+    resource_cash_value_not_accessible_to_household: false
+    resource_in_probate_or_sale_barred_by_lien: false
+    real_property_good_faith_sale_effort: false
+    non_liquid_resource_net_return_if_sold: 0
+    trust_arrangement_will_not_likely_cease_during_certification_period: false
+    household_member_cannot_revoke_trust_or_change_beneficiary: false
+    trustee_is_independent_or_court_limited: false
+    trust_investments_do_not_assist_household_controlled_business: false
+    trust_funds_are_for_allowed_investment_education_or_medical_purpose_or_from_nonhousehold_member: false
+    inaccessible_resource_value: 0
+    resource_is_negotiable_financial_instrument: true
+    estimated_return_after_sale_costs_and_ownership_share: 0
+    no_significant_return_resource_value: 0
+    battered_shelter_resident: false
+    resource_access_depends_on_abusive_former_household_member: false
+    inaccessible_former_household_resource_value: 0
+    resource_exclusion_applies_because_used_by_or_for_household_member_or_counted_disqualified_person: false
+    household_member_use_resource_value: 0
+    specific_purpose_or_federally_excluded_government_payment_resource_value: 0
+    federal_eitc_received_in_current_or_following_month: false
+    federal_eitc_resource_value: 0
+    eitc_recipient_was_participating_in_snap_when_eitc_received: false
+    snap_participation_continues_or_temporary_nonparticipation_is_administrative: false
+    months_since_eitc_received: 0
+    earned_income_tax_credit_resource_value: 0
+    federal_income_tax_refund_received_on_or_after_2010_01_01: false
+    months_since_federal_income_tax_refund_received: 0
+    federal_income_tax_refund_resource_value: 0
+    sponsor_total_resources: 0
+    resource_transfer_by_counted_person_within_review_period: false
+    resource_transferred_knowingly_to_qualify_for_snap: false
+    transferred_resources_would_not_affect_eligibility: false
+    transferred_resources_sold_or_traded_at_or_near_fair_market_value: false
+    resources_transferred_between_same_household_members: false
+    transfer_reason_other_than_snap_qualification: false
+    nonexempt_transferred_resources: 0
+    other_countable_resources: 0
     work_supplementation_earned_income: 0
     dependent_care_expense_necessary_for_work_or_training: false
     dependent_care_expenses_paid: 0
@@ -12,21 +131,32 @@
     child_support_payment_history_months: 0
     average_monthly_child_support_paid: 0
     estimated_monthly_child_support_paid: 0
-    elderly_or_disabled_household: false
     total_medical_expenses: 0
     all_household_members_experiencing_homelessness: false
     homeless_household_free_shelter_all_month: false
     homeless_household_has_shelter_costs: false
     verified_higher_homeless_shelter_costs: false
-    shelter_costs: 500
-    snap_eligible: true
+    household_shelter_costs_incurred: 500
+    snap_utility_allowance_type: NONE
     initial_application_month: false
+    application_date: '2026-01-01'
+    public_institution_joint_ssi_snap_application_before_release: false
+    public_institution_release_date: '2026-01-01'
     migrant_or_seasonal_farmworker_household_in_job_stream: false
     break_in_participation_days: 0
   output:
+    snap_countable_earned_income: 1000
+    snap_countable_unearned_income: 0
+    earned_income_total: 1000
+    snap_monthly_household_income: 1000
+    gross_income: 1000
+    snap_income_eligible: holds
+    passes_resource_test: holds
+    snap_eligible: holds
     standard_deduction: 209
     earned_income_deduction: 200
     snap_net_income_pre_shelter: 591
+    shelter_costs: 500
     excess_shelter_deduction: 204.5
     snap_net_income: 386.5
     snap_maximum_allotment: 298
@@ -36,29 +166,15 @@
 - name: additional_household_member_uses_usda_additional_member_amount
   period: 2026-01
   input:
+    <<: *base_snap_case
     household_size: 9
-    snap_monthly_household_income: 0
-    earned_income_total: 0
-    work_supplementation_earned_income: 0
-    dependent_care_expense_necessary_for_work_or_training: false
-    dependent_care_expenses_paid: 0
-    dependent_care_reimbursed_or_paid_by_other_program: 0
-    child_support_payment_verified: false
-    child_support_payment_history_months: 0
-    average_monthly_child_support_paid: 0
-    estimated_monthly_child_support_paid: 0
-    elderly_or_disabled_household: false
-    total_medical_expenses: 0
-    all_household_members_experiencing_homelessness: false
-    homeless_household_free_shelter_all_month: false
-    homeless_household_has_shelter_costs: false
-    verified_higher_homeless_shelter_costs: false
-    shelter_costs: 0
-    snap_eligible: true
-    initial_application_month: false
-    migrant_or_seasonal_farmworker_household_in_job_stream: false
-    break_in_participation_days: 0
+    employee_wages_received: 0
+    household_shelter_costs_incurred: 0
   output:
+    snap_countable_earned_income: 0
+    snap_monthly_household_income: 0
+    snap_income_eligible: holds
+    snap_eligible: holds
     snap_net_income: 0
     snap_maximum_allotment: 2007
     snap_regular_month_allotment: 2007
@@ -66,33 +182,30 @@
 - name: initial_month_proration_uses_composed_pre_minimum_allotment
   period: 2026-01
   input:
-    household_size: 1
-    snap_monthly_household_income: 0
-    earned_income_total: 0
-    work_supplementation_earned_income: 0
-    dependent_care_expense_necessary_for_work_or_training: false
-    dependent_care_expenses_paid: 0
-    dependent_care_reimbursed_or_paid_by_other_program: 0
-    child_support_payment_verified: false
-    child_support_payment_history_months: 0
-    average_monthly_child_support_paid: 0
-    estimated_monthly_child_support_paid: 0
-    elderly_or_disabled_household: false
-    total_medical_expenses: 0
-    all_household_members_experiencing_homelessness: false
-    homeless_household_free_shelter_all_month: false
-    homeless_household_has_shelter_costs: false
-    verified_higher_homeless_shelter_costs: false
-    shelter_costs: 0
-    snap_eligible: true
+    <<: *base_snap_case
+    employee_wages_received: 0
+    household_shelter_costs_incurred: 0
     initial_application_month: true
     application_date: '2026-01-16'
-    public_institution_joint_ssi_snap_application_before_release: false
-    migrant_or_seasonal_farmworker_household_in_job_stream: false
-    break_in_participation_days: 0
   output:
+    snap_countable_earned_income: 0
+    snap_income_eligible: holds
+    snap_eligible: holds
     snap_net_income: 0
     snap_maximum_allotment: 298
     snap_allotment_before_minimum: 298
     snap_initial_month_prorated_allotment: 153
     snap_allotment: 153
+- name: resource_ineligible_household_gets_zero_allotment
+  period: 2026-01
+  input:
+    <<: *base_snap_case
+    employee_wages_received: 0
+    household_shelter_costs_incurred: 0
+    liquid_resource_current_redemption_rate: 3501
+  output:
+    snap_income_eligible: holds
+    passes_resource_test: not_holds
+    snap_eligible: not_holds
+    snap_regular_month_allotment: 0
+    snap_allotment: 0
