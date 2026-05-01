@@ -10,6 +10,8 @@ module:
     Effective October 1, 2024, the resource limit is 4500 dollars for
     households with a member aged 60 or older or with a disability and 3000
     dollars for other households.
+imports:
+  - us-co:regulations/10-ccr-2506-1/4.401
 rules:
   - name: snap_resource_limit
     kind: derived

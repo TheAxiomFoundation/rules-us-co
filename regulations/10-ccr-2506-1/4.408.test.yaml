@@ -3,7 +3,6 @@
   input:
     snap_expanded_categorical_eligible: true
     snap_basic_categorical_eligible: false
-    elderly_or_disabled_household: false
     sponsored_noncitizen_household: false
     sponsor_total_resources: 0
     snap_countable_resources_after_exemptions: 100000
@@ -16,7 +15,8 @@
   input:
     snap_expanded_categorical_eligible: false
     snap_basic_categorical_eligible: false
-    elderly_or_disabled_household: true
+    member_of_household:
+      - snap_member_is_age_60_or_older_or_disabled: true
     sponsored_noncitizen_household: false
     sponsor_total_resources: 0
     snap_countable_resources_after_exemptions: 4500
@@ -28,7 +28,6 @@
   input:
     snap_expanded_categorical_eligible: false
     snap_basic_categorical_eligible: false
-    elderly_or_disabled_household: false
     sponsored_noncitizen_household: true
     sponsor_total_resources: 2500
     snap_countable_resources_after_exemptions: 2600

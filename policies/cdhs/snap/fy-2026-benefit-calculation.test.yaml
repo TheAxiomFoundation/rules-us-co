@@ -51,7 +51,6 @@
     household_member_allocated_lottery_or_gambling_winnings: 0
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
-    elderly_or_disabled_household: false
     snap_work_requirement_eligible: true
     snap_student_eligible: true
     snap_residency_citizenship_eligible: true

@@ -5,7 +5,6 @@
     homeless_household_free_shelter_all_month: false
     homeless_household_has_shelter_costs: false
     verified_higher_homeless_shelter_costs: false
-    elderly_or_disabled_household: false
     shelter_costs: 1000
     snap_net_income_pre_shelter: 0
   output:
@@ -20,7 +19,8 @@
     homeless_household_free_shelter_all_month: false
     homeless_household_has_shelter_costs: false
     verified_higher_homeless_shelter_costs: false
-    elderly_or_disabled_household: true
+    member_of_household:
+      - snap_member_is_age_60_or_older_or_disabled: true
     shelter_costs: 1000
     snap_net_income_pre_shelter: 0
   output:
@@ -33,7 +33,6 @@
     homeless_household_free_shelter_all_month: false
     homeless_household_has_shelter_costs: true
     verified_higher_homeless_shelter_costs: false
-    elderly_or_disabled_household: false
     shelter_costs: 0
     snap_net_income_pre_shelter: 0
   output:
@@ -46,7 +45,6 @@
     homeless_household_free_shelter_all_month: false
     homeless_household_has_shelter_costs: true
     verified_higher_homeless_shelter_costs: true
-    elderly_or_disabled_household: false
     shelter_costs: 300
     snap_net_income_pre_shelter: 0
   output:
@@ -59,7 +57,6 @@
     homeless_household_free_shelter_all_month: true
     homeless_household_has_shelter_costs: true
     verified_higher_homeless_shelter_costs: false
-    elderly_or_disabled_household: false
     shelter_costs: 0
     snap_net_income_pre_shelter: 0
   output:

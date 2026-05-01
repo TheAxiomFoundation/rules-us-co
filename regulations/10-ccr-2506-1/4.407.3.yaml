@@ -10,6 +10,8 @@ module:
     experiencing homelessness and are not receiving free shelter throughout the
     month may use a homeless shelter deduction estimate of 198.99 dollars
     effective October 1, 2025 unless higher shelter costs are verified.
+imports:
+  - us-co:regulations/10-ccr-2506-1/4.401
 rules:
   - name: excess_shelter_deduction_cap
     kind: parameter

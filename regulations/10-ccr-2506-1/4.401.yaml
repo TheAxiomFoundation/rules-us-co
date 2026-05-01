@@ -13,7 +13,20 @@ module:
     disabled person unable to purchase and prepare meals may be a separate
     household when co-resident income does not exceed 165 percent of the
     poverty level.
+relations:
+  - name: member_of_household
+    arity: 2
 rules:
+  - name: elderly_or_disabled_household
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: 10 CCR 2506-1 section 4.401(A)
+    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
+    versions:
+      - effective_from: '2025-10-01'
+        formula: count_where(member_of_household, snap_member_is_age_60_or_older_or_disabled) > 0
   - name: passes_gross_income_test
     kind: derived
     entity: Household

@@ -1,7 +1,6 @@
 - name: no_medical_deduction_without_elderly_or_disabled_member
   period: 2026-01
   input:
-    elderly_or_disabled_household: false
     total_medical_expenses: 120
   output:
     medical_excess: 85
@@ -9,7 +8,8 @@
 - name: no_medical_deduction_at_threshold
   period: 2026-01
   input:
-    elderly_or_disabled_household: true
+    member_of_household:
+      - snap_member_is_age_60_or_older_or_disabled: true
     total_medical_expenses: 35
   output:
     medical_excess: 0
@@ -17,7 +17,8 @@
 - name: smed_applies_when_expenses_are_above_threshold
   period: 2026-01
   input:
-    elderly_or_disabled_household: true
+    member_of_household:
+      - snap_member_is_age_60_or_older_or_disabled: true
     total_medical_expenses: 120
   output:
     medical_excess: 85
@@ -25,7 +26,8 @@
 - name: actual_excess_applies_when_excess_exceeds_smed
   period: 2026-01
   input:
-    elderly_or_disabled_household: true
+    member_of_household:
+      - snap_member_is_age_60_or_older_or_disabled: true
     total_medical_expenses: 240
   output:
     medical_excess: 205

@@ -30,6 +30,8 @@ application-date facts for initial-month proration.
 
 For eCPS parity, `--project-policyengine-utility-allowance` maps PE's utility
 allowance type and aggregate deduction values into the closest Colorado input
-facts. The live RuleSpec computation still derives utility, medical, child
-support, dependent care, shelter, eligibility, and allotment values from the
-encoded rules.
+facts. The comparison projects PE's elderly-or-disabled SNAP status onto a
+related member fact, and the RuleSpec derives the household-level status through
+`member_of_household`. The live RuleSpec computation still derives utility,
+medical, child support, dependent care, shelter, eligibility, and allotment
+values from the encoded rules.

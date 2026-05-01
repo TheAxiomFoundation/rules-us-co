@@ -2,12 +2,12 @@
 """Compare Colorado SNAP RuleSpec output against PolicyEngine enhanced CPS.
 
 The script projects PolicyEngine eCPS SPM-unit records into the current
-Colorado SNAP composition input surface, runs the Axiom Rules engine once over
-those projected records, and compares regular monthly SNAP allotments against
-PolicyEngine's normal allotment. It uses these targets because the enhanced CPS
-records do not include application dates for initial-month proration, and
-PolicyEngine's top-level ``snap`` microsimulation value includes take-up
-adjustments.
+Colorado SNAP composition input surface, including related member facts, runs
+the Axiom Rules engine once over those projected records, and compares regular
+monthly SNAP allotments against PolicyEngine's normal allotment. It uses these
+targets because the enhanced CPS records do not include application dates for
+initial-month proration, and PolicyEngine's top-level ``snap`` microsimulation
+value includes take-up adjustments.
 """
 
 from __future__ import annotations
@@ -65,6 +65,7 @@ class ProjectedCase:
     spm_unit_id: int
     household_id: int
     inputs: dict[str, Any]
+    member_inputs: list[dict[str, Any]]
     pe_outputs: dict[str, Any]
 
 
@@ -342,9 +343,6 @@ def load_policyengine_cases(
                 "other_gain_or_benefit_payments": money(
                     values["snap_unearned_income"][idx]
                 ),
-                "elderly_or_disabled_household": bool(
-                    values["has_usda_elderly_disabled"][idx]
-                ),
                 "household_shelter_costs_incurred": money(values["housing_cost"][idx]),
                 "liquid_resource_current_redemption_rate": money(
                     values["snap_assets"][idx]
@@ -382,6 +380,13 @@ def load_policyengine_cases(
                 spm_unit_id=spm_id,
                 household_id=int(household_ids[idx]),
                 inputs=inputs,
+                member_inputs=[
+                    {
+                        "snap_member_is_age_60_or_older_or_disabled": bool(
+                            values["has_usda_elderly_disabled"][idx]
+                        )
+                    }
+                ],
                 pe_outputs={name: native(values[name][idx]) for name in values},
             )
         )
@@ -490,6 +495,7 @@ def run_axiom_cases(
         "name": period.label,
     }
     inputs = []
+    relations = []
     queries = []
     for case in cases:
         entity_id = f"spm-{case.spm_unit_id}"
@@ -503,6 +509,25 @@ def run_axiom_cases(
                     "value": scalar_value(value),
                 }
             )
+        for member_index, member_inputs in enumerate(case.member_inputs, 1):
+            member_entity_id = f"{entity_id}-member-{member_index}"
+            relations.append(
+                {
+                    "name": "member_of_household",
+                    "tuple": [member_entity_id, entity_id],
+                    "interval": interval,
+                }
+            )
+            for name, value in member_inputs.items():
+                inputs.append(
+                    {
+                        "name": name,
+                        "entity": "Member",
+                        "entity_id": member_entity_id,
+                        "interval": interval,
+                        "value": scalar_value(value),
+                    }
+                )
         queries.append(
             {
                 "entity_id": entity_id,
@@ -513,7 +538,7 @@ def run_axiom_cases(
 
     request = {
         "mode": "fast",
-        "dataset": {"inputs": inputs, "relations": []},
+        "dataset": {"inputs": inputs, "relations": relations},
         "queries": queries,
     }
     result = subprocess.run(

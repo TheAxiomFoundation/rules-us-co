@@ -6,6 +6,8 @@ module:
     verified medical expenses are greater than 35 dollars and less than or
     equal to the SMED. A household may claim actual expenses when verified
     expenses after deducting the first 35 dollars exceed the SMED.
+imports:
+  - us-co:regulations/10-ccr-2506-1/4.401
 rules:
   - name: snap_medical_deduction_threshold
     kind: parameter
