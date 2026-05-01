@@ -382,7 +382,7 @@ def load_policyengine_cases(
                 inputs=inputs,
                 member_inputs=[
                     {
-                        "snap_member_is_usda_elderly_or_disabled": bool(
+                        "snap_member_is_elderly_or_disabled": bool(
                             values["has_usda_elderly_disabled"][idx]
                         )
                     }

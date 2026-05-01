@@ -11,7 +11,7 @@ module:
     month may use a homeless shelter deduction estimate of 198.99 dollars
     effective October 1, 2025 unless higher shelter costs are verified.
 imports:
-  - us-co:regulations/10-ccr-2506-1/4.401
+  - us:statutes/7/2012/j
 rules:
   - name: excess_shelter_deduction_cap
     kind: parameter
@@ -85,6 +85,6 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if elderly_or_disabled_household:
+          if snap_household_has_elderly_or_disabled_member:
               excess_shelter_unclamped
           else: min(excess_shelter_unclamped, excess_shelter_deduction_cap)

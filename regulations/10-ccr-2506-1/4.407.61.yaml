@@ -7,7 +7,7 @@ module:
     equal to the SMED. A household may claim actual expenses when verified
     expenses after deducting the first 35 dollars exceed the SMED.
 imports:
-  - us-co:regulations/10-ccr-2506-1/4.401
+  - us:statutes/7/2012/j
 rules:
   - name: snap_medical_deduction_threshold
     kind: parameter
@@ -49,7 +49,7 @@ rules:
     versions:
       - effective_from: '2016-10-01'
         formula: |-
-          if elderly_or_disabled_household:
+          if snap_household_has_elderly_or_disabled_member:
               if medical_excess > snap_state_sme_flat_amount:
                   medical_excess
               else:

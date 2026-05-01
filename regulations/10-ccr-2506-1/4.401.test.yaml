@@ -51,7 +51,7 @@
     net_income_limit: 1305
     snap_gross_income_limit_200_percent_fpl: 2610
   output:
-    elderly_or_disabled_household: not_holds
+    snap_household_has_elderly_or_disabled_member: not_holds
     passes_gross_income_test: holds
     passes_net_income_test: holds
     snap_income_eligible: holds
@@ -61,14 +61,14 @@
     snap_basic_categorical_eligible: false
     snap_expanded_categorical_eligible: false
     member_of_household:
-      - snap_member_is_usda_elderly_or_disabled: true
+      - snap_member_is_elderly_or_disabled: true
     gross_income: 10000
     snap_net_income: 1305
     gross_income_limit: 1696
     net_income_limit: 1305
     snap_gross_income_limit_200_percent_fpl: 2610
   output:
-    elderly_or_disabled_household: holds
+    snap_household_has_elderly_or_disabled_member: holds
     passes_gross_income_test: holds
     passes_net_income_test: holds
     snap_income_eligible: holds

@@ -11,7 +11,7 @@ module:
     households with a member aged 60 or older or with a disability and 3000
     dollars for other households.
 imports:
-  - us-co:regulations/10-ccr-2506-1/4.401
+  - us:statutes/7/2012/j
 rules:
   - name: snap_resource_limit
     kind: derived
@@ -24,7 +24,7 @@ rules:
     versions:
       - effective_from: '2024-10-01'
         formula: |-
-          if elderly_or_disabled_household:
+          if snap_household_has_elderly_or_disabled_member:
               4500
           else: 3000
   - name: snap_sponsor_resources_counted
