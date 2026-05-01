@@ -44,6 +44,5 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if household_size > 8:
-              net_income_limit_table[8] + ((household_size - 8) * net_income_limit_additional_member)
-          else: net_income_limit_table[household_size]
+          net_income_limit_table[max(min(household_size, 8), 1)]
+          + (max(household_size - 8, 0) * net_income_limit_additional_member)

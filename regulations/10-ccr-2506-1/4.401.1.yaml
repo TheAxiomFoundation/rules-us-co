@@ -48,9 +48,8 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if household_size > 8:
-              gross_income_limit_table[8] + ((household_size - 8) * gross_income_limit_additional_member)
-          else: gross_income_limit_table[household_size]
+          gross_income_limit_table[max(min(household_size, 8), 1)]
+          + (max(household_size - 8, 0) * gross_income_limit_additional_member)
   - name: snap_gross_income_limit_200_percent_fpl_table
     kind: parameter
     dtype: Money
@@ -89,9 +88,8 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if household_size > 8:
-              snap_gross_income_limit_200_percent_fpl_table[8] + ((household_size - 8) * snap_gross_income_limit_200_percent_fpl_additional_member)
-          else: snap_gross_income_limit_200_percent_fpl_table[household_size]
+          snap_gross_income_limit_200_percent_fpl_table[max(min(household_size, 8), 1)]
+          + (max(household_size - 8, 0) * snap_gross_income_limit_200_percent_fpl_additional_member)
   - name: snap_gross_income_limit_165_percent_fpl_table
     kind: parameter
     dtype: Money
@@ -130,6 +128,5 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: |-
-          if household_size > 8:
-              snap_gross_income_limit_165_percent_fpl_table[8] + ((household_size - 8) * snap_gross_income_limit_165_percent_fpl_additional_member)
-          else: snap_gross_income_limit_165_percent_fpl_table[household_size]
+          snap_gross_income_limit_165_percent_fpl_table[max(min(household_size, 8), 1)]
+          + (max(household_size - 8, 0) * snap_gross_income_limit_165_percent_fpl_additional_member)

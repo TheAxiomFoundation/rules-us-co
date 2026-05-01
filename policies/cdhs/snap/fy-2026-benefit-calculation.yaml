@@ -47,9 +47,9 @@ rules:
         formula: |-
           if number_of_boarders <= 0:
               0
-          elif number_of_boarders > 8:
-              snap_maximum_allotment_table[8] + ((number_of_boarders - 8) * snap_maximum_allotment_additional_member)
-          else: snap_maximum_allotment_table[number_of_boarders]
+          else:
+              snap_maximum_allotment_table[max(min(number_of_boarders, 8), 1)]
+              + (max(number_of_boarders - 8, 0) * snap_maximum_allotment_additional_member)
   - name: other_countable_self_employment_earned_income
     kind: derived
     entity: Household
