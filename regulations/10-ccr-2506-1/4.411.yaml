@@ -14,6 +14,8 @@ module:
     resources are not available to the household, except cash payments to the
     household and identifiable or prorated household shares of combined wages
     and shared expenses.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.411
 rules:
   - name: snap_abawd_three_month_sanction_applies
     kind: derived
@@ -21,7 +23,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.411.1(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: sanctioned_abawd and abawd_snap_benefit_months_in_36_month_period >= 3
@@ -31,7 +32,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.411.1(B)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: disqualified_for_ipv_or_fraud or work_requirement_sanctioned or fleeing_felon
@@ -41,7 +41,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.411.1(B)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: ineligible_noncitizen or failed_or_refused_ssn or snap_abawd_three_month_sanction_applies
@@ -52,7 +51,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.1(B)(1)(a)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -66,7 +64,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.1(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -81,7 +78,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.1(B)(2)(b)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -97,7 +93,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.1(B)(2)(c)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -113,7 +108,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.1(B)(2)(c)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -129,7 +123,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.1(B)(2)(c)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -142,7 +135,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.411.1(B)(1)(b) and (B)(2)(d)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_full_count_disqualified_member or snap_prorated_count_disqualified_member
@@ -152,7 +144,6 @@ rules:
     dtype: Integer
     period: Month
     source: 10 CCR 2506-1 section 4.411.1(B)(1)(b) and (B)(2)(d)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, household_size_including_disqualified_members - disqualified_or_sanctioned_member_count)
@@ -163,7 +154,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.2(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: non_household_member_cash_payments_to_household
@@ -174,7 +164,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.2(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: 0
@@ -185,7 +174,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.2(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -202,7 +190,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.2(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -219,7 +206,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: 0
@@ -230,7 +216,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.411.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: 0

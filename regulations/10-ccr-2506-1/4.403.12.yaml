@@ -10,6 +10,8 @@ module:
     income, prorated farm losses first offset other self-employment income,
     then other earned income, and the resulting earned-income figure is used
     before other income is added for the gross income standard.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.403.12
 rules:
   - name: snap_self_employment_averaging_months
     kind: derived
@@ -17,7 +19,6 @@ rules:
     dtype: Integer
     period: Month
     source: 10 CCR 2506-1 section 4.403.12(A)-(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -34,7 +35,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.403.12(A), (C), and (D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: substantial_increase_or_decrease_in_business or self_employment_income_is_from_new_source
@@ -45,7 +45,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.12(A)-(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -59,7 +58,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.403.12(E)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: expected_gross_annual_farm_income >= 1000
@@ -70,7 +68,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.12(E)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -84,7 +81,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.12(E)(2)(a)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, other_self_employment_income - snap_monthly_prorated_farm_loss)
@@ -95,7 +91,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.12(E)(2)(b)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, snap_monthly_prorated_farm_loss - other_self_employment_income)
@@ -106,7 +101,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.12(E)(2)(b)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, earned_income_excluding_farm_and_self_employment - snap_remaining_farm_loss_after_self_employment_income)
@@ -117,7 +111,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.12(E)(2)(c)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

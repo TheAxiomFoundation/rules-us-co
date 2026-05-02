@@ -7,6 +7,8 @@ module:
     less than a 3 month record use estimated anticipated payments. If the
     monthly child support payment or legal obligation is not reported and
     verified, the exclusion is not allowed.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.407.5
 rules:
   - name: child_support_deduction
     kind: derived
@@ -15,7 +17,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.407.5
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

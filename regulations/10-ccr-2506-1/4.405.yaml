@@ -9,6 +9,11 @@ module:
     educational assistance, and income excluded by federal statute. Private
     nonprofit cash donations based on need are excluded up to 300 dollars per
     fiscal quarter.
+  source_verification:
+    corpus_citation_paths:
+      - us-co/regulation/10-ccr-2506-1/4.405
+      - us-co/regulation/10-ccr-2506-1/4.405.1
+      - us-co/regulation/10-ccr-2506-1/4.405.2
 rules:
   - name: snap_irregular_income_exclusion
     kind: derived
@@ -17,7 +22,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -31,7 +35,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, irregular_income_received_in_three_months - snap_irregular_income_exclusion)
@@ -42,7 +45,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -65,7 +67,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, third_party_beneficiary_payment - snap_non_household_beneficiary_payment_exclusion)
@@ -76,7 +77,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -92,7 +92,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, child_earned_income - snap_child_student_earnings_exclusion)
@@ -103,7 +102,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -117,7 +115,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(D)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -131,7 +128,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(E)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -145,7 +141,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(E)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -159,7 +154,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(F)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -173,7 +167,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(G)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: in_kind_benefit_value
@@ -184,7 +177,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(H)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -209,7 +201,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(H)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, vendor_payment_amount - snap_vendor_payment_exclusion)
@@ -220,7 +211,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(I)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -234,7 +224,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405(I)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, reimbursement_amount - snap_reimbursement_exclusion)
@@ -245,7 +234,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405.1
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: education_assistance_for_educational_expenses
@@ -256,7 +244,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405.2(A)(3)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -270,7 +257,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405.2(A)(6)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -288,7 +274,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405.2(A)(7)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -303,7 +288,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.405.2(A)(10)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: min(private_nonprofit_cash_donations_based_on_need_in_fiscal_quarter, 300)

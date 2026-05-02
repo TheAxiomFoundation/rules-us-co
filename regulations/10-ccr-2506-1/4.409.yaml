@@ -7,6 +7,8 @@ module:
     equity is fair market value less verified amounts owed. A jointly owned
     resource is counted in full unless the household demonstrates no access or
     only partial access.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.409
 rules:
   - name: snap_countable_liquid_resources
     kind: derived
@@ -15,7 +17,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.409(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -32,7 +33,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.409(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, non_liquid_resource_fair_market_value - non_liquid_resource_verified_amount_owed)
@@ -43,7 +43,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.409(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -58,7 +57,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.409(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: joint_resource_cannot_practically_be_subdivided and joint_owner_refuses_to_comply
@@ -69,7 +67,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.409(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -85,7 +82,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.409
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

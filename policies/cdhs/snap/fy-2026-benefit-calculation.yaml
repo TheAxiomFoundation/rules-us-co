@@ -12,6 +12,8 @@ module:
     calculations, the composed maximum allotment bridge uses the USDA
     household-size table for 1 through 8 boarders and the USDA additional
     member amount above 8 boarders.
+  source_verification:
+    corpus_citation_path: us/guidance/usda/fns/snap-fy2026-cola/page-1
 imports:
   - us:policies/usda/snap/fy-2026-cola/maximum-allotments
   - us:policies/usda/snap/fy-2026-cola/deductions
@@ -47,7 +49,6 @@ rules:
     period: Month
     unit: USD
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -63,7 +64,6 @@ rules:
     period: Month
     unit: USD
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_monthly_self_employment_income + snap_capital_goods_sale_self_employment_income
@@ -74,7 +74,6 @@ rules:
     period: Month
     unit: USD
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_countable_earned_income + snap_countable_unearned_income
@@ -85,7 +84,6 @@ rules:
     period: Month
     unit: USD
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_monthly_household_income
@@ -96,7 +94,6 @@ rules:
     period: Month
     unit: USD
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -112,7 +109,6 @@ rules:
     period: Month
     unit: USD
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -126,7 +122,6 @@ rules:
     dtype: Judgment
     period: Month
     source: Colorado SNAP FY 2026 benefit calculation composition
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

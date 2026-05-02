@@ -10,6 +10,8 @@ module:
     dollars in a fiscal quarter. Vacation, sick, or bonus pay after
     termination is unearned when paid in installments and is a resource when
     received as a lump sum.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.404
 rules:
   - name: snap_countable_rental_unearned_income
     kind: derived
@@ -18,7 +20,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -32,7 +33,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(E)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -46,7 +46,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(F)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -60,7 +59,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(F)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -74,7 +72,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(G)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, nonprofit_gifts_received_in_fiscal_quarter - 300)
@@ -85,7 +82,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(G)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -99,7 +95,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(H)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: trust_fund_withdrawals + available_trust_dividends
@@ -110,7 +105,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404(I)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -124,7 +118,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.404
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

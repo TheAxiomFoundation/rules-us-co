@@ -11,6 +11,8 @@ module:
     hours per week. For a striker, eligibility uses the higher of the
     striking member's pre-strike and current income plus current income of
     non-striking household members.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.403
 rules:
   - name: snap_countable_employee_wage_income
     kind: derived
@@ -19,7 +21,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -38,7 +39,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 sections 4.403(A)(2), 4.403(C), and 4.405.2(A)(3)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, vista_or_title_i_domestic_volunteer_payment_amount - snap_vista_income_exclusion)
@@ -49,7 +49,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(B)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -65,7 +64,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 sections 4.403(B)(2) and 4.405.2(A)(6)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, wioa_on_the_job_training_earnings_amount - snap_wioa_payment_exclusion)
@@ -76,7 +74,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(A)(4)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -90,7 +87,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -104,7 +100,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.403(E)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: average_rental_property_management_hours_per_week >= 20
@@ -115,7 +110,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(E)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -129,7 +123,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(E)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: capital_goods_services_or_property_sale_proceeds_connected_to_self_employment
@@ -140,7 +133,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(F)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -154,7 +146,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403(F)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: llc_s_corporation_owner_salary + snap_llc_s_corporation_owner_draw_earned_income
@@ -165,7 +156,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

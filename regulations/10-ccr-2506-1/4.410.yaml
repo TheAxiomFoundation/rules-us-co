@@ -15,6 +15,8 @@ module:
     inaccessible to battered women in shelters. Certain government payments,
     EITC payments for up to 12 months, and federal income tax refunds received
     beginning January 1, 2010 for 12 months are also excluded.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.410
 rules:
   - name: snap_vehicle_resource_exemption
     kind: derived
@@ -23,7 +25,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: household_vehicle_resource_value
@@ -34,7 +35,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -53,7 +53,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -67,7 +66,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(D)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: household_goods_personal_effects_life_insurance_and_exempt_livestock_value
@@ -78,7 +76,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(D)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: federal_tax_preferred_retirement_account_value
@@ -89,7 +86,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(D)(3)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: tax_deferred_education_account_value
@@ -100,7 +96,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(D)(4)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -114,7 +109,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(D)(4)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, prepaid_funeral_agreement_equity_value_excluding_burial_plot - snap_prepaid_funeral_agreement_exempt_equity)
@@ -125,7 +119,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(E)(1)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -139,7 +132,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(E)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -153,7 +145,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(E)(4)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -166,7 +157,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.410(F)(3)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -182,7 +172,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(F)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -200,7 +189,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(G)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -214,7 +202,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(H)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -228,7 +215,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(I)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -242,7 +228,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(J)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: specific_purpose_or_federally_excluded_government_payment_resource_value
@@ -253,7 +238,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(J)(12)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -271,7 +255,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410(J)(17)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -285,7 +268,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.410
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -313,7 +295,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 sections 4.409 and 4.410
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, total_household_resources_before_exclusions - snap_exempt_resources)

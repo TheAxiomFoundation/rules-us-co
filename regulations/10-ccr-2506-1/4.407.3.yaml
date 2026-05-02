@@ -10,6 +10,8 @@ module:
     experiencing homelessness and are not receiving free shelter throughout the
     month may use a homeless shelter deduction estimate of 198.99 dollars
     effective October 1, 2025 unless higher shelter costs are verified.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.407.3
 imports:
   - us:statutes/7/2012/j
   - us:policies/usda/snap/fy-2026-cola/deductions
@@ -17,7 +19,6 @@ rules:
   - name: co_snap_excess_shelter_cap_reiterates_usda_fy_2026
     kind: reiteration
     source: 10 CCR 2506-1 section 4.407.3(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     reiterates:
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc
       authority: federal
@@ -28,7 +29,6 @@ rules:
   - name: co_snap_homeless_shelter_deduction_reiterates_usda_fy_2026
     kind: reiteration
     source: 10 CCR 2506-1 section 4.407.3(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     reiterates:
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction
       authority: federal
@@ -43,7 +43,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.407.3(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -64,7 +63,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.407.3(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_net_income_pre_shelter / 2
@@ -75,7 +73,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.407.3(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, snap_allowable_shelter_costs - half_adjusted_income)
@@ -86,7 +83,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.407.3(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

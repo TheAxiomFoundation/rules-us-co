@@ -8,6 +8,8 @@ module:
     is calculated on an anticipated basis, anticipated capital gains for the
     next 12 months are averaged monthly and combined with anticipated monthly
     self-employment income before anticipated allowable costs are deducted.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.403.11
 rules:
   - name: snap_self_employment_period_gross_income
     kind: derived
@@ -16,7 +18,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.11(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: self_employment_gross_income_for_period + self_employment_capital_gains_for_period
@@ -27,7 +28,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.11(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_self_employment_period_gross_income - allowable_self_employment_business_costs_for_period
@@ -38,7 +38,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.11(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_self_employment_period_net_income / self_employment_income_period_months
@@ -49,7 +48,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.11(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: anticipated_capital_gains_next_12_months / 12
@@ -60,7 +58,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.11(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -74,7 +71,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.11
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

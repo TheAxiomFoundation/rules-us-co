@@ -7,6 +7,8 @@ module:
     biweekly income by 2.15, semi-monthly income by 2, every-other-month
     income by 0.5, quarterly income by 0.333333, twice-yearly income by
     0.166666, and annual income by 0.083.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.402
 rules:
   - name: snap_monthly_income_conversion_factor
     kind: derived
@@ -14,7 +16,6 @@ rules:
     dtype: Rate
     period: Month
     source: 10 CCR 2506-1 section 4.402(A)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -33,7 +34,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.402(A)(2)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: average_income_per_pay_period * snap_monthly_income_conversion_factor
@@ -44,7 +44,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 sections 4.402(A)(1), 4.402(A)(3), and 4.402.1(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

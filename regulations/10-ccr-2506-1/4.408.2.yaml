@@ -14,6 +14,8 @@ module:
     through 249 dollars, 3 months for 250 dollars through 999 dollars, 6
     months for 1000 dollars through 2999 dollars, 9 months for 3000 dollars
     through 4999 dollars, and 12 months for 5000 dollars or more.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.408.2
 imports:
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
@@ -23,7 +25,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.408.2
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -36,7 +37,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.408.2(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -50,7 +50,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.408.2
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -64,7 +63,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.408.2(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: max(0, nonexempt_transferred_resources + other_countable_resources - snap_asset_limit)
@@ -74,7 +72,6 @@ rules:
     dtype: Integer
     period: Month
     source: 10 CCR 2506-1 section 4.408.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

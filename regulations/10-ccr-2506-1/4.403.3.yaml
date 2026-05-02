@@ -8,6 +8,8 @@ module:
     is averaged over 12 months. Other monthly household income is added to the
     school employee's average monthly contract income to determine household
     eligibility.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.403.3
 rules:
   - name: snap_school_employee_contract_income_subject_to_annual_averaging
     kind: derived
@@ -15,7 +17,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.403.3(A)-(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -29,7 +30,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.3(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -43,7 +43,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.403.3(D)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: household_other_monthly_income + household_school_employee_average_monthly_contract_income

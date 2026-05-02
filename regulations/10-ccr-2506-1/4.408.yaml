@@ -10,13 +10,14 @@ module:
     Effective October 1, 2024, the resource limit is 4500 dollars for
     households with a member aged 60 or older or with a disability and 3000
     dollars for other households.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.408
 imports:
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
   - name: co_snap_resource_limits_reiterate_usda_fy_2026
     kind: reiteration
     source: 10 CCR 2506-1 section 4.408(E)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     reiterates:
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_asset_limit
       authority: federal
@@ -32,7 +33,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.408(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2024-10-01'
         formula: |-
@@ -46,7 +46,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.408(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2024-10-01'
         formula: snap_countable_resources_after_exemptions + snap_sponsor_resources_counted
@@ -56,7 +55,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.408
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2024-10-01'
         formula: |-

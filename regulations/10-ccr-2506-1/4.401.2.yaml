@@ -5,13 +5,14 @@ module:
     eligibility standards at 100 percent of the federal poverty level. The
     executable values are imported from the USDA SNAP FY 2026 income
     eligibility standards file.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.401.2
 imports:
   - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
 rules:
   - name: co_snap_net_income_limit_reiterates_usda_fy_2026
     kind: reiteration
     source: 10 CCR 2506-1 section 4.401.2
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     reiterates:
       target: us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc
       authority: federal

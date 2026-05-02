@@ -8,6 +8,8 @@ module:
     the application date. Migrant and seasonal farm worker households in the
     job stream receive the full month allotment when the break in
     participation does not exceed 30 days.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.207.2
 imports:
   - us:policies/usda/snap/fy-2026-cola/maximum-allotments
   - us:statutes/7/2017/a
@@ -18,7 +20,6 @@ rules:
     dtype: Date
     period: Month
     source: 10 CCR 2506-1 section 4.207.2(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -31,7 +32,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.207.2(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -43,7 +43,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.207.2
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: initial_application_month and not snap_initial_month_proration_exception
@@ -53,7 +52,6 @@ rules:
     dtype: Integer
     period: Month
     source: 10 CCR 2506-1 section 4.207.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: days_between(period_start, date_add_days(period_end, 1))
@@ -63,7 +61,6 @@ rules:
     dtype: Integer
     period: Month
     source: 10 CCR 2506-1 section 4.207.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -77,7 +74,6 @@ rules:
     dtype: Rate
     period: Month
     source: 10 CCR 2506-1 section 4.207.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_initial_month_proration_days / snap_days_in_application_month
@@ -88,7 +84,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.207.2(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: floor(snap_allotment_before_minimum * snap_initial_month_proration_factor)
@@ -99,7 +94,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 sections 4.207.2 and 4.207.3(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-

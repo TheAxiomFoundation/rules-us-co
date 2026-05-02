@@ -12,6 +12,8 @@ module:
     relocation travel costs are exempt; wage advances under written contract
     count as income but do not affect whether later employer payments are from
     a new source or whether the household is destitute.
+  source_verification:
+    corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.406.1
 rules:
   - name: snap_destitute_new_source_income_disregard
     kind: derived
@@ -20,7 +22,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.406.1(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -34,7 +35,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.406.1(A)-(B)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -51,7 +51,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.406.1(A)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: snap_destitute_income_household and initial_month_application_or_after_certification_expired
@@ -62,7 +61,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.406.1(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -76,7 +74,6 @@ rules:
     period: Month
     unit: USD
     source: 10 CCR 2506-1 section 4.406.1(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: |-
@@ -89,7 +86,6 @@ rules:
     dtype: Judgment
     period: Month
     source: 10 CCR 2506-1 section 4.406.1(C)
-    source_url: 'https://www.sos.state.co.us/CCR/GenerateRulePdf.do?ruleVersionId=12299&fileName=10%20CCR%202506-1'
     versions:
       - effective_from: '2025-10-01'
         formula: false
