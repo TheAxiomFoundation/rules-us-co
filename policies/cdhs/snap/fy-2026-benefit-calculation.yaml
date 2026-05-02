@@ -7,7 +7,7 @@ module:
     the federal 7 USC 2017(a) regular allotment formula, and Colorado manual
     sections for countable income, income limits, resources, deductions,
     shelter, eligibility, and allotments so final allotment tests exercise the
-    composed programme rather than stubbing SNAP gross income, net income,
+    composed RuleSpec module rather than stubbing SNAP gross income, net income,
     eligibility, or upstream allotment values. For boarder cost
     calculations, the composed maximum allotment bridge uses the USDA
     household-size table for 1 through 8 boarders and the USDA additional
