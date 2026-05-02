@@ -25,8 +25,8 @@ uv run --with policyengine-us --with pyyaml \
 
 The comparison uses PolicyEngine's `snap_normal_allotment`, not top-level `snap`,
 because microsimulation `snap` includes take-up adjustments. It compares against
-RuleSpec `snap_regular_month_allotment` because eCPS does not include
-application-date facts for initial-month proration.
+RuleSpec `us:statutes/7/2017/a#snap_regular_month_allotment` because eCPS does
+not include application-date facts for initial-month proration.
 
 For eCPS parity, `--project-policyengine-utility-allowance` maps PE's utility
 allowance type and aggregate deduction values into the closest Colorado input

@@ -36,19 +36,36 @@ DEFAULT_PROGRAM = (
 DEFAULT_TEST_TEMPLATE = DEFAULT_PROGRAM.with_name(f"{DEFAULT_PROGRAM.stem}.test.yaml")
 DEFAULT_AXIOM_BINARY = AXIOM_ROOT / "axiom-rules" / "target" / "debug" / "axiom-rules"
 PE_COMPARED_OUTPUT = "snap_normal_allotment"
+AXIOM_OUTPUT_ID_BY_LABEL = {
+    "snap_regular_month_allotment": "us:statutes/7/2017/a#snap_regular_month_allotment",
+    "snap_eligible": (
+        "us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_eligible"
+    ),
+    "gross_income": (
+        "us-co:policies/cdhs/snap/fy-2026-benefit-calculation#gross_income"
+    ),
+    "snap_net_income": "us:statutes/7/2014/e/6/A#snap_net_income",
+    "snap_maximum_allotment": (
+        "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment"
+    ),
+    "snap_standard_utility_allowance": (
+        "us-co:regulations/10-ccr-2506-1/4.407.31#snap_standard_utility_allowance"
+    ),
+    "snap_limited_utility_allowance": (
+        "us-co:regulations/10-ccr-2506-1/4.407.31#snap_limited_utility_allowance"
+    ),
+    "snap_one_utility_allowance": (
+        "us-co:regulations/10-ccr-2506-1/4.407.31#snap_one_utility_allowance"
+    ),
+    "snap_individual_utility_allowance": (
+        "us-co:regulations/10-ccr-2506-1/4.407.31#snap_individual_utility_allowance"
+    ),
+    "excess_shelter_deduction": (
+        "us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction"
+    ),
+}
 COMPARED_AXIOM_OUTPUT = "snap_regular_month_allotment"
-OUTPUTS = [
-    COMPARED_AXIOM_OUTPUT,
-    "snap_eligible",
-    "gross_income",
-    "snap_net_income",
-    "snap_maximum_allotment",
-    "snap_standard_utility_allowance",
-    "snap_limited_utility_allowance",
-    "snap_one_utility_allowance",
-    "snap_individual_utility_allowance",
-    "excess_shelter_deduction",
-]
+AXIOM_OUTPUTS = list(AXIOM_OUTPUT_ID_BY_LABEL.values())
 
 
 @dataclass(frozen=True)
@@ -532,7 +549,7 @@ def run_axiom_cases(
             {
                 "entity_id": entity_id,
                 "period": period_json,
-                "outputs": OUTPUTS,
+                "outputs": AXIOM_OUTPUTS,
             }
         )
 
@@ -564,14 +581,42 @@ def output_to_python(output: dict[str, Any]) -> Any:
     return raw
 
 
+def outputs_by_reference(outputs: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    references: dict[str, dict[str, Any]] = {}
+    for output_key, output in outputs.items():
+        if not isinstance(output, dict):
+            continue
+        references[str(output_key)] = output
+        output_id = str(output.get("id") or "").strip()
+        if output_id:
+            references[output_id] = output
+    return references
+
+
 def compare(
     cases: list[ProjectedCase], results: list[dict[str, Any]], tolerance: float
 ):
     rows = []
     for case, result in zip(cases, results, strict=True):
+        raw_outputs = result.get("outputs", {})
+        if not isinstance(raw_outputs, dict):
+            raise ValueError(
+                f"Axiom result for SPM unit {case.spm_unit_id} has no outputs"
+            )
+        output_references = outputs_by_reference(raw_outputs)
+        missing_outputs = sorted(
+            output_id
+            for output_id in AXIOM_OUTPUT_ID_BY_LABEL.values()
+            if output_id not in output_references
+        )
+        if missing_outputs:
+            joined = ", ".join(missing_outputs)
+            raise ValueError(
+                f"Axiom result for SPM unit {case.spm_unit_id} is missing {joined}"
+            )
         outputs = {
-            name: output_to_python(output)
-            for name, output in result.get("outputs", {}).items()
+            label: output_to_python(output_references[output_id])
+            for label, output_id in AXIOM_OUTPUT_ID_BY_LABEL.items()
         }
         axiom_snap = float(outputs[COMPARED_AXIOM_OUTPUT])
         pe_snap = float(case.pe_outputs[PE_COMPARED_OUTPUT])
