@@ -8,7 +8,7 @@
     wages_previously_withheld_by_employer_general_practice_received: 0
     reasonably_anticipated_wage_advances_received: 0
   output:
-    snap_countable_employee_wage_income: 0
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_employee_wage_income: 0
 - name: wage_income_includes_diverted_held_and_anticipated_advance_amounts
   period: 2026-01
   input:
@@ -19,28 +19,28 @@
     wages_previously_withheld_by_employer_general_practice_received: 50
     reasonably_anticipated_wage_advances_received: 200
   output:
-    snap_countable_employee_wage_income: 1425
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_employee_wage_income: 1425
 - name: vista_payment_counts_only_to_extent_not_excluded
   period: 2026-01
   input:
     vista_or_title_i_domestic_volunteer_payment_amount: 600
     snap_vista_income_exclusion: 400
   output:
-    snap_countable_vista_earned_income: 200
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_vista_earned_income: 200
 - name: wioa_on_the_job_training_counts_for_adult_participant
   period: 2026-01
   input:
     wioa_on_the_job_training_earnings_amount: 800
     snap_wioa_payment_exclusion: 0
   output:
-    snap_countable_wioa_ojt_earned_income: 800
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_wioa_ojt_earned_income: 800
 - name: wioa_on_the_job_training_exclusion_offsets_minor_participant_earnings
   period: 2026-01
   input:
     wioa_on_the_job_training_earnings_amount: 800
     snap_wioa_payment_exclusion: 800
   output:
-    snap_countable_wioa_ojt_earned_income: 0
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_wioa_ojt_earned_income: 0
 - name: striker_income_uses_higher_of_pre_strike_or_current_income
   period: 2026-01
   input:
@@ -49,7 +49,7 @@
     striking_member_current_income: 600
     non_striking_household_members_current_income: 900
   output:
-    snap_striker_income_for_eligibility: 2100
+    us-co:regulations/10-ccr-2506-1/4.403#snap_striker_income_for_eligibility: 2100
 - name: rental_income_is_earned_when_actively_managed
   period: 2026-01
   input:
@@ -57,8 +57,8 @@
     rental_property_gross_income: 1400
     rental_property_business_costs: 500
   output:
-    snap_rental_income_is_earned: holds
-    snap_countable_rental_earned_income: 900
+    us-co:regulations/10-ccr-2506-1/4.403#snap_rental_income_is_earned: holds
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_rental_earned_income: 900
 - name: llc_s_corporation_owner_salary_and_draw_count_as_earned_income
   period: 2026-01
   input:
@@ -67,7 +67,7 @@
     llc_s_corporation_business_income: 5000
     llc_s_corporation_business_expenses: 3500
   output:
-    snap_llc_s_corporation_owner_earned_income: 2500
+    us-co:regulations/10-ccr-2506-1/4.403#snap_llc_s_corporation_owner_earned_income: 2500
 - name: earned_income_aggregates_countable_components
   period: 2026-01
   input:
@@ -89,4 +89,4 @@
     snap_boarder_net_self_employment_income: 100
     other_countable_self_employment_earned_income: 110
   output:
-    snap_countable_earned_income: 1960
+    us-co:regulations/10-ccr-2506-1/4.403#snap_countable_earned_income: 1960

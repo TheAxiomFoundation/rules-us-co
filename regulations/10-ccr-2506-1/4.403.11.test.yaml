@@ -7,10 +7,10 @@
     self_employment_income_period_months: 12
     self_employment_income_calculated_on_anticipated_basis: false
   output:
-    snap_self_employment_period_gross_income: 13200
-    snap_self_employment_period_net_income: 10800
-    snap_average_monthly_self_employment_income: 900
-    snap_monthly_self_employment_income: 900
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_self_employment_period_gross_income: 13200
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_self_employment_period_net_income: 10800
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_average_monthly_self_employment_income: 900
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_monthly_self_employment_income: 900
 - name: full_capital_gains_are_counted_in_period_gross_income
   period: 2026-01
   input:
@@ -20,8 +20,8 @@
     self_employment_income_period_months: 6
     self_employment_income_calculated_on_anticipated_basis: false
   output:
-    snap_self_employment_period_gross_income: 7000
-    snap_average_monthly_self_employment_income: 1000
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_self_employment_period_gross_income: 7000
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_average_monthly_self_employment_income: 1000
 - name: anticipated_basis_averages_capital_gains_over_twelve_months
   period: 2026-01
   input:
@@ -30,6 +30,6 @@
     anticipated_monthly_allowable_self_employment_business_costs: 300
     self_employment_income_calculated_on_anticipated_basis: true
   output:
-    snap_anticipated_monthly_capital_gains: 200
-    snap_anticipated_monthly_net_self_employment_income: 700
-    snap_monthly_self_employment_income: 700
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_anticipated_monthly_capital_gains: 200
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_anticipated_monthly_net_self_employment_income: 700
+    us-co:regulations/10-ccr-2506-1/4.403.11#snap_monthly_self_employment_income: 700

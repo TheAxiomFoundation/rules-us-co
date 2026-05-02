@@ -5,9 +5,9 @@
     average_income_per_pay_period: 100
     anticipated_income_reasonably_certain: true
   output:
-    snap_monthly_income_conversion_factor: 4.3
-    snap_converted_monthly_income: 430
-    snap_prospectively_counted_income: 430
+    us-co:regulations/10-ccr-2506-1/4.402#snap_monthly_income_conversion_factor: 4.3
+    us-co:regulations/10-ccr-2506-1/4.402#snap_converted_monthly_income: 430
+    us-co:regulations/10-ccr-2506-1/4.402#snap_prospectively_counted_income: 430
 - name: biweekly_income_is_multiplied_by_two_point_fifteen
   period: 2026-01
   input:
@@ -15,8 +15,8 @@
     average_income_per_pay_period: 400
     anticipated_income_reasonably_certain: true
   output:
-    snap_monthly_income_conversion_factor: 2.15
-    snap_converted_monthly_income: 860
+    us-co:regulations/10-ccr-2506-1/4.402#snap_monthly_income_conversion_factor: 2.15
+    us-co:regulations/10-ccr-2506-1/4.402#snap_converted_monthly_income: 860
 - name: semi_monthly_income_is_multiplied_by_two
   period: 2026-01
   input:
@@ -24,8 +24,8 @@
     average_income_per_pay_period: 500
     anticipated_income_reasonably_certain: true
   output:
-    snap_monthly_income_conversion_factor: 2
-    snap_converted_monthly_income: 1000
+    us-co:regulations/10-ccr-2506-1/4.402#snap_monthly_income_conversion_factor: 2
+    us-co:regulations/10-ccr-2506-1/4.402#snap_converted_monthly_income: 1000
 - name: annual_income_uses_manual_conversion_factor
   period: 2026-01
   input:
@@ -33,8 +33,8 @@
     average_income_per_pay_period: 12000
     anticipated_income_reasonably_certain: true
   output:
-    snap_monthly_income_conversion_factor: 0.083
-    snap_converted_monthly_income: 996
+    us-co:regulations/10-ccr-2506-1/4.402#snap_monthly_income_conversion_factor: 0.083
+    us-co:regulations/10-ccr-2506-1/4.402#snap_converted_monthly_income: 996
 - name: uncertain_anticipated_income_is_not_counted
   period: 2026-01
   input:
@@ -42,6 +42,6 @@
     average_income_per_pay_period: 900
     anticipated_income_reasonably_certain: false
   output:
-    snap_monthly_income_conversion_factor: 1
-    snap_converted_monthly_income: 900
-    snap_prospectively_counted_income: 0
+    us-co:regulations/10-ccr-2506-1/4.402#snap_monthly_income_conversion_factor: 1
+    us-co:regulations/10-ccr-2506-1/4.402#snap_converted_monthly_income: 900
+    us-co:regulations/10-ccr-2506-1/4.402#snap_prospectively_counted_income: 0

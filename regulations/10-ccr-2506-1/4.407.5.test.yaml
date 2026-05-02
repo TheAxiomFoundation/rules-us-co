@@ -6,7 +6,7 @@
     average_monthly_child_support_paid: 420
     estimated_monthly_child_support_paid: 390
   output:
-    child_support_deduction: 420
+    us-co:regulations/10-ccr-2506-1/4.407.5#child_support_deduction: 420
 - name: verified_child_support_with_short_history_uses_estimate
   period: 2026-01
   input:
@@ -15,7 +15,7 @@
     average_monthly_child_support_paid: 420
     estimated_monthly_child_support_paid: 390
   output:
-    child_support_deduction: 390
+    us-co:regulations/10-ccr-2506-1/4.407.5#child_support_deduction: 390
 - name: unverified_child_support_is_not_allowed
   period: 2026-01
   input:
@@ -24,4 +24,4 @@
     average_monthly_child_support_paid: 420
     estimated_monthly_child_support_paid: 390
   output:
-    child_support_deduction: 0
+    us-co:regulations/10-ccr-2506-1/4.407.5#child_support_deduction: 0

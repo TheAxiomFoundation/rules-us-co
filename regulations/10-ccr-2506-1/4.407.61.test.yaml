@@ -3,8 +3,8 @@
   input:
     total_medical_expenses: 120
   output:
-    medical_excess: 85
-    medical_deduction: 0
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 85
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 0
 - name: no_medical_deduction_at_threshold
   period: 2026-01
   input:
@@ -12,8 +12,8 @@
       - snap_member_is_elderly_or_disabled: true
     total_medical_expenses: 35
   output:
-    medical_excess: 0
-    medical_deduction: 0
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 0
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 0
 - name: smed_applies_when_expenses_are_above_threshold
   period: 2026-01
   input:
@@ -21,8 +21,8 @@
       - snap_member_is_elderly_or_disabled: true
     total_medical_expenses: 120
   output:
-    medical_excess: 85
-    medical_deduction: 165
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 85
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 165
 - name: actual_excess_applies_when_excess_exceeds_smed
   period: 2026-01
   input:
@@ -30,5 +30,5 @@
       - snap_member_is_elderly_or_disabled: true
     total_medical_expenses: 240
   output:
-    medical_excess: 205
-    medical_deduction: 205
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 205
+    us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 205

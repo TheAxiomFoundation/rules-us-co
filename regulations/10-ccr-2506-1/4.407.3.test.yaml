@@ -8,10 +8,10 @@
     shelter_costs: 1000
     snap_net_income_pre_shelter: 0
   output:
-    snap_allowable_shelter_costs: 1000
-    half_adjusted_income: 0
-    excess_shelter_unclamped: 1000
-    excess_shelter_deduction: 744
+    us-co:regulations/10-ccr-2506-1/4.407.3#snap_allowable_shelter_costs: 1000
+    us-co:regulations/10-ccr-2506-1/4.407.3#half_adjusted_income: 0
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_unclamped: 1000
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction: 744
 - name: elderly_or_disabled_household_shelter_deduction_is_uncapped
   period: 2026-01
   input:
@@ -24,8 +24,8 @@
     shelter_costs: 1000
     snap_net_income_pre_shelter: 0
   output:
-    excess_shelter_unclamped: 1000
-    excess_shelter_deduction: 1000
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_unclamped: 1000
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction: 1000
 - name: homeless_household_uses_standard_estimate
   period: 2026-01
   input:
@@ -36,8 +36,8 @@
     shelter_costs: 0
     snap_net_income_pre_shelter: 0
   output:
-    snap_allowable_shelter_costs: 198.99
-    excess_shelter_deduction: 198.99
+    us-co:regulations/10-ccr-2506-1/4.407.3#snap_allowable_shelter_costs: 198.99
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction: 198.99
 - name: homeless_household_with_verified_higher_costs_uses_actual_costs
   period: 2026-01
   input:
@@ -48,8 +48,8 @@
     shelter_costs: 300
     snap_net_income_pre_shelter: 0
   output:
-    snap_allowable_shelter_costs: 300
-    excess_shelter_deduction: 300
+    us-co:regulations/10-ccr-2506-1/4.407.3#snap_allowable_shelter_costs: 300
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction: 300
 - name: homeless_household_with_free_shelter_all_month_gets_no_shelter_cost
   period: 2026-01
   input:
@@ -60,5 +60,5 @@
     shelter_costs: 0
     snap_net_income_pre_shelter: 0
   output:
-    snap_allowable_shelter_costs: 0
-    excess_shelter_deduction: 0
+    us-co:regulations/10-ccr-2506-1/4.407.3#snap_allowable_shelter_costs: 0
+    us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction: 0

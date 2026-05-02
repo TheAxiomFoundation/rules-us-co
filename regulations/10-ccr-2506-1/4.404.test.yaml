@@ -5,7 +5,7 @@
     rental_property_gross_income: 1200
     rental_property_business_costs: 300
   output:
-    snap_countable_rental_unearned_income: 900
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_rental_unearned_income: 900
 - name: actively_managed_rental_property_is_not_unearned
   period: 2026-01
   input:
@@ -13,7 +13,7 @@
     rental_property_gross_income: 1200
     rental_property_business_costs: 300
   output:
-    snap_countable_rental_unearned_income: 0
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_rental_unearned_income: 0
 - name: terminated_employment_installments_count_and_lump_sum_is_resource
   period: 2026-01
   input:
@@ -22,8 +22,8 @@
     vacation_sick_or_bonus_pay_received_as_lump_sum: true
     vacation_sick_or_bonus_pay: 500
   output:
-    snap_countable_terminated_employment_installment_pay: 500
-    snap_terminated_employment_lump_sum_resource: 500
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_terminated_employment_installment_pay: 500
+    us-co:regulations/10-ccr-2506-1/4.404#snap_terminated_employment_lump_sum_resource: 500
 - name: nonprofit_gift_counts_only_quarterly_excess
   period: 2026-01
   input:
@@ -31,15 +31,15 @@
     gifts_from_other_sources_can_be_anticipated: true
     gifts_from_other_sources: 75
   output:
-    snap_countable_nonprofit_gift_income: 150
-    snap_countable_other_gift_income: 75
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_nonprofit_gift_income: 150
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_other_gift_income: 75
 - name: shared_substantial_gambling_winnings_count_household_share
   period: 2026-01
   input:
     substantial_lottery_or_gambling_winnings_received: true
     household_member_allocated_lottery_or_gambling_winnings: 2000
   output:
-    snap_countable_lottery_gambling_winnings: 2000
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_lottery_gambling_winnings: 2000
 - name: unearned_income_aggregates_countable_categories
   period: 2026-01
   input:
@@ -63,4 +63,4 @@
     substantial_lottery_or_gambling_winnings_received: false
     household_member_allocated_lottery_or_gambling_winnings: 0
   output:
-    snap_countable_unearned_income: 1555
+    us-co:regulations/10-ccr-2506-1/4.404#snap_countable_unearned_income: 1555

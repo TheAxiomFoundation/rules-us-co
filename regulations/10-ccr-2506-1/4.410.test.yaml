@@ -8,8 +8,8 @@
     household_intends_to_build_permanent_home_on_property: false
     home_and_surrounding_property_value: 250000
   output:
-    snap_vehicle_resource_exemption: 12000
-    snap_home_and_surrounding_property_resource_exemption: 250000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_vehicle_resource_exemption: 12000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_home_and_surrounding_property_resource_exemption: 250000
 - name: temporary_absence_home_remains_exempt_with_intent_to_return
   period: 2026-01
   input:
@@ -19,7 +19,7 @@
     household_intends_to_build_permanent_home_on_property: false
     home_and_surrounding_property_value: 180000
   output:
-    snap_home_and_surrounding_property_resource_exemption: 180000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_home_and_surrounding_property_resource_exemption: 180000
 - name: prorated_income_and_account_categories_are_exempt
   period: 2026-01
   input:
@@ -29,18 +29,18 @@
     federal_tax_preferred_retirement_account_value: 20000
     tax_deferred_education_account_value: 3000
   output:
-    snap_prorated_income_resource_exemption: 600
-    snap_personal_property_resource_exemption: 5000
-    snap_retirement_account_resource_exemption: 20000
-    snap_education_account_resource_exemption: 3000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_prorated_income_resource_exemption: 600
+    us-co:regulations/10-ccr-2506-1/4.410#snap_personal_property_resource_exemption: 5000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_retirement_account_resource_exemption: 20000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_education_account_resource_exemption: 3000
 - name: prepaid_funeral_agreement_exempts_first_1500_equity
   period: 2026-01
   input:
     bona_fide_prepaid_funeral_agreement: true
     prepaid_funeral_agreement_equity_value_excluding_burial_plot: 2200
   output:
-    snap_prepaid_funeral_agreement_exempt_equity: 1500
-    snap_prepaid_funeral_agreement_countable_equity: 700
+    us-co:regulations/10-ccr-2506-1/4.410#snap_prepaid_funeral_agreement_exempt_equity: 1500
+    us-co:regulations/10-ccr-2506-1/4.410#snap_prepaid_funeral_agreement_countable_equity: 700
 - name: income_producing_property_and_farm_property_are_exempt
   period: 2026-01
   input:
@@ -52,9 +52,9 @@
     months_since_farm_self_employment_terminated: 12
     farm_self_employment_property_value: 9000
   output:
-    snap_income_producing_property_resource_exemption: 15000
-    snap_installment_contract_resource_exemption: 7000
-    snap_farm_self_employment_property_resource_exemption: 9000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_income_producing_property_resource_exemption: 15000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_installment_contract_resource_exemption: 7000
+    us-co:regulations/10-ccr-2506-1/4.410#snap_farm_self_employment_property_resource_exemption: 9000
 - name: trust_resource_is_inaccessible_when_all_required_conditions_hold
   period: 2026-01
   input:
@@ -64,7 +64,7 @@
     trust_investments_do_not_assist_household_controlled_business: true
     trust_funds_are_for_allowed_investment_education_or_medical_purpose_or_from_nonhousehold_member: true
   output:
-    snap_trust_resource_inaccessible: holds
+    us-co:regulations/10-ccr-2506-1/4.410#snap_trust_resource_inaccessible: holds
 - name: inaccessible_resource_exempts_low_net_return_non_liquid_resource
   period: 2026-01
   input:
@@ -79,7 +79,7 @@
     trust_funds_are_for_allowed_investment_education_or_medical_purpose_or_from_nonhousehold_member: false
     inaccessible_resource_value: 1500
   output:
-    snap_inaccessible_resource_exemption: 1500
+    us-co:regulations/10-ccr-2506-1/4.410#snap_inaccessible_resource_exemption: 1500
 - name: no_significant_return_excludes_non_negotiable_resource_at_threshold
   period: 2026-01
   input:
@@ -87,7 +87,7 @@
     estimated_return_after_sale_costs_and_ownership_share: 1500
     no_significant_return_resource_value: 2400
   output:
-    snap_no_significant_return_resource_exemption: 2400
+    us-co:regulations/10-ccr-2506-1/4.410#snap_no_significant_return_resource_exemption: 2400
 - name: battered_shelter_resource_access_dependent_on_abuser_is_exempt
   period: 2026-01
   input:
@@ -95,7 +95,7 @@
     resource_access_depends_on_abusive_former_household_member: true
     inaccessible_former_household_resource_value: 1300
   output:
-    snap_battered_shelter_resource_exemption: 1300
+    us-co:regulations/10-ccr-2506-1/4.410#snap_battered_shelter_resource_exemption: 1300
 - name: eitc_and_federal_tax_refunds_are_temporarily_exempt
   period: 2026-01
   input:
@@ -109,8 +109,8 @@
     months_since_federal_income_tax_refund_received: 12
     federal_income_tax_refund_resource_value: 1100
   output:
-    snap_eitc_resource_exemption: 900
-    snap_federal_tax_refund_resource_exemption: 1100
+    us-co:regulations/10-ccr-2506-1/4.410#snap_eitc_resource_exemption: 900
+    us-co:regulations/10-ccr-2506-1/4.410#snap_federal_tax_refund_resource_exemption: 1100
 - name: aggregate_exemptions_reduce_total_resources
   period: 2026-01
   input:
@@ -164,5 +164,5 @@
     federal_income_tax_refund_resource_value: 1500
     total_household_resources_before_exclusions: 25000
   output:
-    snap_exempt_resources: 19400
-    snap_countable_resources_after_exemptions: 5600
+    us-co:regulations/10-ccr-2506-1/4.410#snap_exempt_resources: 19400
+    us-co:regulations/10-ccr-2506-1/4.410#snap_countable_resources_after_exemptions: 5600

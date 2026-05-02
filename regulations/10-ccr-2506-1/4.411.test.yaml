@@ -4,7 +4,7 @@
     sanctioned_abawd: true
     abawd_snap_benefit_months_in_36_month_period: 3
   output:
-    snap_abawd_three_month_sanction_applies: holds
+    us-co:regulations/10-ccr-2506-1/4.411#snap_abawd_three_month_sanction_applies: holds
 - name: ipv_member_income_and_resources_count_in_full
   period: 2026-01
   input:
@@ -14,8 +14,8 @@
     household_contains_prorated_count_disqualified_member: false
     disqualified_or_sanctioned_member_resources: 1200
   output:
-    snap_disqualified_member_income_counted: 700
-    snap_disqualified_member_resources_counted: 1200
+    us-co:regulations/10-ccr-2506-1/4.411#snap_disqualified_member_income_counted: 700
+    us-co:regulations/10-ccr-2506-1/4.411#snap_disqualified_member_resources_counted: 1200
 - name: ineligible_noncitizen_income_is_prorated_to_remaining_household_members
   period: 2026-01
   input:
@@ -25,8 +25,8 @@
     remaining_household_member_count: 2
     household_size_including_disqualified_members: 3
   output:
-    snap_prorated_disqualified_member_income_counted: 600
-    snap_prorated_disqualified_member_earned_income_for_deduction: 400
+    us-co:regulations/10-ccr-2506-1/4.411#snap_prorated_disqualified_member_income_counted: 600
+    us-co:regulations/10-ccr-2506-1/4.411#snap_prorated_disqualified_member_earned_income_for_deduction: 400
 - name: prorated_disqualified_member_expenses_keep_full_sua
   period: 2026-01
   input:
@@ -37,22 +37,22 @@
     prorated_member_earned_income_deduction: 80
     standard_utility_allowance_if_household_qualifies: 594
   output:
-    snap_prorated_disqualified_member_expenses: 600
-    snap_prorated_disqualified_member_deductible_expenses: 1274
+    us-co:regulations/10-ccr-2506-1/4.411#snap_prorated_disqualified_member_expenses: 600
+    us-co:regulations/10-ccr-2506-1/4.411#snap_prorated_disqualified_member_deductible_expenses: 1274
 - name: disqualified_member_is_excluded_from_household_size
   period: 2026-01
   input:
     household_size_including_disqualified_members: 5
     disqualified_or_sanctioned_member_count: 2
   output:
-    snap_household_size_for_benefit_level_after_disqualifications: 3
+    us-co:regulations/10-ccr-2506-1/4.411#snap_household_size_for_benefit_level_after_disqualifications: 3
 - name: non_household_member_cash_counts_but_resources_do_not
   period: 2026-01
   input:
     non_household_member_cash_payments_to_household: 250
   output:
-    snap_non_household_member_income_counted: 250
-    snap_non_household_member_resources_counted: 0
+    us-co:regulations/10-ccr-2506-1/4.411#snap_non_household_member_income_counted: 250
+    us-co:regulations/10-ccr-2506-1/4.411#snap_non_household_member_resources_counted: 0
 - name: shared_expenses_use_identified_household_payment_when_available
   period: 2026-01
   input:
@@ -62,7 +62,7 @@
     household_expense_contributor_count: 2
     total_people_paying_or_contributing_to_shared_expenses: 3
   output:
-    snap_household_share_of_expenses_with_non_household_member: 400
+    us-co:regulations/10-ccr-2506-1/4.411#snap_household_share_of_expenses_with_non_household_member: 400
 - name: shared_expenses_are_prorated_when_payments_cannot_be_differentiated
   period: 2026-01
   input:
@@ -72,7 +72,7 @@
     household_expense_contributor_count: 2
     total_people_paying_or_contributing_to_shared_expenses: 3
   output:
-    snap_household_share_of_expenses_with_non_household_member: 600
+    us-co:regulations/10-ccr-2506-1/4.411#snap_household_share_of_expenses_with_non_household_member: 600
 - name: combined_wage_uses_identified_household_share
   period: 2026-01
   input:
@@ -82,7 +82,7 @@
     household_members_covered_by_combined_wage_count: 2
     total_people_covered_by_combined_wage_count: 3
   output:
-    snap_household_earned_income_from_combined_wage: 500
+    us-co:regulations/10-ccr-2506-1/4.411#snap_household_earned_income_from_combined_wage: 500
 - name: combined_wage_is_prorated_when_household_share_cannot_be_identified
   period: 2026-01
   input:
@@ -92,10 +92,10 @@
     household_members_covered_by_combined_wage_count: 2
     total_people_covered_by_combined_wage_count: 3
   output:
-    snap_household_earned_income_from_combined_wage: 800
+    us-co:regulations/10-ccr-2506-1/4.411#snap_household_earned_income_from_combined_wage: 800
 - name: ineligible_student_income_and_resources_are_not_available
   period: 2026-01
   input: {}
   output:
-    snap_ineligible_student_income_counted: 0
-    snap_ineligible_student_resources_counted: 0
+    us-co:regulations/10-ccr-2506-1/4.411#snap_ineligible_student_income_counted: 0
+    us-co:regulations/10-ccr-2506-1/4.411#snap_ineligible_student_resources_counted: 0

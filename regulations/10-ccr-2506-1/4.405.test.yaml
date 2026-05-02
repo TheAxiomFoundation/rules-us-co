@@ -4,16 +4,16 @@
     irregular_income_received_too_infrequently_or_irregularly_to_anticipate: true
     irregular_income_received_in_three_months: 30
   output:
-    snap_irregular_income_exclusion: 30
-    snap_countable_irregular_income: 0
+    us-co:regulations/10-ccr-2506-1/4.405#snap_irregular_income_exclusion: 30
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_irregular_income: 0
 - name: irregular_income_above_threshold_counts_in_full
   period: 2026-01
   input:
     irregular_income_received_too_infrequently_or_irregularly_to_anticipate: true
     irregular_income_received_in_three_months: 31
   output:
-    snap_irregular_income_exclusion: 0
-    snap_countable_irregular_income: 31
+    us-co:regulations/10-ccr-2506-1/4.405#snap_irregular_income_exclusion: 0
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_irregular_income: 31
 - name: unidentified_non_household_beneficiary_payment_is_prorated
   period: 2026-01
   input:
@@ -25,8 +25,8 @@
     intended_beneficiary_count: 3
     payment_used_for_non_household_beneficiary: 250
   output:
-    snap_non_household_beneficiary_payment_exclusion: 250
-    snap_countable_non_household_beneficiary_payment: 650
+    us-co:regulations/10-ccr-2506-1/4.405#snap_non_household_beneficiary_payment_exclusion: 250
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_non_household_beneficiary_payment: 650
 - name: child_student_earnings_excluded_through_month_child_turns_eighteen
   period: 2026-01
   input:
@@ -36,8 +36,8 @@
     child_turns_18_in_current_month: true
     child_earned_income: 400
   output:
-    snap_child_student_earnings_exclusion: 400
-    snap_countable_child_student_earnings: 0
+    us-co:regulations/10-ccr-2506-1/4.405#snap_child_student_earnings_exclusion: 400
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_child_student_earnings: 0
 - name: child_student_earnings_count_after_turning_month
   period: 2026-02
   input:
@@ -47,8 +47,8 @@
     child_turns_18_in_current_month: false
     child_earned_income: 400
   output:
-    snap_child_student_earnings_exclusion: 0
-    snap_countable_child_student_earnings: 400
+    us-co:regulations/10-ccr-2506-1/4.405#snap_child_student_earnings_exclusion: 0
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_child_student_earnings: 400
 - name: same_source_recoupment_counts_only_net_payment
   period: 2026-01
   input:
@@ -57,7 +57,7 @@
     gross_nonexempt_income_source_payment: 500
     recouped_overpayment_amount: 125
   output:
-    snap_countable_recouped_income_source_payment: 375
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_recouped_income_source_payment: 375
 - name: intentional_means_tested_recoupment_counts_gross_payment
   period: 2026-01
   input:
@@ -66,7 +66,7 @@
     gross_nonexempt_income_source_payment: 500
     recouped_overpayment_amount: 125
   output:
-    snap_countable_recouped_income_source_payment: 500
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_recouped_income_source_payment: 500
 - name: nonrecurring_lump_sum_is_income_excluded_and_resource_counted
   period: 2026-01
   input:
@@ -75,8 +75,8 @@
     lump_sum_excluded_as_resource_by_federal_law: false
     nonrecurring_lump_sum_payment_remaining_as_resource: 800
   output:
-    snap_nonrecurring_lump_sum_income_exclusion: 1200
-    snap_nonrecurring_lump_sum_resource: 800
+    us-co:regulations/10-ccr-2506-1/4.405#snap_nonrecurring_lump_sum_income_exclusion: 1200
+    us-co:regulations/10-ccr-2506-1/4.405#snap_nonrecurring_lump_sum_resource: 800
 - name: direct_vendor_payment_using_outside_funds_is_excluded
   period: 2026-01
   input:
@@ -90,8 +90,8 @@
     federally_authorized_demo_cash_conversion_of_vendor_payment: false
     vendor_payment_amount: 700
   output:
-    snap_vendor_payment_exclusion: 700
-    snap_countable_vendor_payment: 0
+    us-co:regulations/10-ccr-2506-1/4.405#snap_vendor_payment_exclusion: 700
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_vendor_payment: 0
 - name: legally_obligated_diverted_vendor_payment_counts
   period: 2026-01
   input:
@@ -105,8 +105,8 @@
     federally_authorized_demo_cash_conversion_of_vendor_payment: false
     vendor_payment_amount: 700
   output:
-    snap_vendor_payment_exclusion: 0
-    snap_countable_vendor_payment: 700
+    us-co:regulations/10-ccr-2506-1/4.405#snap_vendor_payment_exclusion: 0
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_vendor_payment: 700
 - name: reimbursement_excludes_actual_identified_expense_only
   period: 2026-01
   input:
@@ -115,8 +115,8 @@
     reimbursement_amount: 300
     actual_reimbursed_non_living_expense: 225
   output:
-    snap_reimbursement_exclusion: 225
-    snap_countable_reimbursement: 75
+    us-co:regulations/10-ccr-2506-1/4.405#snap_reimbursement_exclusion: 225
+    us-co:regulations/10-ccr-2506-1/4.405#snap_countable_reimbursement: 75
 - name: federal_statute_exclusions_cover_education_vista_wioa_and_energy
   period: 2026-01
   input:
@@ -133,8 +133,8 @@
     energy_assistance_payment: 150
     private_nonprofit_cash_donations_based_on_need_in_fiscal_quarter: 375
   output:
-    snap_education_assistance_income_exclusion: 1000
-    snap_vista_income_exclusion: 300
-    snap_wioa_payment_exclusion: 250
-    snap_federal_energy_assistance_income_exclusion: 150
-    snap_private_nonprofit_cash_donation_exclusion: 300
+    us-co:regulations/10-ccr-2506-1/4.405#snap_education_assistance_income_exclusion: 1000
+    us-co:regulations/10-ccr-2506-1/4.405#snap_vista_income_exclusion: 300
+    us-co:regulations/10-ccr-2506-1/4.405#snap_wioa_payment_exclusion: 250
+    us-co:regulations/10-ccr-2506-1/4.405#snap_federal_energy_assistance_income_exclusion: 150
+    us-co:regulations/10-ccr-2506-1/4.405#snap_private_nonprofit_cash_donation_exclusion: 300
