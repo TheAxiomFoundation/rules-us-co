@@ -66,6 +66,14 @@ AXIOM_OUTPUT_ID_BY_LABEL = {
 }
 COMPARED_AXIOM_OUTPUT = "snap_regular_month_allotment"
 AXIOM_OUTPUTS = list(AXIOM_OUTPUT_ID_BY_LABEL.values())
+AXIOM_RELATION_ID_BY_LABEL = {
+    "member_of_household": "us:statutes/7/2012/j#relation.member_of_household",
+}
+AXIOM_MEMBER_INPUT_ID_BY_LABEL = {
+    "snap_member_is_elderly_or_disabled": (
+        "us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled"
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -155,6 +163,38 @@ def load_base_inputs(path: Path) -> dict[str, Any]:
     if not isinstance(inputs, dict):
         raise ValueError(f"{path} first test case must contain an input mapping")
     return dict(inputs)
+
+
+def _friendly_input_name(reference: str) -> str | None:
+    marker = "#input."
+    if marker not in reference:
+        return None
+    return reference.split(marker, 1)[1]
+
+
+def legal_input_index(inputs: dict[str, Any]) -> dict[str, str]:
+    index: dict[str, str] = {}
+    for reference in inputs:
+        name = _friendly_input_name(str(reference))
+        if name:
+            index[name] = str(reference)
+    return index
+
+
+def legalize_inputs(
+    inputs: dict[str, Any],
+    reference_by_name: dict[str, str],
+) -> dict[str, Any]:
+    legal: dict[str, Any] = {}
+    for name, value in inputs.items():
+        if "#" in name and ":" in name:
+            reference = name
+        else:
+            reference = reference_by_name.get(name)
+            if reference is None:
+                raise KeyError(f"no legal RuleSpec input reference for `{name}`")
+        legal[reference] = value
+    return legal
 
 
 def array(values: Any) -> np.ndarray:
@@ -322,6 +362,9 @@ def load_policyengine_cases(
         "sewage_expense": calculate(sim, "sewage_expense", year),
     }
 
+    household_input_ref_by_name = legal_input_index(base_inputs)
+    member_input_ref_by_name = dict(AXIOM_MEMBER_INPUT_ID_BY_LABEL)
+
     cases: list[ProjectedCase] = []
     for idx in indices:
         spm_id = int(spm_ids[idx])
@@ -396,13 +439,16 @@ def load_policyengine_cases(
             ProjectedCase(
                 spm_unit_id=spm_id,
                 household_id=int(household_ids[idx]),
-                inputs=inputs,
+                inputs=legalize_inputs(inputs, household_input_ref_by_name),
                 member_inputs=[
-                    {
-                        "snap_member_is_elderly_or_disabled": bool(
-                            values["has_usda_elderly_disabled"][idx]
-                        )
-                    }
+                    legalize_inputs(
+                        {
+                            "snap_member_is_elderly_or_disabled": bool(
+                                values["has_usda_elderly_disabled"][idx]
+                            )
+                        },
+                        member_input_ref_by_name,
+                    )
                 ],
                 pe_outputs={name: native(values[name][idx]) for name in values},
             )
@@ -530,7 +576,7 @@ def run_axiom_cases(
             member_entity_id = f"{entity_id}-member-{member_index}"
             relations.append(
                 {
-                    "name": "member_of_household",
+                    "name": AXIOM_RELATION_ID_BY_LABEL["member_of_household"],
                     "tuple": [member_entity_id, entity_id],
                     "interval": interval,
                 }
