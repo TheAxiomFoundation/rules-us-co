@@ -6,13 +6,13 @@ module:
     eligibility criteria. Other households use anticipated resources after
     section 4.410 exemptions for the issuance month. Sponsor resources counted
     toward a non-citizen household equal the sponsor's total resources less
-    2000 dollars and are added to post-exemption countable resources.
-    Effective October 1, 2024, the resource limit is 4500 dollars for
-    households with a member aged 60 or older or with a disability and 3000
-    dollars for other households.
+    2000 dollars and are added to post-exemption countable resources. The
+    resulting resource eligibility test is the federal 7 CFR 273.8 resource
+    standard using USDA FY 2026 COLA asset limits.
   source_verification:
     corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.408
 imports:
+  - us:regulations/7-cfr/273/8
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
   - name: co_snap_resource_limits_reiterate_usda_fy_2026
@@ -26,6 +26,15 @@ rules:
       values:
         snap_asset_limit_elderly_or_disabled_member: 4500
         snap_asset_limit_other_households: 3000
+  - name: snap_categorically_eligible_for_resource_exemption
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: 10 CCR 2506-1 section 4.408(A)
+    versions:
+      - effective_from: '2025-10-01'
+        formula: snap_expanded_categorical_eligible or snap_basic_categorical_eligible
   - name: snap_sponsor_resources_counted
     kind: derived
     entity: Household
@@ -49,15 +58,13 @@ rules:
     versions:
       - effective_from: '2024-10-01'
         formula: snap_countable_resources_after_exemptions + snap_sponsor_resources_counted
-  - name: passes_resource_test
+  - name: snap_countable_financial_resources
     kind: derived
     entity: Household
-    dtype: Judgment
+    dtype: Money
     period: Month
-    source: 10 CCR 2506-1 section 4.408
+    unit: USD
+    source: 10 CCR 2506-1 section 4.408(B)
     versions:
       - effective_from: '2024-10-01'
-        formula: |-
-          snap_expanded_categorical_eligible
-          or snap_basic_categorical_eligible
-          or snap_countable_resources_for_resource_test <= snap_asset_limit
+        formula: snap_countable_resources_for_resource_test

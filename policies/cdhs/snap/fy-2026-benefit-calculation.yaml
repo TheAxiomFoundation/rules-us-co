@@ -162,7 +162,7 @@ rules:
       - effective_from: '2025-10-01'
         formula: |-
           snap_income_eligible
-          and passes_resource_test
+          and snap_resource_eligible
           and snap_work_requirement_eligible
           and snap_student_eligible
           and snap_residency_citizenship_eligible
