@@ -1,11 +1,11 @@
 - name: primary_annual_support_is_averaged_over_twelve_months
   period: 2026-01
   input:
-    self_employment_income_is_primary_annual_support: true
-    self_employment_income_is_partial_annual_support: false
-    self_employment_income_is_from_new_source: false
-    substantial_increase_or_decrease_in_business: false
-    historical_self_employment_income_for_averaging_period: 24000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_primary_annual_support: true
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_partial_annual_support: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_from_new_source: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.substantial_increase_or_decrease_in_business: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.historical_self_employment_income_for_averaging_period: 24000
   output:
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employment_averaging_months: 12
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employment_income_should_use_anticipated_earnings: not_holds
@@ -13,24 +13,24 @@
 - name: partial_support_is_averaged_over_self_employment_months
   period: 2026-01
   input:
-    self_employment_income_is_primary_annual_support: false
-    self_employment_income_is_partial_annual_support: true
-    self_employment_income_is_from_new_source: false
-    substantial_increase_or_decrease_in_business: false
-    self_employment_months: 4
-    historical_self_employment_income_for_averaging_period: 8000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_primary_annual_support: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_partial_annual_support: true
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_from_new_source: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.substantial_increase_or_decrease_in_business: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_months: 4
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.historical_self_employment_income_for_averaging_period: 8000
   output:
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employment_averaging_months: 4
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_averaged_monthly_self_employment_income: 2000
 - name: new_source_uses_months_in_operation_and_anticipated_income
   period: 2026-01
   input:
-    self_employment_income_is_primary_annual_support: false
-    self_employment_income_is_partial_annual_support: false
-    self_employment_income_is_from_new_source: true
-    substantial_increase_or_decrease_in_business: false
-    self_employment_business_months_in_operation: 3
-    anticipated_self_employment_income_for_projection_period: 6000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_primary_annual_support: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_partial_annual_support: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_income_is_from_new_source: true
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.substantial_increase_or_decrease_in_business: false
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.self_employment_business_months_in_operation: 3
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.anticipated_self_employment_income_for_projection_period: 6000
   output:
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employment_averaging_months: 3
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employment_income_should_use_anticipated_earnings: holds
@@ -38,13 +38,13 @@
 - name: farmer_loss_offsets_other_self_employment_then_other_earned_income
   period: 2026-01
   input:
-    expected_gross_annual_farm_income: 1200
-    farm_gross_income_for_period: 6000
-    farm_income_production_costs_for_period: 9000
-    farm_loss_period_months: 3
-    other_self_employment_income: 400
-    earned_income_excluding_farm_and_self_employment: 900
-    other_unearned_income: 200
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.expected_gross_annual_farm_income: 1200
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.farm_gross_income_for_period: 6000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.farm_income_production_costs_for_period: 9000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.farm_loss_period_months: 3
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.other_self_employment_income: 400
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.earned_income_excluding_farm_and_self_employment: 900
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.other_unearned_income: 200
   output:
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employed_farmer: holds
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_monthly_prorated_farm_loss: 1000
@@ -55,13 +55,13 @@
 - name: farm_income_under_one_thousand_is_not_farmer_loss_offset
   period: 2026-01
   input:
-    expected_gross_annual_farm_income: 999
-    farm_gross_income_for_period: 6000
-    farm_income_production_costs_for_period: 9000
-    farm_loss_period_months: 3
-    other_self_employment_income: 400
-    earned_income_excluding_farm_and_self_employment: 900
-    other_unearned_income: 200
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.expected_gross_annual_farm_income: 999
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.farm_gross_income_for_period: 6000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.farm_income_production_costs_for_period: 9000
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.farm_loss_period_months: 3
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.other_self_employment_income: 400
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.earned_income_excluding_farm_and_self_employment: 900
+    us-co:regulations/10-ccr-2506-1/4.403.12#input.other_unearned_income: 200
   output:
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_self_employed_farmer: not_holds
     us-co:regulations/10-ccr-2506-1/4.403.12#snap_monthly_prorated_farm_loss: 0

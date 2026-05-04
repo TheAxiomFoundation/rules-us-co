@@ -1,14 +1,14 @@
 - name: initial_month_prorates_from_application_date
   period: 2026-01
   input:
-    household_size: 1
-    snap_net_income: 0
-    snap_eligible: true
-    initial_application_month: true
-    application_date: '2026-01-16'
-    public_institution_joint_ssi_snap_application_before_release: false
-    migrant_or_seasonal_farmworker_household_in_job_stream: false
-    break_in_participation_days: 0
+    us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size: 1
+    us:statutes/7/2017/a#input.snap_net_income: 0
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.snap_eligible: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.initial_application_month: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.application_date: '2026-01-16'
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.public_institution_joint_ssi_snap_application_before_release: false
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.migrant_or_seasonal_farmworker_household_in_job_stream: false
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.break_in_participation_days: 0
   output:
     us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment: 298
     us:statutes/7/2017/a#snap_allotment_before_minimum: 298
@@ -21,15 +21,15 @@
 - name: initial_month_uses_public_institution_release_date
   period: 2026-01
   input:
-    household_size: 2
-    snap_net_income: 0
-    snap_eligible: true
-    initial_application_month: true
-    application_date: '2026-01-01'
-    public_institution_joint_ssi_snap_application_before_release: true
-    public_institution_release_date: '2026-01-20'
-    migrant_or_seasonal_farmworker_household_in_job_stream: false
-    break_in_participation_days: 0
+    us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size: 2
+    us:statutes/7/2017/a#input.snap_net_income: 0
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.snap_eligible: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.initial_application_month: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.application_date: '2026-01-01'
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.public_institution_joint_ssi_snap_application_before_release: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.public_institution_release_date: '2026-01-20'
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.migrant_or_seasonal_farmworker_household_in_job_stream: false
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.break_in_participation_days: 0
   output:
     us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment: 546
     us:statutes/7/2017/a#snap_allotment_before_minimum: 546
@@ -42,12 +42,12 @@
 - name: migrant_seasonal_job_stream_exception_receives_full_month_allotment
   period: 2026-01
   input:
-    household_size: 1
-    snap_net_income: 0
-    snap_eligible: true
-    initial_application_month: true
-    migrant_or_seasonal_farmworker_household_in_job_stream: true
-    break_in_participation_days: 30
+    us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size: 1
+    us:statutes/7/2017/a#input.snap_net_income: 0
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.snap_eligible: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.initial_application_month: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.migrant_or_seasonal_farmworker_household_in_job_stream: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.break_in_participation_days: 30
   output:
     us-co:regulations/10-ccr-2506-1/4.207.2#snap_initial_month_proration_exception: holds
     us-co:regulations/10-ccr-2506-1/4.207.2#snap_initial_month_proration_applies: not_holds
@@ -56,14 +56,14 @@
 - name: initial_month_below_minimum_gets_no_issuance
   period: 2026-01
   input:
-    household_size: 1
-    snap_net_income: 0
-    snap_eligible: true
-    initial_application_month: true
-    application_date: '2026-01-31'
-    public_institution_joint_ssi_snap_application_before_release: false
-    migrant_or_seasonal_farmworker_household_in_job_stream: false
-    break_in_participation_days: 0
+    us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size: 1
+    us:statutes/7/2017/a#input.snap_net_income: 0
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.snap_eligible: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.initial_application_month: true
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.application_date: '2026-01-31'
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.public_institution_joint_ssi_snap_application_before_release: false
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.migrant_or_seasonal_farmworker_household_in_job_stream: false
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.break_in_participation_days: 0
   output:
     us:statutes/7/2017/a#snap_allotment_before_minimum: 298
     us:statutes/7/2017/a#snap_minimum_monthly_allotment: 24
@@ -73,10 +73,10 @@
 - name: ineligible_household_gets_no_allotment
   period: 2026-01
   input:
-    household_size: 1
-    snap_net_income: 0
-    snap_eligible: false
-    initial_application_month: false
+    us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size: 1
+    us:statutes/7/2017/a#input.snap_net_income: 0
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.snap_eligible: false
+    us-co:regulations/10-ccr-2506-1/4.207.2#input.initial_application_month: false
   output:
     us:statutes/7/2017/a#snap_regular_month_allotment: 0
     us-co:regulations/10-ccr-2506-1/4.207.2#snap_allotment: 0

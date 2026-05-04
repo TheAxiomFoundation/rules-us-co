@@ -1,34 +1,34 @@
 - name: no_medical_deduction_without_elderly_or_disabled_member
   period: 2026-01
   input:
-    total_medical_expenses: 120
+    us-co:regulations/10-ccr-2506-1/4.407.61#input.total_medical_expenses: 120
   output:
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 85
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 0
 - name: no_medical_deduction_at_threshold
   period: 2026-01
   input:
-    member_of_household:
-      - snap_member_is_elderly_or_disabled: true
-    total_medical_expenses: 35
+    us:statutes/7/2012/j#relation.member_of_household:
+      - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: true
+    us-co:regulations/10-ccr-2506-1/4.407.61#input.total_medical_expenses: 35
   output:
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 0
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 0
 - name: smed_applies_when_expenses_are_above_threshold
   period: 2026-01
   input:
-    member_of_household:
-      - snap_member_is_elderly_or_disabled: true
-    total_medical_expenses: 120
+    us:statutes/7/2012/j#relation.member_of_household:
+      - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: true
+    us-co:regulations/10-ccr-2506-1/4.407.61#input.total_medical_expenses: 120
   output:
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 85
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 165
 - name: actual_excess_applies_when_excess_exceeds_smed
   period: 2026-01
   input:
-    member_of_household:
-      - snap_member_is_elderly_or_disabled: true
-    total_medical_expenses: 240
+    us:statutes/7/2012/j#relation.member_of_household:
+      - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: true
+    us-co:regulations/10-ccr-2506-1/4.407.61#input.total_medical_expenses: 240
   output:
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_excess: 205
     us-co:regulations/10-ccr-2506-1/4.407.61#medical_deduction: 205
