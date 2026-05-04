@@ -73,6 +73,115 @@ AXIOM_MEMBER_INPUT_ID_BY_LABEL = {
     "snap_member_is_elderly_or_disabled": (
         "us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled"
     ),
+    "enrolled_at_least_half_time": (
+        "us:regulation/7-cfr/273/5#input.enrolled_at_least_half_time"
+    ),
+    "enrolled_in_business_technical_trade_or_vocational_school_requiring_high_school_diploma": (
+        "us:regulation/7-cfr/273/5#input.enrolled_in_business_technical_trade_or_vocational_school_requiring_high_school_diploma"
+    ),
+    "enrolled_in_college_or_university_degree_program": (
+        "us:regulation/7-cfr/273/5#input.enrolled_in_college_or_university_degree_program"
+    ),
+    "student_age": "us:regulation/7-cfr/273/5#input.student_age",
+    "student_physically_or_mentally_unfit": (
+        "us:regulation/7-cfr/273/5#input.student_physically_or_mentally_unfit"
+    ),
+    "student_receives_tanf": (
+        "us:regulation/7-cfr/273/5#input.student_receives_tanf"
+    ),
+    "enrolled_through_jobs_or_successor_program": (
+        "us:regulation/7-cfr/273/5#input.enrolled_through_jobs_or_successor_program"
+    ),
+    "student_paid_employment_hours_per_week": (
+        "us:regulation/7-cfr/273/5#input.student_paid_employment_hours_per_week"
+    ),
+    "student_self_employment_hours_per_week": (
+        "us:regulation/7-cfr/273/5#input.student_self_employment_hours_per_week"
+    ),
+    "student_self_employment_weekly_earnings": (
+        "us:regulation/7-cfr/273/5#input.student_self_employment_weekly_earnings"
+    ),
+    "federal_minimum_wage": (
+        "us:regulation/7-cfr/273/5#input.federal_minimum_wage"
+    ),
+    "state_agency_averaged_student_work_hours_meet_twenty_per_week": (
+        "us:regulation/7-cfr/273/5#input.state_agency_averaged_student_work_hours_meet_twenty_per_week"
+    ),
+    "student_participating_in_state_or_federally_financed_work_study": (
+        "us:regulation/7-cfr/273/5#input.student_participating_in_state_or_federally_financed_work_study"
+    ),
+    "work_study_approved_at_snap_application": (
+        "us:regulation/7-cfr/273/5#input.work_study_approved_at_snap_application"
+    ),
+    "work_study_approved_for_school_term": (
+        "us:regulation/7-cfr/273/5#input.work_study_approved_for_school_term"
+    ),
+    "student_anticipates_working_in_work_study": (
+        "us:regulation/7-cfr/273/5#input.student_anticipates_working_in_work_study"
+    ),
+    "work_study_exemption_period_active": (
+        "us:regulation/7-cfr/273/5#input.work_study_exemption_period_active"
+    ),
+    "known_student_refused_work_study_assignment": (
+        "us:regulation/7-cfr/273/5#input.known_student_refused_work_study_assignment"
+    ),
+    "student_participating_in_on_the_job_training_program": (
+        "us:regulation/7-cfr/273/5#input.student_participating_in_on_the_job_training_program"
+    ),
+    "student_currently_being_trained_by_employer": (
+        "us:regulation/7-cfr/273/5#input.student_currently_being_trained_by_employer"
+    ),
+    "responsible_for_care_of_dependent_household_member_under_age_six": (
+        "us:regulation/7-cfr/273/5#input.responsible_for_care_of_dependent_household_member_under_age_six"
+    ),
+    "responsible_for_care_of_dependent_household_member_age_six_to_under_twelve": (
+        "us:regulation/7-cfr/273/5#input.responsible_for_care_of_dependent_household_member_age_six_to_under_twelve"
+    ),
+    "adequate_child_care_unavailable_to_attend_class_and_meet_student_work_requirement": (
+        "us:regulation/7-cfr/273/5#input.adequate_child_care_unavailable_to_attend_class_and_meet_student_work_requirement"
+    ),
+    "single_parent_enrolled_full_time_in_higher_education": (
+        "us:regulation/7-cfr/273/5#input.single_parent_enrolled_full_time_in_higher_education"
+    ),
+    "responsible_for_care_of_dependent_child_under_twelve": (
+        "us:regulation/7-cfr/273/5#input.responsible_for_care_of_dependent_child_under_twelve"
+    ),
+    "single_parent_household_condition_satisfied": (
+        "us:regulation/7-cfr/273/5#input.single_parent_household_condition_satisfied"
+    ),
+    "assigned_or_placed_in_higher_education_through_qualifying_employment_training_program": (
+        "us:regulation/7-cfr/273/5#input.assigned_or_placed_in_higher_education_through_qualifying_employment_training_program"
+    ),
+}
+
+STUDENT_MEMBER_INPUT_DEFAULTS = {
+    "enrolled_at_least_half_time": False,
+    "enrolled_in_business_technical_trade_or_vocational_school_requiring_high_school_diploma": False,
+    "enrolled_in_college_or_university_degree_program": False,
+    "student_age": 50,
+    "student_physically_or_mentally_unfit": False,
+    "student_receives_tanf": False,
+    "enrolled_through_jobs_or_successor_program": False,
+    "student_paid_employment_hours_per_week": 0,
+    "student_self_employment_hours_per_week": 0,
+    "student_self_employment_weekly_earnings": 0,
+    "federal_minimum_wage": 7.25,
+    "state_agency_averaged_student_work_hours_meet_twenty_per_week": False,
+    "student_participating_in_state_or_federally_financed_work_study": False,
+    "work_study_approved_at_snap_application": False,
+    "work_study_approved_for_school_term": False,
+    "student_anticipates_working_in_work_study": False,
+    "work_study_exemption_period_active": False,
+    "known_student_refused_work_study_assignment": False,
+    "student_participating_in_on_the_job_training_program": False,
+    "student_currently_being_trained_by_employer": False,
+    "responsible_for_care_of_dependent_household_member_under_age_six": False,
+    "responsible_for_care_of_dependent_household_member_age_six_to_under_twelve": False,
+    "adequate_child_care_unavailable_to_attend_class_and_meet_student_work_requirement": False,
+    "single_parent_enrolled_full_time_in_higher_education": False,
+    "responsible_for_care_of_dependent_child_under_twelve": False,
+    "single_parent_household_condition_satisfied": False,
+    "assigned_or_placed_in_higher_education_through_qualifying_employment_training_program": False,
 }
 
 
@@ -162,7 +271,11 @@ def load_base_inputs(path: Path) -> dict[str, Any]:
     inputs = cases[0].get("input")
     if not isinstance(inputs, dict):
         raise ValueError(f"{path} first test case must contain an input mapping")
-    return dict(inputs)
+    return {
+        str(reference): value
+        for reference, value in inputs.items()
+        if "#relation." not in str(reference)
+    }
 
 
 def _friendly_input_name(reference: str) -> str | None:
@@ -195,6 +308,19 @@ def legalize_inputs(
                 raise KeyError(f"no legal RuleSpec input reference for `{name}`")
         legal[reference] = value
     return legal
+
+
+def project_student_member_inputs(student_eligible: bool) -> dict[str, Any]:
+    inputs = dict(STUDENT_MEMBER_INPUT_DEFAULTS)
+    if not student_eligible:
+        inputs.update(
+            {
+                "enrolled_at_least_half_time": True,
+                "enrolled_in_college_or_university_degree_program": True,
+                "student_age": 20,
+            }
+        )
+    return inputs
 
 
 def array(values: Any) -> np.ndarray:
@@ -414,7 +540,6 @@ def load_policyengine_cases(
                 "snap_work_requirement_eligible": bool(
                     values["meets_snap_work_requirements"][idx]
                 ),
-                "snap_student_eligible": bool(student_ok_by_spm.get(spm_id, False)),
                 "snap_residency_citizenship_eligible": bool(
                     immigration_ok_by_spm.get(spm_id, False)
                 ),
@@ -435,6 +560,12 @@ def load_policyengine_cases(
                 **utility_inputs,
             }
         )
+        member_inputs = project_student_member_inputs(
+            bool(student_ok_by_spm.get(spm_id, False))
+        )
+        member_inputs["snap_member_is_elderly_or_disabled"] = bool(
+            values["has_usda_elderly_disabled"][idx]
+        )
         cases.append(
             ProjectedCase(
                 spm_unit_id=spm_id,
@@ -442,11 +573,7 @@ def load_policyengine_cases(
                 inputs=legalize_inputs(inputs, household_input_ref_by_name),
                 member_inputs=[
                     legalize_inputs(
-                        {
-                            "snap_member_is_elderly_or_disabled": bool(
-                                values["has_usda_elderly_disabled"][idx]
-                            )
-                        },
+                        member_inputs,
                         member_input_ref_by_name,
                     )
                 ],

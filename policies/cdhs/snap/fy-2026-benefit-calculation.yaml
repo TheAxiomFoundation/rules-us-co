@@ -39,6 +39,8 @@ imports:
   - us-co:regulations/10-ccr-2506-1/4.407.4
   - us-co:regulations/10-ccr-2506-1/4.407.5
   - us-co:regulations/10-ccr-2506-1/4.407.61
+  - us-co:regulations/10-ccr-2506-1/4.306
+  - us-co:regulations/10-ccr-2506-1/4.306.1
   - us-co:regulations/10-ccr-2506-1/4.207.3
   - us-co:regulations/10-ccr-2506-1/4.207.2
 rules:
@@ -116,6 +118,15 @@ rules:
           + snap_non_liquid_resource_value
           + snap_real_property_resource_value
           + other_household_resource_value
+  - name: snap_student_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: Colorado SNAP FY 2026 benefit calculation composition
+    versions:
+      - effective_from: '2025-10-01'
+        formula: count_where(member_of_household, snap_member_student_eligible) > 0
   - name: snap_eligible
     kind: derived
     entity: Household
