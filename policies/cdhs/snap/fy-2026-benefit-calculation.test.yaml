@@ -52,9 +52,14 @@
     us-co:regulations/10-ccr-2506-1/4.207.3#input.snap_basic_categorical_eligible: false
     us-co:regulations/10-ccr-2506-1/4.207.3#input.snap_expanded_categorical_eligible: false
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#input.snap_work_requirement_eligible: true
-    us-co:policies/cdhs/snap/fy-2026-benefit-calculation#input.snap_residency_citizenship_eligible: true
+    us:regulations/7-cfr/273/3#input.household_lives_in_application_state: true
+    us:regulations/7-cfr/273/3#input.household_in_project_area_solely_for_vacation: false
+    us:regulations/7-cfr/273/3#input.household_contains_individual_participating_in_more_than_one_household_or_project_area: false
+    us:regulations/7-cfr/273/3#input.resident_of_battered_women_and_children_shelter_and_prior_abusive_household_member: false
     us:statutes/7/2012/j#relation.member_of_household:
       - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: false
+        us:regulations/7-cfr/273/4#input.member_is_us_citizen: true
+        us:regulations/7-cfr/273/4#input.member_is_us_noncitizen_national: false
         us:regulations/7-cfr/273/5#input.enrolled_at_least_half_time: false
     us-co:regulations/10-ccr-2506-1/4.408.1#input.liquid_resource_current_redemption_rate: 0
     us-co:regulations/10-ccr-2506-1/4.408.1#input.liquid_resource_encumbrances: 0
@@ -163,6 +168,7 @@
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#gross_income: 1000
     us-co:regulations/10-ccr-2506-1/4.401#snap_income_eligible: holds
     us-co:regulations/10-ccr-2506-1/4.408#passes_resource_test: holds
+    us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_residency_citizenship_eligible: holds
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_eligible: holds
     us-co:regulations/10-ccr-2506-1/4.407.31#snap_heating_cooling_utility_allowance_eligible: holds
     us-co:regulations/10-ccr-2506-1/4.407.31#snap_standard_utility_allowance: 594

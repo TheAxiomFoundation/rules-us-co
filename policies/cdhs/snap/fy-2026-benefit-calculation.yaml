@@ -18,6 +18,8 @@ imports:
   - us:policies/usda/snap/fy-2026-cola/maximum-allotments
   - us:policies/usda/snap/fy-2026-cola/deductions
   - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
+  - us:regulations/7-cfr/273/3
+  - us:regulations/7-cfr/273/4
   - us:statutes/7/2014/e/2
   - us:statutes/7/2014/e/6/A
   - us:statutes/7/2017/a
@@ -127,6 +129,17 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: count_where(member_of_household, snap_member_student_eligible) > 0
+  - name: snap_residency_citizenship_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: Colorado SNAP FY 2026 benefit calculation composition
+    versions:
+      - effective_from: '2025-10-01'
+        formula: |-
+          snap_household_residency_eligible
+          and count_where(member_of_household, snap_member_citizenship_or_alien_status_eligible) > 0
   - name: snap_eligible
     kind: derived
     entity: Household

@@ -73,6 +73,56 @@ AXIOM_MEMBER_INPUT_ID_BY_LABEL = {
     "snap_member_is_elderly_or_disabled": (
         "us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled"
     ),
+    "member_is_us_citizen": (
+        "us:regulations/7-cfr/273/4#input.member_is_us_citizen"
+    ),
+    "member_is_us_noncitizen_national": (
+        "us:regulations/7-cfr/273/4#input.member_is_us_noncitizen_national"
+    ),
+    "member_is_american_indian_born_in_canada_or_recognized_indian_tribe_member": (
+        "us:regulations/7-cfr/273/4#input.member_is_american_indian_born_in_canada_or_recognized_indian_tribe_member"
+    ),
+    "member_is_hmong_or_highland_laotian_qualifying_person_or_family_member": (
+        "us:regulations/7-cfr/273/4#input.member_is_hmong_or_highland_laotian_qualifying_person_or_family_member"
+    ),
+    "member_is_trafficking_victim_or_qualifying_family_member": (
+        "us:regulations/7-cfr/273/4#input.member_is_trafficking_victim_or_qualifying_family_member"
+    ),
+    "member_is_qualified_alien_with_forty_qualifying_quarters": (
+        "us:regulations/7-cfr/273/4#input.member_is_qualified_alien_with_forty_qualifying_quarters"
+    ),
+    "member_is_refugee": "us:regulations/7-cfr/273/4#input.member_is_refugee",
+    "member_is_asylee": "us:regulations/7-cfr/273/4#input.member_is_asylee",
+    "member_has_deportation_or_removal_withheld": (
+        "us:regulations/7-cfr/273/4#input.member_has_deportation_or_removal_withheld"
+    ),
+    "member_is_cuban_or_haitian_entrant": (
+        "us:regulations/7-cfr/273/4#input.member_is_cuban_or_haitian_entrant"
+    ),
+    "member_is_amerasian_immigrant": (
+        "us:regulations/7-cfr/273/4#input.member_is_amerasian_immigrant"
+    ),
+    "member_has_eligible_military_connection": (
+        "us:regulations/7-cfr/273/4#input.member_has_eligible_military_connection"
+    ),
+    "member_receives_blindness_or_disability_benefits": (
+        "us:regulations/7-cfr/273/4#input.member_receives_blindness_or_disability_benefits"
+    ),
+    "member_was_lawfully_residing_on_1996_08_22_and_born_on_or_before_1931_08_22": (
+        "us:regulations/7-cfr/273/4#input.member_was_lawfully_residing_on_1996_08_22_and_born_on_or_before_1931_08_22"
+    ),
+    "member_is_under_age_eighteen": (
+        "us:regulations/7-cfr/273/4#input.member_is_under_age_eighteen"
+    ),
+    "member_is_qualified_alien_subject_to_five_year_wait": (
+        "us:regulations/7-cfr/273/4#input.member_is_qualified_alien_subject_to_five_year_wait"
+    ),
+    "qualified_alien_five_year_status_period_met": (
+        "us:regulations/7-cfr/273/4#input.qualified_alien_five_year_status_period_met"
+    ),
+    "alien_status_documentation_missing_or_unwilling": (
+        "us:regulations/7-cfr/273/4#input.alien_status_documentation_missing_or_unwilling"
+    ),
     "enrolled_at_least_half_time": (
         "us:regulations/7-cfr/273/5#input.enrolled_at_least_half_time"
     ),
@@ -182,6 +232,27 @@ STUDENT_MEMBER_INPUT_DEFAULTS = {
     "responsible_for_care_of_dependent_child_under_twelve": False,
     "single_parent_household_condition_satisfied": False,
     "assigned_or_placed_in_higher_education_through_qualifying_employment_training_program": False,
+}
+
+CITIZENSHIP_MEMBER_INPUT_DEFAULTS = {
+    "member_is_us_citizen": False,
+    "member_is_us_noncitizen_national": False,
+    "member_is_american_indian_born_in_canada_or_recognized_indian_tribe_member": False,
+    "member_is_hmong_or_highland_laotian_qualifying_person_or_family_member": False,
+    "member_is_trafficking_victim_or_qualifying_family_member": False,
+    "member_is_qualified_alien_with_forty_qualifying_quarters": False,
+    "member_is_refugee": False,
+    "member_is_asylee": False,
+    "member_has_deportation_or_removal_withheld": False,
+    "member_is_cuban_or_haitian_entrant": False,
+    "member_is_amerasian_immigrant": False,
+    "member_has_eligible_military_connection": False,
+    "member_receives_blindness_or_disability_benefits": False,
+    "member_was_lawfully_residing_on_1996_08_22_and_born_on_or_before_1931_08_22": False,
+    "member_is_under_age_eighteen": False,
+    "member_is_qualified_alien_subject_to_five_year_wait": False,
+    "qualified_alien_five_year_status_period_met": False,
+    "alien_status_documentation_missing_or_unwilling": False,
 }
 
 
@@ -320,6 +391,13 @@ def project_student_member_inputs(student_eligible: bool) -> dict[str, Any]:
                 "student_age": 20,
             }
         )
+    return inputs
+
+
+def project_citizenship_member_inputs(immigration_eligible: bool) -> dict[str, Any]:
+    inputs = dict(CITIZENSHIP_MEMBER_INPUT_DEFAULTS)
+    if immigration_eligible:
+        inputs["member_is_us_citizen"] = True
     return inputs
 
 
@@ -540,9 +618,10 @@ def load_policyengine_cases(
                 "snap_work_requirement_eligible": bool(
                     values["meets_snap_work_requirements"][idx]
                 ),
-                "snap_residency_citizenship_eligible": bool(
-                    immigration_ok_by_spm.get(spm_id, False)
-                ),
+                "household_lives_in_application_state": True,
+                "household_in_project_area_solely_for_vacation": False,
+                "household_contains_individual_participating_in_more_than_one_household_or_project_area": False,
+                "resident_of_battered_women_and_children_shelter_and_prior_abusive_household_member": False,
                 "dependent_care_expense_necessary_for_work_or_training": (
                     dependent_care_deduction > 0
                 ),
@@ -562,6 +641,11 @@ def load_policyengine_cases(
         )
         member_inputs = project_student_member_inputs(
             bool(student_ok_by_spm.get(spm_id, False))
+        )
+        member_inputs.update(
+            project_citizenship_member_inputs(
+                bool(immigration_ok_by_spm.get(spm_id, False))
+            )
         )
         member_inputs["snap_member_is_elderly_or_disabled"] = bool(
             values["has_usda_elderly_disabled"][idx]
