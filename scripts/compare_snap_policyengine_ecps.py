@@ -74,83 +74,83 @@ AXIOM_MEMBER_INPUT_ID_BY_LABEL = {
         "us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled"
     ),
     "enrolled_at_least_half_time": (
-        "us:regulation/7-cfr/273/5#input.enrolled_at_least_half_time"
+        "us:regulations/7-cfr/273/5#input.enrolled_at_least_half_time"
     ),
     "enrolled_in_business_technical_trade_or_vocational_school_requiring_high_school_diploma": (
-        "us:regulation/7-cfr/273/5#input.enrolled_in_business_technical_trade_or_vocational_school_requiring_high_school_diploma"
+        "us:regulations/7-cfr/273/5#input.enrolled_in_business_technical_trade_or_vocational_school_requiring_high_school_diploma"
     ),
     "enrolled_in_college_or_university_degree_program": (
-        "us:regulation/7-cfr/273/5#input.enrolled_in_college_or_university_degree_program"
+        "us:regulations/7-cfr/273/5#input.enrolled_in_college_or_university_degree_program"
     ),
-    "student_age": "us:regulation/7-cfr/273/5#input.student_age",
+    "student_age": "us:regulations/7-cfr/273/5#input.student_age",
     "student_physically_or_mentally_unfit": (
-        "us:regulation/7-cfr/273/5#input.student_physically_or_mentally_unfit"
+        "us:regulations/7-cfr/273/5#input.student_physically_or_mentally_unfit"
     ),
     "student_receives_tanf": (
-        "us:regulation/7-cfr/273/5#input.student_receives_tanf"
+        "us:regulations/7-cfr/273/5#input.student_receives_tanf"
     ),
     "enrolled_through_jobs_or_successor_program": (
-        "us:regulation/7-cfr/273/5#input.enrolled_through_jobs_or_successor_program"
+        "us:regulations/7-cfr/273/5#input.enrolled_through_jobs_or_successor_program"
     ),
     "student_paid_employment_hours_per_week": (
-        "us:regulation/7-cfr/273/5#input.student_paid_employment_hours_per_week"
+        "us:regulations/7-cfr/273/5#input.student_paid_employment_hours_per_week"
     ),
     "student_self_employment_hours_per_week": (
-        "us:regulation/7-cfr/273/5#input.student_self_employment_hours_per_week"
+        "us:regulations/7-cfr/273/5#input.student_self_employment_hours_per_week"
     ),
     "student_self_employment_weekly_earnings": (
-        "us:regulation/7-cfr/273/5#input.student_self_employment_weekly_earnings"
+        "us:regulations/7-cfr/273/5#input.student_self_employment_weekly_earnings"
     ),
     "federal_minimum_wage": (
-        "us:regulation/7-cfr/273/5#input.federal_minimum_wage"
+        "us:regulations/7-cfr/273/5#input.federal_minimum_wage"
     ),
     "state_agency_averaged_student_work_hours_meet_twenty_per_week": (
-        "us:regulation/7-cfr/273/5#input.state_agency_averaged_student_work_hours_meet_twenty_per_week"
+        "us:regulations/7-cfr/273/5#input.state_agency_averaged_student_work_hours_meet_twenty_per_week"
     ),
     "student_participating_in_state_or_federally_financed_work_study": (
-        "us:regulation/7-cfr/273/5#input.student_participating_in_state_or_federally_financed_work_study"
+        "us:regulations/7-cfr/273/5#input.student_participating_in_state_or_federally_financed_work_study"
     ),
     "work_study_approved_at_snap_application": (
-        "us:regulation/7-cfr/273/5#input.work_study_approved_at_snap_application"
+        "us:regulations/7-cfr/273/5#input.work_study_approved_at_snap_application"
     ),
     "work_study_approved_for_school_term": (
-        "us:regulation/7-cfr/273/5#input.work_study_approved_for_school_term"
+        "us:regulations/7-cfr/273/5#input.work_study_approved_for_school_term"
     ),
     "student_anticipates_working_in_work_study": (
-        "us:regulation/7-cfr/273/5#input.student_anticipates_working_in_work_study"
+        "us:regulations/7-cfr/273/5#input.student_anticipates_working_in_work_study"
     ),
     "work_study_exemption_period_active": (
-        "us:regulation/7-cfr/273/5#input.work_study_exemption_period_active"
+        "us:regulations/7-cfr/273/5#input.work_study_exemption_period_active"
     ),
     "known_student_refused_work_study_assignment": (
-        "us:regulation/7-cfr/273/5#input.known_student_refused_work_study_assignment"
+        "us:regulations/7-cfr/273/5#input.known_student_refused_work_study_assignment"
     ),
     "student_participating_in_on_the_job_training_program": (
-        "us:regulation/7-cfr/273/5#input.student_participating_in_on_the_job_training_program"
+        "us:regulations/7-cfr/273/5#input.student_participating_in_on_the_job_training_program"
     ),
     "student_currently_being_trained_by_employer": (
-        "us:regulation/7-cfr/273/5#input.student_currently_being_trained_by_employer"
+        "us:regulations/7-cfr/273/5#input.student_currently_being_trained_by_employer"
     ),
     "responsible_for_care_of_dependent_household_member_under_age_six": (
-        "us:regulation/7-cfr/273/5#input.responsible_for_care_of_dependent_household_member_under_age_six"
+        "us:regulations/7-cfr/273/5#input.responsible_for_care_of_dependent_household_member_under_age_six"
     ),
     "responsible_for_care_of_dependent_household_member_age_six_to_under_twelve": (
-        "us:regulation/7-cfr/273/5#input.responsible_for_care_of_dependent_household_member_age_six_to_under_twelve"
+        "us:regulations/7-cfr/273/5#input.responsible_for_care_of_dependent_household_member_age_six_to_under_twelve"
     ),
     "adequate_child_care_unavailable_to_attend_class_and_meet_student_work_requirement": (
-        "us:regulation/7-cfr/273/5#input.adequate_child_care_unavailable_to_attend_class_and_meet_student_work_requirement"
+        "us:regulations/7-cfr/273/5#input.adequate_child_care_unavailable_to_attend_class_and_meet_student_work_requirement"
     ),
     "single_parent_enrolled_full_time_in_higher_education": (
-        "us:regulation/7-cfr/273/5#input.single_parent_enrolled_full_time_in_higher_education"
+        "us:regulations/7-cfr/273/5#input.single_parent_enrolled_full_time_in_higher_education"
     ),
     "responsible_for_care_of_dependent_child_under_twelve": (
-        "us:regulation/7-cfr/273/5#input.responsible_for_care_of_dependent_child_under_twelve"
+        "us:regulations/7-cfr/273/5#input.responsible_for_care_of_dependent_child_under_twelve"
     ),
     "single_parent_household_condition_satisfied": (
-        "us:regulation/7-cfr/273/5#input.single_parent_household_condition_satisfied"
+        "us:regulations/7-cfr/273/5#input.single_parent_household_condition_satisfied"
     ),
     "assigned_or_placed_in_higher_education_through_qualifying_employment_training_program": (
-        "us:regulation/7-cfr/273/5#input.assigned_or_placed_in_higher_education_through_qualifying_employment_training_program"
+        "us:regulations/7-cfr/273/5#input.assigned_or_placed_in_higher_education_through_qualifying_employment_training_program"
     ),
 }
 
