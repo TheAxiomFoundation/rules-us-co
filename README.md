@@ -41,3 +41,8 @@ member fact, and the RuleSpec derives the household-level status through
 `member_of_household`. The live RuleSpec computation still derives utility,
 medical, child support, dependent care, shelter, eligibility, and allotment
 values from the encoded rules.
+
+CI runs a 20-record positive-benefit smoke comparison on pushes and pull
+requests. The full Colorado eCPS comparison runs weekly and can be started
+manually from the `PolicyEngine Oracle` GitHub Actions workflow with
+`full_run` enabled.

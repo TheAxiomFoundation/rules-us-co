@@ -1,0 +1,142 @@
+name: PolicyEngine Oracle
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      full_run:
+        description: Run the full Colorado eCPS SNAP comparison.
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 9 * * 1"
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  AXIOM_RULE_REPO_ROOTS: ${{ github.workspace }}/_axiom/rules-us:${{ github.workspace }}
+
+jobs:
+  co-snap-smoke:
+    name: CO SNAP PE smoke
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout rules-us-co
+        uses: actions/checkout@v6.0.2
+
+      - name: Checkout axiom-rules
+        uses: actions/checkout@v6.0.2
+        with:
+          repository: TheAxiomFoundation/axiom-rules
+          path: _axiom/axiom-rules
+
+      - name: Checkout rules-us canonical targets
+        uses: actions/checkout@v6.0.2
+        with:
+          repository: TheAxiomFoundation/rules-us
+          path: _axiom/rules-us
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.1.0
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.13
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache axiom-rules build
+        uses: Swatinem/rust-cache@v2.9.1
+        with:
+          workspaces: _axiom/axiom-rules
+
+      - name: Build axiom-rules
+        working-directory: _axiom/axiom-rules
+        run: cargo build --verbose
+
+      - name: Compare CO SNAP smoke sample to PolicyEngine
+        run: |
+          uv run \
+            --python 3.13 \
+            --with policyengine-us \
+            --with pyyaml \
+            --with numpy \
+            scripts/compare_snap_policyengine_ecps.py \
+              --utility-projection policyengine-type \
+              --positive-snap-only \
+              --sample-size 20 \
+              --max-differences 20 \
+              --fail-on-mismatch \
+              --axiom-binary _axiom/axiom-rules/target/debug/axiom-rules
+
+  co-snap-full:
+    name: CO SNAP PE full
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.full_run) }}
+
+    steps:
+      - name: Checkout rules-us-co
+        uses: actions/checkout@v6.0.2
+
+      - name: Checkout axiom-rules
+        uses: actions/checkout@v6.0.2
+        with:
+          repository: TheAxiomFoundation/axiom-rules
+          path: _axiom/axiom-rules
+
+      - name: Checkout rules-us canonical targets
+        uses: actions/checkout@v6.0.2
+        with:
+          repository: TheAxiomFoundation/rules-us
+          path: _axiom/rules-us
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.1.0
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.13
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache axiom-rules build
+        uses: Swatinem/rust-cache@v2.9.1
+        with:
+          workspaces: _axiom/axiom-rules
+
+      - name: Build axiom-rules
+        working-directory: _axiom/axiom-rules
+        run: cargo build --verbose
+
+      - name: Compare all CO SNAP eCPS records to PolicyEngine
+        run: |
+          uv run \
+            --python 3.13 \
+            --with policyengine-us \
+            --with pyyaml \
+            --with numpy \
+            scripts/compare_snap_policyengine_ecps.py \
+              --utility-projection policyengine-type \
+              --max-differences 40 \
+              --fail-on-mismatch \
+              --write-csv co-snap-policyengine-full.csv \
+              --axiom-binary _axiom/axiom-rules/target/debug/axiom-rules
+
+      - name: Upload comparison CSV
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: co-snap-policyengine-full
+          path: co-snap-policyengine-full.csv
+          if-no-files-found: ignore
