@@ -24,10 +24,18 @@ imports:
   - us:statutes/7/2014/e/6/A
   - us:statutes/7/2017/a
   - us:regulations/7-cfr/273/24
+  - us-co:regulations/10-ccr-2506-1/4.402
+  - us-co:regulations/10-ccr-2506-1/4.402.1
+  - us-co:regulations/10-ccr-2506-1/4.402.2
   - us-co:regulations/10-ccr-2506-1/4.403.2
+  - us-co:regulations/10-ccr-2506-1/4.403.3
   - us-co:regulations/10-ccr-2506-1/4.403.11
+  - us-co:regulations/10-ccr-2506-1/4.403.12
   - us-co:regulations/10-ccr-2506-1/4.403
   - us-co:regulations/10-ccr-2506-1/4.404
+  - us-co:regulations/10-ccr-2506-1/4.405
+  - us-co:regulations/10-ccr-2506-1/4.406
+  - us-co:regulations/10-ccr-2506-1/4.406.1
   - us-co:regulations/10-ccr-2506-1/4.401.1
   - us-co:regulations/10-ccr-2506-1/4.401.2
   - us-co:regulations/10-ccr-2506-1/4.401
@@ -35,6 +43,8 @@ imports:
   - us-co:regulations/10-ccr-2506-1/4.410
   - us-co:regulations/10-ccr-2506-1/4.408
   - us-co:regulations/10-ccr-2506-1/4.408.2
+  - us-co:regulations/10-ccr-2506-1/4.409
+  - us-co:regulations/10-ccr-2506-1/4.411
   - us-co:regulations/10-ccr-2506-1/4.407.1
   - us-co:regulations/10-ccr-2506-1/4.407.2
   - us-co:regulations/10-ccr-2506-1/4.407.31
