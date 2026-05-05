@@ -8,6 +8,11 @@ monthly SNAP allotments against PolicyEngine's normal allotment. It uses these
 targets because the enhanced CPS records do not include application dates for
 initial-month proration, and PolicyEngine's top-level ``snap`` microsimulation
 value includes take-up adjustments.
+
+For oracle parity, use ``--utility-projection policyengine-type``. That maps
+PolicyEngine's own eCPS utility-allowance type into the closest Colorado
+utility facts. The default ``raw-expenses`` mode projects itemized eCPS utility
+expenses directly and is useful for diagnosing data-projection gaps.
 """
 
 from __future__ import annotations
@@ -341,12 +346,14 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
-        "--project-policyengine-utility-allowance",
-        action="store_true",
+        "--utility-projection",
+        choices=("raw-expenses", "policyengine-type"),
+        default="raw-expenses",
         help=(
-            "Project PolicyEngine's eCPS utility allowance type into the "
-            "closest Colorado utility facts. Useful for benefit parity when "
-            "eCPS has no itemized utility expenses."
+            "How to project eCPS utility facts. raw-expenses uses itemized "
+            "utility expenses from eCPS. policyengine-type maps "
+            "PolicyEngine's utility-allowance type into Colorado utility "
+            "facts for oracle parity."
         ),
     )
     parser.add_argument(
@@ -510,7 +517,7 @@ def load_policyengine_cases(
     state: str,
     sample_size: int | None,
     positive_snap_only: bool,
-    project_policyengine_utility_allowance: bool,
+    utility_projection: str,
 ) -> list[ProjectedCase]:
     try:
         from policyengine_us import Microsimulation
@@ -644,7 +651,7 @@ def load_policyengine_cases(
                 values["phone_expense"][idx] > 0
             ),
         }
-        if project_policyengine_utility_allowance:
+        if utility_projection == "policyengine-type":
             utility_inputs = project_utility_allowance_type(
                 str(native(values["snap_utility_allowance_type"][idx]))
             )
@@ -1012,13 +1019,14 @@ def main() -> int:
     args = parse_args()
     period = month_period(args.year, args.month)
     base_inputs = load_base_inputs(args.test_template)
+    print(f"Utility projection: {args.utility_projection}")
     cases = load_policyengine_cases(
         base_inputs=base_inputs,
         period=period,
         state=args.state,
         sample_size=args.sample_size,
         positive_snap_only=args.positive_snap_only,
-        project_policyengine_utility_allowance=args.project_policyengine_utility_allowance,
+        utility_projection=args.utility_projection,
     )
     if not cases:
         print("No matching eCPS SPM units.")
