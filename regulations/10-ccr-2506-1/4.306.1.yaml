@@ -10,10 +10,10 @@ module:
 imports:
   - us:regulations/7-cfr/273/5
 rules:
-  - name: co_snap_student_exemptions_reiterate_7_cfr_273_5
-    kind: reiteration
+  - name: restates_student_exemptions
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.306.1
-    reiterates:
+    source_relation:
+      type: restates
       target: us:regulations/7-cfr/273/5#snap_student_exempt
       authority: federal
-      relationship: restates

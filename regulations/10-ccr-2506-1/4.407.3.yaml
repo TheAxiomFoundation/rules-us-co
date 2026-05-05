@@ -16,23 +16,23 @@ imports:
   - us:statutes/7/2012/j
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
-  - name: co_snap_excess_shelter_cap_reiterates_usda_fy_2026
-    kind: reiteration
+  - name: restates_excess_shelter_cap
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.407.3(B)
-    reiterates:
+    source_relation:
+      type: restates
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc
       authority: federal
-      relationship: restates
     verification:
       values:
         snap_maximum_excess_shelter_deduction_48_states_dc: 744
-  - name: co_snap_homeless_shelter_deduction_reiterates_usda_fy_2026
-    kind: reiteration
+  - name: restates_homeless_shelter_deduction
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.407.3(C)
-    reiterates:
+    source_relation:
+      type: restates
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction
       authority: federal
-      relationship: restates
     verification:
       values:
         snap_homeless_shelter_deduction: 198.99

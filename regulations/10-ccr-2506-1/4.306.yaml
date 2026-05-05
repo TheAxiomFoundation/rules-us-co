@@ -10,17 +10,17 @@ module:
 imports:
   - us:regulations/7-cfr/273/5
 rules:
-  - name: co_snap_student_eligibility_reiterates_7_cfr_273_5
-    kind: reiteration
+  - name: restates_student_eligibility
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.306
-    reiterates:
+    source_relation:
+      type: restates
       target: us:regulations/7-cfr/273/5#snap_member_student_ineligible
       authority: federal
-      relationship: restates
-  - name: co_snap_student_enrollment_status_reiterates_7_cfr_273_5
-    kind: reiteration
+  - name: restates_student_enrollment_status
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.306
-    reiterates:
+    source_relation:
+      type: restates
       target: us:regulations/7-cfr/273/5#snap_member_enrolled_in_institution_of_higher_education
       authority: federal
-      relationship: restates

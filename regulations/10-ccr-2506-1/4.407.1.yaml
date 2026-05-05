@@ -10,13 +10,13 @@ module:
 imports:
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
-  - name: co_snap_standard_deduction_reiterates_usda_fy_2026
-    kind: reiteration
+  - name: restates_standard_deduction
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.407.1
-    reiterates:
+    source_relation:
+      type: restates
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction
       authority: federal
-      relationship: restates
     verification:
       values:
         snap_standard_deduction_48_states_dc_table:

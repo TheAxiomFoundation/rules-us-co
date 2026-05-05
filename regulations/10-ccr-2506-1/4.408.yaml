@@ -15,13 +15,13 @@ imports:
   - us:regulations/7-cfr/273/8
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
-  - name: co_snap_resource_limits_reiterate_usda_fy_2026
-    kind: reiteration
+  - name: restates_resource_limits
+    kind: source_relation
     source: 10 CCR 2506-1 section 4.408(E)
-    reiterates:
+    source_relation:
+      type: restates
       target: us:policies/usda/snap/fy-2026-cola/deductions#snap_asset_limit
       authority: federal
-      relationship: restates
     verification:
       values:
         snap_asset_limit_elderly_or_disabled_member: 4500
