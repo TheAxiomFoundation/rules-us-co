@@ -46,8 +46,8 @@ AXIOM_OUTPUT_ID_BY_LABEL = {
     "snap_eligible": (
         "us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_eligible"
     ),
-    "gross_income": (
-        "us-co:policies/cdhs/snap/fy-2026-benefit-calculation#gross_income"
+    "snap_gross_monthly_income": (
+        "us:regulations/7-cfr/273/10#snap_gross_monthly_income"
     ),
     "snap_net_income": "us:statutes/7/2014/e/6/A#snap_net_income",
     "snap_maximum_allotment": (
@@ -65,8 +65,8 @@ AXIOM_OUTPUT_ID_BY_LABEL = {
     "snap_individual_utility_allowance": (
         "us-co:regulations/10-ccr-2506-1/4.407.31#snap_individual_utility_allowance"
     ),
-    "excess_shelter_deduction": (
-        "us-co:regulations/10-ccr-2506-1/4.407.3#excess_shelter_deduction"
+    "snap_excess_shelter_deduction": (
+        "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction"
     ),
 }
 COMPARED_AXIOM_OUTPUT = "snap_regular_month_allotment"
@@ -950,7 +950,7 @@ def compare(
                 "pe_snap_eligible": bool(case.pe_outputs["is_snap_eligible"]),
                 "axiom_snap_eligible": outputs["snap_eligible"],
                 "pe_gross_income": case.pe_outputs["snap_gross_income"],
-                "axiom_gross_income": outputs["gross_income"],
+                "axiom_gross_income": outputs["snap_gross_monthly_income"],
                 "pe_net_income": case.pe_outputs["snap_net_income"],
                 "axiom_net_income": outputs["snap_net_income"],
                 "pe_max_allotment": case.pe_outputs["snap_max_allotment"],
@@ -968,7 +968,7 @@ def compare(
                 "pe_shelter_deduction": case.pe_outputs[
                     "snap_excess_shelter_expense_deduction"
                 ],
-                "axiom_shelter_deduction": outputs["excess_shelter_deduction"],
+                "axiom_shelter_deduction": outputs["snap_excess_shelter_deduction"],
             }
         )
     return rows

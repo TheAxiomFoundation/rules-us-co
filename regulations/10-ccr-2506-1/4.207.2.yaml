@@ -12,6 +12,7 @@ module:
     corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.207.2
 imports:
   - us:policies/usda/snap/fy-2026-cola/maximum-allotments
+  - us:regulations/7-cfr/273/10
   - us:statutes/7/2017/a
 rules:
   - name: snap_initial_month_proration_start_date
@@ -99,8 +100,6 @@ rules:
         formula: |-
           if snap_eligible:
               if snap_initial_month_proration_applies:
-                  if snap_initial_month_prorated_allotment < snap_minimum_monthly_allotment:
-                      0
-                  else: snap_initial_month_prorated_allotment
+                  snap_initial_month_allotment_after_minimum_issuance
               else: snap_regular_month_allotment
           else: 0

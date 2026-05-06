@@ -14,6 +14,7 @@ module:
     corpus_citation_path: us-co/regulation/10-ccr-2506-1/4.407.3
 imports:
   - us:statutes/7/2012/j
+  - us:regulations/7-cfr/273/10
   - us:policies/usda/snap/fy-2026-cola/deductions
 rules:
   - name: restates_excess_shelter_cap
@@ -56,36 +57,3 @@ rules:
                           snap_homeless_shelter_deduction
                       else: 0
           else: shelter_costs
-  - name: half_adjusted_income
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.407.3(A)
-    versions:
-      - effective_from: '2025-10-01'
-        formula: snap_net_income_pre_shelter / 2
-  - name: excess_shelter_unclamped
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.407.3(A)
-    versions:
-      - effective_from: '2025-10-01'
-        formula: max(0, snap_allowable_shelter_costs - half_adjusted_income)
-  - name: excess_shelter_deduction
-    kind: derived
-    entity: Household
-    dtype: Money
-    period: Month
-    unit: USD
-    source: 10 CCR 2506-1 section 4.407.3(B)
-    versions:
-      - effective_from: '2025-10-01'
-        formula: |-
-          if snap_household_has_elderly_or_disabled_member:
-              excess_shelter_unclamped
-          else: min(excess_shelter_unclamped, snap_maximum_excess_shelter_deduction_48_states_dc)

@@ -14,6 +14,7 @@ module:
 imports:
   - us:statutes/7/2012/j
   - us:regulations/7-cfr/273/9
+  - us:regulations/7-cfr/273/10
   - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
 rules:
   - name: passes_gross_income_test
@@ -26,7 +27,7 @@ rules:
       - effective_from: '2025-10-01'
         formula: |-
           snap_basic_categorical_eligible
-          or (snap_expanded_categorical_eligible and gross_income < co_snap_expanded_categorical_gross_income_limit)
+          or (snap_expanded_categorical_eligible and snap_gross_monthly_income < co_snap_expanded_categorical_gross_income_limit)
           or (
               (not snap_expanded_categorical_eligible)
               and (not snap_basic_categorical_eligible)

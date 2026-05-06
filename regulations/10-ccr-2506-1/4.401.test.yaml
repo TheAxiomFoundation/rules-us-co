@@ -4,8 +4,14 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_basic_categorical_eligible: true
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: false
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
-    us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 10000
-    us:regulations/7-cfr/273/9#input.snap_net_income: 10000
+    us:policies/usda/snap/fy-2026-cola/deductions#input.household_size: 1
+    us:regulations/7-cfr/273/10#input.snap_countable_earned_income: 0
+    us:regulations/7-cfr/273/10#input.snap_countable_unearned_income: 10000
+    us:statutes/7/2014/e/2#input.work_supplementation_earned_income: 0
+    us:statutes/7/2014/e/6/A#input.dependent_care_deduction: 0
+    us:statutes/7/2014/e/6/A#input.child_support_deduction: 0
+    us:statutes/7/2014/e/6/A#input.medical_deduction: 0
+    us:regulations/7-cfr/273/10#input.snap_allowable_shelter_costs: 0
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: holds
@@ -17,8 +23,14 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_basic_categorical_eligible: false
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: true
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
-    us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 2609
-    us:regulations/7-cfr/273/9#input.snap_net_income: 10000
+    us:policies/usda/snap/fy-2026-cola/deductions#input.household_size: 1
+    us:regulations/7-cfr/273/10#input.snap_countable_earned_income: 0
+    us:regulations/7-cfr/273/10#input.snap_countable_unearned_income: 2609
+    us:statutes/7/2014/e/2#input.work_supplementation_earned_income: 0
+    us:statutes/7/2014/e/6/A#input.dependent_care_deduction: 0
+    us:statutes/7/2014/e/6/A#input.child_support_deduction: 0
+    us:statutes/7/2014/e/6/A#input.medical_deduction: 0
+    us:regulations/7-cfr/273/10#input.snap_allowable_shelter_costs: 0
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: holds
@@ -30,8 +42,14 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_basic_categorical_eligible: false
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: true
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
-    us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 2610
-    us:regulations/7-cfr/273/9#input.snap_net_income: 1000
+    us:policies/usda/snap/fy-2026-cola/deductions#input.household_size: 1
+    us:regulations/7-cfr/273/10#input.snap_countable_earned_income: 0
+    us:regulations/7-cfr/273/10#input.snap_countable_unearned_income: 2610
+    us:statutes/7/2014/e/2#input.work_supplementation_earned_income: 0
+    us:statutes/7/2014/e/6/A#input.dependent_care_deduction: 0
+    us:statutes/7/2014/e/6/A#input.child_support_deduction: 0
+    us:statutes/7/2014/e/6/A#input.medical_deduction: 0
+    us:regulations/7-cfr/273/10#input.snap_allowable_shelter_costs: 0
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: not_holds
@@ -43,8 +61,14 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_basic_categorical_eligible: false
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: false
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
-    us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 1696
-    us:regulations/7-cfr/273/9#input.snap_net_income: 1305
+    us:policies/usda/snap/fy-2026-cola/deductions#input.household_size: 1
+    us:regulations/7-cfr/273/10#input.snap_countable_earned_income: 0
+    us:regulations/7-cfr/273/10#input.snap_countable_unearned_income: 1000
+    us:statutes/7/2014/e/2#input.work_supplementation_earned_income: 0
+    us:statutes/7/2014/e/6/A#input.dependent_care_deduction: 0
+    us:statutes/7/2014/e/6/A#input.child_support_deduction: 0
+    us:statutes/7/2014/e/6/A#input.medical_deduction: 0
+    us:regulations/7-cfr/273/10#input.snap_allowable_shelter_costs: 0
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member: not_holds
@@ -61,8 +85,14 @@
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
     us:statutes/7/2012/j#relation.member_of_household:
       - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: true
-    us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 10000
-    us:regulations/7-cfr/273/9#input.snap_net_income: 1305
+    us:policies/usda/snap/fy-2026-cola/deductions#input.household_size: 1
+    us:regulations/7-cfr/273/10#input.snap_countable_earned_income: 0
+    us:regulations/7-cfr/273/10#input.snap_countable_unearned_income: 10000
+    us:statutes/7/2014/e/2#input.work_supplementation_earned_income: 0
+    us:statutes/7/2014/e/6/A#input.dependent_care_deduction: 0
+    us:statutes/7/2014/e/6/A#input.child_support_deduction: 0
+    us:statutes/7/2014/e/6/A#input.medical_deduction: 0
+    us:regulations/7-cfr/273/10#input.snap_allowable_shelter_costs: 20000
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member: holds
