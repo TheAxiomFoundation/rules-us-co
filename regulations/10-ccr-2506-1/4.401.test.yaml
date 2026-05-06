@@ -5,7 +5,7 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: false
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
     us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 10000
-    us-co:regulations/10-ccr-2506-1/4.401#input.snap_net_income: 10000
+    us:regulations/7-cfr/273/9#input.snap_net_income: 10000
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: holds
@@ -18,7 +18,7 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: true
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
     us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 2609
-    us-co:regulations/10-ccr-2506-1/4.401#input.snap_net_income: 10000
+    us:regulations/7-cfr/273/9#input.snap_net_income: 10000
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: holds
@@ -31,7 +31,7 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: true
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
     us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 2610
-    us-co:regulations/10-ccr-2506-1/4.401#input.snap_net_income: 1000
+    us:regulations/7-cfr/273/9#input.snap_net_income: 1000
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: not_holds
@@ -44,10 +44,12 @@
     us-co:regulations/10-ccr-2506-1/4.401#input.snap_expanded_categorical_eligible: false
     us:policies/usda/snap/fy-2026-cola/income-eligibility-standards#input.household_size: 1
     us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 1696
-    us-co:regulations/10-ccr-2506-1/4.401#input.snap_net_income: 1305
+    us:regulations/7-cfr/273/9#input.snap_net_income: 1305
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member: not_holds
+    us:regulations/7-cfr/273/9#snap_standard_gross_income_eligible: holds
+    us:regulations/7-cfr/273/9#snap_standard_net_income_eligible: holds
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: holds
     us-co:regulations/10-ccr-2506-1/4.401#passes_net_income_test: holds
     us-co:regulations/10-ccr-2506-1/4.401#snap_income_eligible: holds
@@ -60,10 +62,12 @@
     us:statutes/7/2012/j#relation.member_of_household:
       - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: true
     us-co:regulations/10-ccr-2506-1/4.401#input.gross_income: 10000
-    us-co:regulations/10-ccr-2506-1/4.401#input.snap_net_income: 1305
+    us:regulations/7-cfr/273/9#input.snap_net_income: 1305
     us-co:regulations/10-ccr-2506-1/4.401#input.co_snap_expanded_categorical_gross_income_limit: 2610
   output:
     us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member: holds
+    us:regulations/7-cfr/273/9#snap_standard_gross_income_eligible: holds
+    us:regulations/7-cfr/273/9#snap_standard_net_income_eligible: holds
     us-co:regulations/10-ccr-2506-1/4.401#passes_gross_income_test: holds
     us-co:regulations/10-ccr-2506-1/4.401#passes_net_income_test: holds
     us-co:regulations/10-ccr-2506-1/4.401#snap_income_eligible: holds
