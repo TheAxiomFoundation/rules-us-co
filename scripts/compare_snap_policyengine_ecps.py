@@ -128,6 +128,24 @@ AXIOM_MEMBER_INPUT_ID_BY_LABEL = {
     "alien_status_documentation_missing_or_unwilling": (
         "us:regulations/7-cfr/273/4#input.alien_status_documentation_missing_or_unwilling"
     ),
+    "member_refused_or_failed_to_provide_or_apply_for_ssn": (
+        "us:regulations/7-cfr/273/6#input.member_refused_or_failed_to_provide_or_apply_for_ssn"
+    ),
+    "member_has_documentary_or_collateral_evidence_of_ssn_application_or_every_effort": (
+        "us:regulations/7-cfr/273/6#input.member_has_documentary_or_collateral_evidence_of_ssn_application_or_every_effort"
+    ),
+    "state_agency_fault_in_ssn_application_processing": (
+        "us:regulations/7-cfr/273/6#input.state_agency_fault_in_ssn_application_processing"
+    ),
+    "member_unable_to_obtain_documents_required_for_ssn_application_with_caseworker_assistance_needed": (
+        "us:regulations/7-cfr/273/6#input.member_unable_to_obtain_documents_required_for_ssn_application_with_caseworker_assistance_needed"
+    ),
+    "member_ssn_application_filed_pending_state_agency_notification": (
+        "us:regulations/7-cfr/273/6#input.member_ssn_application_filed_pending_state_agency_notification"
+    ),
+    "member_later_provided_ssn_ending_disqualification": (
+        "us:regulations/7-cfr/273/6#input.member_later_provided_ssn_ending_disqualification"
+    ),
     "enrolled_at_least_half_time": (
         "us:regulations/7-cfr/273/5#input.enrolled_at_least_half_time"
     ),
@@ -258,6 +276,15 @@ CITIZENSHIP_MEMBER_INPUT_DEFAULTS = {
     "member_is_qualified_alien_subject_to_five_year_wait": False,
     "qualified_alien_five_year_status_period_met": False,
     "alien_status_documentation_missing_or_unwilling": False,
+}
+
+SSN_MEMBER_INPUT_DEFAULTS = {
+    "member_refused_or_failed_to_provide_or_apply_for_ssn": False,
+    "member_has_documentary_or_collateral_evidence_of_ssn_application_or_every_effort": False,
+    "state_agency_fault_in_ssn_application_processing": False,
+    "member_unable_to_obtain_documents_required_for_ssn_application_with_caseworker_assistance_needed": False,
+    "member_ssn_application_filed_pending_state_agency_notification": False,
+    "member_later_provided_ssn_ending_disqualification": False,
 }
 
 GENERAL_WORK_MEMBER_AGE_INPUT = "us:regulations/7-cfr/273/7#input.member_age"
@@ -704,6 +731,7 @@ def load_policyengine_cases(
                 bool(immigration_ok_by_spm.get(spm_id, False))
             )
         )
+        member_inputs.update(SSN_MEMBER_INPUT_DEFAULTS)
         member_inputs.update(
             project_work_member_inputs(bool(values["meets_snap_work_requirements"][idx]))
         )

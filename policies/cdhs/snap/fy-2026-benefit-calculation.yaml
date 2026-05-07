@@ -22,6 +22,7 @@ imports:
   - us:policies/usda/snap/fy-2026-cola/income-eligibility-standards
   - us:regulations/7-cfr/273/3
   - us:regulations/7-cfr/273/4
+  - us:regulations/7-cfr/273/6
   - us:regulations/7-cfr/273/10
   - us:statutes/7/2014/e/2
   - us:statutes/7/2014/e/6/A
@@ -55,8 +56,13 @@ imports:
   - us-co:regulations/10-ccr-2506-1/4.407.4
   - us-co:regulations/10-ccr-2506-1/4.407.5
   - us-co:regulations/10-ccr-2506-1/4.407.61
+  - us-co:regulations/10-ccr-2506-1/4.302
+  - us-co:regulations/10-ccr-2506-1/4.303
+  - us-co:regulations/10-ccr-2506-1/4.305
   - us-co:regulations/10-ccr-2506-1/4.306
   - us-co:regulations/10-ccr-2506-1/4.306.1
+  - us-co:regulations/10-ccr-2506-1/4.310
+  - us-co:regulations/10-ccr-2506-1/4.311
   - us-co:regulations/10-ccr-2506-1/4.207.3
   - us-co:regulations/10-ccr-2506-1/4.207.2
 rules:
@@ -123,6 +129,15 @@ rules:
     versions:
       - effective_from: '2025-10-01'
         formula: count_where(member_of_household, snap_member_student_eligible) > 0
+  - name: snap_ssn_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: Colorado SNAP FY 2026 benefit calculation composition
+    versions:
+      - effective_from: '2025-10-01'
+        formula: count_where(member_of_household, snap_member_ssn_requirement_eligible) > 0
   - name: snap_residency_citizenship_eligible
     kind: derived
     entity: Household
@@ -156,6 +171,7 @@ rules:
         formula: |-
           snap_income_eligible
           and snap_resource_eligible
+          and snap_ssn_eligible
           and snap_work_requirement_eligible
           and snap_student_eligible
           and snap_residency_citizenship_eligible

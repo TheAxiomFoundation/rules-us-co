@@ -59,6 +59,12 @@
       - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: false
         us:regulations/7-cfr/273/7#input.member_age: 60
         us:regulations/7-cfr/273/24#input.member_age: 60
+        us:regulations/7-cfr/273/6#input.member_refused_or_failed_to_provide_or_apply_for_ssn: false
+        us:regulations/7-cfr/273/6#input.member_has_documentary_or_collateral_evidence_of_ssn_application_or_every_effort: false
+        us:regulations/7-cfr/273/6#input.state_agency_fault_in_ssn_application_processing: false
+        us:regulations/7-cfr/273/6#input.member_unable_to_obtain_documents_required_for_ssn_application_with_caseworker_assistance_needed: false
+        us:regulations/7-cfr/273/6#input.member_ssn_application_filed_pending_state_agency_notification: false
+        us:regulations/7-cfr/273/6#input.member_later_provided_ssn_ending_disqualification: false
         us:regulations/7-cfr/273/4#input.member_is_us_citizen: true
         us:regulations/7-cfr/273/4#input.member_is_us_noncitizen_national: false
         us:regulations/7-cfr/273/5#input.enrolled_at_least_half_time: false
@@ -169,6 +175,7 @@
     us:regulations/7-cfr/273/10#snap_monthly_household_income: 1000
     us-co:regulations/10-ccr-2506-1/4.401#snap_income_eligible: holds
     us:regulations/7-cfr/273/8#snap_resource_eligible: holds
+    us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_ssn_eligible: holds
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_work_requirement_eligible: holds
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_residency_citizenship_eligible: holds
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_eligible: holds
@@ -227,6 +234,30 @@
   output:
     us-co:regulations/10-ccr-2506-1/4.401#snap_income_eligible: holds
     us:regulations/7-cfr/273/8#snap_resource_eligible: not_holds
+    us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_eligible: not_holds
+    us:statutes/7/2017/a#snap_regular_month_allotment: 0
+    us-co:regulations/10-ccr-2506-1/4.207.2#snap_allotment: 0
+- name: ssn_ineligible_household_gets_zero_allotment
+  period: 2026-01
+  input:
+    <<: *base_snap_case
+    us-co:regulations/10-ccr-2506-1/4.403#input.employee_wages_received: 0
+    us-co:policies/cdhs/snap/fy-2026-benefit-calculation#input.household_shelter_costs_incurred: 0
+    us:statutes/7/2012/j#relation.member_of_household:
+      - us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled: false
+        us:regulations/7-cfr/273/7#input.member_age: 60
+        us:regulations/7-cfr/273/24#input.member_age: 60
+        us:regulations/7-cfr/273/6#input.member_refused_or_failed_to_provide_or_apply_for_ssn: true
+        us:regulations/7-cfr/273/6#input.member_has_documentary_or_collateral_evidence_of_ssn_application_or_every_effort: false
+        us:regulations/7-cfr/273/6#input.state_agency_fault_in_ssn_application_processing: false
+        us:regulations/7-cfr/273/6#input.member_unable_to_obtain_documents_required_for_ssn_application_with_caseworker_assistance_needed: false
+        us:regulations/7-cfr/273/6#input.member_ssn_application_filed_pending_state_agency_notification: false
+        us:regulations/7-cfr/273/6#input.member_later_provided_ssn_ending_disqualification: false
+        us:regulations/7-cfr/273/4#input.member_is_us_citizen: true
+        us:regulations/7-cfr/273/4#input.member_is_us_noncitizen_national: false
+        us:regulations/7-cfr/273/5#input.enrolled_at_least_half_time: false
+  output:
+    us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_ssn_eligible: not_holds
     us-co:policies/cdhs/snap/fy-2026-benefit-calculation#snap_eligible: not_holds
     us:statutes/7/2017/a#snap_regular_month_allotment: 0
     us-co:regulations/10-ccr-2506-1/4.207.2#snap_allotment: 0
