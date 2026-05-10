@@ -13,9 +13,9 @@ Use RuleSpec YAML under `statutes/`, `regulations/`, or `policies/` for encoded 
 
 Jurisdiction-specific materials belong in this repo. Shared federal materials belong in `rules-us`.
 
-## PolicyEngine eCPS SNAP Comparison
+## PolicyEngine ECPS SNAP Comparison
 
-Compare the Colorado SNAP composition against PolicyEngine enhanced CPS records
+Compare the Colorado SNAP composition against PolicyEngine ECPS (enhanced CPS) records
 with the shared `axiom-encode` oracle command:
 
 ```bash
@@ -28,12 +28,12 @@ uv run --project ../axiom-encode --with policyengine-us --with numpy \
 
 The comparison uses PolicyEngine's `snap_normal_allotment`, not top-level `snap`,
 because microsimulation `snap` includes take-up adjustments. It compares against
-RuleSpec `us:statutes/7/2017/a#snap_regular_month_allotment` because eCPS does
+RuleSpec `us:statutes/7/2017/a#snap_regular_month_allotment` because ECPS does
 not include application-date facts for initial-month proration.
 
-For eCPS parity, `--utility-projection policyengine-type` maps PE's utility
+For ECPS parity, `--utility-projection policyengine-type` maps PE's utility
 allowance type into the closest Colorado utility facts. This is the oracle mode
-for matching PolicyEngine's eCPS SNAP results because eCPS does not reliably
+for matching PolicyEngine's ECPS SNAP results because ECPS does not reliably
 expose the itemized utility facts needed to infer the same allowance. The
 default `--utility-projection raw-expenses` mode projects itemized utility
 expenses directly and is useful as a diagnostic; current mismatches in that mode
@@ -46,7 +46,7 @@ medical, child support, dependent care, shelter, eligibility, and allotment
 values from the encoded rules.
 
 CI runs a 20-record positive-benefit smoke comparison on pushes and pull
-requests. The full Colorado eCPS comparison runs weekly and can be started
+requests. The full Colorado ECPS comparison runs weekly and can be started
 manually from the `PolicyEngine Oracle` GitHub Actions workflow with
 `full_run` enabled. CI uses a `$5` tolerance because current PolicyEngine data
 still returns Colorado HCUA as `$578`, while the encoded current source sets it
