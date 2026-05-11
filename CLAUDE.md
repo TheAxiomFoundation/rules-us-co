@@ -1,4 +1,4 @@
-# rules-us-co Agent Notes
+# rulespec-us-co Agent Notes
 
 This repo stores Colorado RuleSpec encodings.
 

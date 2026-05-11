@@ -1,4 +1,4 @@
-# rules-us-co
+# rulespec-us-co
 
 Colorado RuleSpec encodings.
 
@@ -11,7 +11,7 @@ Colorado RuleSpec encodings.
 
 Use RuleSpec YAML under `statutes/`, `regulations/`, or `policies/` for encoded rules. Do not add source text, source registry sidecars, generated source payloads, extracted document snapshots, or wave manifests to Git; source material belongs in the corpus database/object storage.
 
-Jurisdiction-specific materials belong in this repo. Shared federal materials belong in `rules-us`.
+Jurisdiction-specific materials belong in this repo. Shared federal materials belong in `rulespec-us`.
 
 ## PolicyEngine ECPS SNAP Comparison
 

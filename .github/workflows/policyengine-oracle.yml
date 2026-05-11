@@ -20,7 +20,7 @@ permissions:
 
 env:
   CARGO_TERM_COLOR: always
-  AXIOM_RULE_REPO_ROOTS: ${{ github.workspace }}/_axiom/rules-us:${{ github.workspace }}
+  AXIOM_RULESPEC_REPO_ROOTS: ${{ github.workspace }}/_axiom/rulespec-us:${{ github.workspace }}
 
 jobs:
   co-snap-smoke:
@@ -28,20 +28,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout rules-us-co
+      - name: Checkout rulespec-us-co
         uses: actions/checkout@v6.0.2
 
-      - name: Checkout axiom-rules
+      - name: Checkout axiom-rules-engine
         uses: actions/checkout@v6.0.2
         with:
-          repository: TheAxiomFoundation/axiom-rules
-          path: _axiom/axiom-rules
+          repository: TheAxiomFoundation/axiom-rules-engine
+          path: _axiom/axiom-rules-engine
 
-      - name: Checkout rules-us canonical targets
+      - name: Checkout rulespec-us canonical targets
         uses: actions/checkout@v6.0.2
         with:
-          repository: TheAxiomFoundation/rules-us
-          path: _axiom/rules-us
+          repository: TheAxiomFoundation/rulespec-us
+          path: _axiom/rulespec-us
 
       - name: Checkout axiom-encode
         uses: actions/checkout@v6.0.2
@@ -60,13 +60,13 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Cache axiom-rules build
+      - name: Cache axiom-rules-engine build
         uses: Swatinem/rust-cache@v2.9.1
         with:
-          workspaces: _axiom/axiom-rules
+          workspaces: _axiom/axiom-rules-engine
 
-      - name: Build axiom-rules
-        working-directory: _axiom/axiom-rules
+      - name: Build axiom-rules-engine
+        working-directory: _axiom/axiom-rules-engine
         run: cargo build --verbose
 
       - name: Compare CO SNAP smoke sample to PolicyEngine
@@ -92,20 +92,20 @@ jobs:
     if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.full_run) }}
 
     steps:
-      - name: Checkout rules-us-co
+      - name: Checkout rulespec-us-co
         uses: actions/checkout@v6.0.2
 
-      - name: Checkout axiom-rules
+      - name: Checkout axiom-rules-engine
         uses: actions/checkout@v6.0.2
         with:
-          repository: TheAxiomFoundation/axiom-rules
-          path: _axiom/axiom-rules
+          repository: TheAxiomFoundation/axiom-rules-engine
+          path: _axiom/axiom-rules-engine
 
-      - name: Checkout rules-us canonical targets
+      - name: Checkout rulespec-us canonical targets
         uses: actions/checkout@v6.0.2
         with:
-          repository: TheAxiomFoundation/rules-us
-          path: _axiom/rules-us
+          repository: TheAxiomFoundation/rulespec-us
+          path: _axiom/rulespec-us
 
       - name: Checkout axiom-encode
         uses: actions/checkout@v6.0.2
@@ -124,13 +124,13 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Cache axiom-rules build
+      - name: Cache axiom-rules-engine build
         uses: Swatinem/rust-cache@v2.9.1
         with:
-          workspaces: _axiom/axiom-rules
+          workspaces: _axiom/axiom-rules-engine
 
-      - name: Build axiom-rules
-        working-directory: _axiom/axiom-rules
+      - name: Build axiom-rules-engine
+        working-directory: _axiom/axiom-rules-engine
         run: cargo build --verbose
 
       - name: Compare all CO SNAP eCPS records to PolicyEngine
